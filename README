@@ -1,0 +1,7 @@
+How to install :
+
+– Create a MySQL database
+– Install MySQL tables (facturier.sql)
+– Modify acces/cle.php according to your DB Info
+
+Launch index.php
