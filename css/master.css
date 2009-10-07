@@ -1,0 +1,287 @@
+body{
+	font-family: Georgia, Times, serif;
+	font-size: 14px;
+	padding:5px 25px;
+	margin:0;
+}
+a img{
+	border: none;
+}
+#menu{
+	min-width:900px;
+	height:40px;
+	list-style-type: none;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+#menu li{
+	float : left;
+	margin: 0 20px 0 0;
+	padding-left:22px;
+}
+#menu li#m_factures{
+	background:#fff url(../images/facture_sortante.png) no-repeat;
+}
+#menu li#m_depenses{
+	background:#fff url(../images/facture_entrante.png) no-repeat;
+}
+#menu li#m_clients{
+	background:#fff url(../images/group.png) no-repeat;
+}
+#menu li#m_config{
+	background:#fff url(../images/wrench.png) no-repeat;
+}
+#menu li#m_statistiques{
+	background:#fff url(../images/chart_line.png) no-repeat;
+}
+#menu li a{
+	color: #595;
+}
+#menu li a:hover{
+	color: #8c8;
+}
+table{
+	border-top:1px solid #AAAAAA;
+	width:100%;
+	border-collapse: collapse;
+	border: 1px solid #4c4c4c;
+}
+tr{
+	border-top: none;
+	border-bottom: 1px solid #333;
+}
+table a{
+	color: #333;
+}
+table a:hover{
+	color: #666;
+}
+.contenu{
+	min-width:965px;
+	margin-bottom:25px;
+}
+th,td{
+	padding: 0 10px;
+	text-align: left;
+	white-space: nowrap;
+}
+.aR{
+	text-align: right;
+}
+tr.facture{
+	background: #999 url(../images/fond_li.png) repeat-x;
+	border-bottom:1px solid #999;
+	height: 27px;
+	line-height: 25px;
+}
+#clients tr.facture{
+	cursor: move;
+}
+#clients tr.facture a{
+	cursor: pointer;
+}
+/* */
+tr.titre_trimestre{
+	border-bottom:none;
+}
+tr.titre_trimestre th{
+	height:19px;
+	background:#ccc;
+	color:#fff;
+	text-align:center;
+	border-top:1px solid #666;
+}
+
+/* */
+tr.tot_trimestre{
+	height: 19px;
+}
+tr.tot_trimestre, tr.tot_annee{
+	background: #f3f3f3;
+	color: #666;
+	line-height: 16px;
+}
+tr.tot_trimestre th, tr.tot_annee th{
+	padding-bottom:3px;
+}
+tr.tot_trimestre th{
+	font-weight:normal;
+	font-style:italic;
+}
+tr.tot_trimestre th.aR{
+	color:#333;
+	font-weight:bold;
+	font-style:normal;
+}
+tr.tot_annee, tr.tot_general{
+	color: #fff;
+	font-weight: bold;
+}
+tr.tot_annee th, tr.tot_general th{
+	padding-bottom:0;
+	padding-top:0px;
+	height: 28px;
+	background: #555 url(../images/fond_titre.png) repeat-x bottom;
+}
+tr.tot_annee th{
+	color: #fff;
+	background: #555 url(../images/fond_titre_tot_annee.png) repeat-x bottom;
+}
+tr.tot_annee th.aR{
+	color: #333;
+}
+
+/* */
+h3{
+	background: #fefefe url(../images/fond_titre.png) repeat-x;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	-webkit-border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-topright:10px;
+	font-size:14px;
+	color: #fff;
+	font-weight: bold;
+	width:100%;
+	margin: 0;
+	padding: 5px 0 0 0;
+	height:23px;
+	text-align: center;
+}
+h3 a{
+	color: #fff;
+	text-decoration: none;
+}
+#liste_annees{
+  background:#ddd;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+  font-family:verdana, sans-serif;
+  font-size:12px;
+	list-style-type: none;
+	height:35px;
+	padding-top:8px;
+	padding-left:13px;
+}
+#liste_annees li{
+	float:left;
+}
+#liste_annees li a{
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+  background:#ccc;
+  border-left:1px solid #eee;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #aaa;
+  border-right:1px solid #999;
+  color:#fff;
+	display:block;
+	font-weight:bold;
+	height:25px;
+	line-height:26px;
+  margin-right:5px;
+	text-decoration:none;
+	text-align:center;
+	width:70px;
+	padding-left:0px;
+	padding-right:1px;
+}
+#liste_annees li#recule a, #liste_annees li#avance a{
+  font-size:18px;
+	line-height:24px;
+  width:20px;
+}
+#liste_annees li#recule a{
+	-webkit-border-bottom-right-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	-moz-border-radius-topright:0px;
+  border-right:1px solid #aaa;
+  margin-right:0px;
+}
+#liste_annees li#avance a{
+	-webkit-border-bottom-left-radius:0px;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	-moz-border-radius-topleft:0px;
+  margin-right:15px;
+}
+#liste_annees li a:hover{
+  background:#ddd;
+  color:#777;
+}
+#liste_annees li a:active, #liste_annees li a.actif{
+  border-left:1px solid #999;
+  border-top:1px solid #999;
+  border-bottom:1px solid #ddd;
+  border-right:1px solid #ddd;
+	line-height:28px;
+	padding-left:1px;
+	padding-right:0px;
+  color:#666;
+  background:#fff;
+}
+#liste_annees li a:active{
+  background:#ddd;
+  border-left:1px solid #bbb;
+  border-top:1px solid #bbb;
+  border-bottom:1px solid #eee;
+  border-right:1px solid #eee;
+}
+
+.facture img{
+	margin: 3px 8px 0 0;
+}
+
+/* */
+.legende{
+	border-top:1px solid #666;
+	background: #888;
+	color: #333;
+	font-size: 11px;
+	height: 18px;
+	line-height: 16px;
+}
+.legende a{
+	text-decoration: none;
+	color: #333;
+}
+/* */
+
+.contenu form{
+	border:1px solid #666;
+}
+.contenu form {
+	padding:0;
+	margin:0;
+	padding-top: 25px;
+}
+.contenu form p{
+	margin-top: 0;
+}
+label{
+	display: block;
+	float: left;
+	margin-right: 5px;
+	text-align: right;
+	width: 376px;
+}
+#liste-autocompletion{
+border:1px solid #ccc;
+overflow:auto;
+max-height:150px;
+background:#fff;
+list-style-type:none;
+margin:0;
+padding:0;
+cursor:pointer;
+font-family:Verdana;
+}
+#resume{
+	font-family:Helvetica, verdana, sans-serif;
+	font-size:16px;
+}
+#resume em{
+	color:#999;
+}

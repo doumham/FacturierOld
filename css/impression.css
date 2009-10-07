@@ -1,0 +1,76 @@
+body{
+font-family: helvetica, arial, sans-serif;
+font-size: 16px;
+padding-top:1cm;
+}
+address{
+font-style: normal;
+line-height: 19px;
+}
+#global{
+margin: 0 auto;
+position:relative;
+border: 3px solid #eee;
+height:23cm;
+width:16cm;
+}
+#entete{
+background:#eee;
+padding-bottom:0.4cm;
+}
+h1, h2, address, #date, h3, p{
+padding:0 0.5cm;
+}
+h1{
+font-size:30px;
+margin:0;
+padding:0.6cm 0.5cm 0 0.5cm;
+}
+#entete p{
+margin:0.1cm 0 0.5cm 0;
+}
+#entete address{
+font-size:14px;
+line-height:14px;
+}
+#entete address p{
+padding: 0;
+margin: 0.2cm 0;
+}
+h2{
+font-size:20px;
+}
+h3{
+font-size:18px;
+margin-top:1cm;
+}
+#date{
+margin: 1cm 0 2cm 0;
+}
+#objet{
+line-height: 20px;
+}
+#montants{
+width:16cm;
+position:absolute;
+bottom:0;
+font-size:18px;
+}
+#montant{
+padding:0.5cm 0.5cm 0.4cm 0.5cm;
+}
+#montant_tvac{
+font-weight: bold;
+margin:0;
+background:#eee;
+padding:0.5cm 0.5cm 0.4cm 0.5cm;
+}
+#montant_tva{
+border-top:3px solid #eee;
+padding:0.5cm 0.4cm 0 0.5cm;
+font-size:16px;
+}
+.chiffre{
+position:absolute;
+right:0.5cm;
+}

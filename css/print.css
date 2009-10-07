@@ -1,0 +1,39 @@
+h1, #menu, #liste_annees li #sousMenu, #liste_annees a, #liste_annees .inactive{
+  display:none;
+}
+ul{
+  list-style-type:none;
+}
+a{
+  text-decoration:none;
+  color:#000;
+}
+td:first-child a{
+  display:none;
+}
+.no_print{
+  display:none;
+}
+table{
+  font-size:12px;
+  width:17.5cm;
+  /*border:1px solid #000;*/
+  border-collapse:collapse;
+  white-space:nowrap;
+}
+.titre_trimestre{
+  color:#fff;
+}
+.aR{
+  text-align:right;
+}
+td, th{
+  padding:0 0.2cm;
+  text-decoration:none;
+}
+.tot_trimestre th:first-child, .tot_annee th:first-child{
+  visibility:hidden;
+}
+.tot_annee th{
+  padding-top:0.5cm;
+}
