@@ -11,5 +11,5 @@ if($id){
 }else{
 	mysql_query("INSERT INTO factures(id_client,date,numero,objet,montant,pourcent_tva,montant_tva,montant_tvac) VALUES  ('$id_client','$date','$numero','$objet','$montant','$pourcent_tva','$montant_tva','$montant_tvac')") or die(mysql_error());
 }
-header("location:../index.php");
+header("location:../index.php?annee=".$lannee);
 ?>

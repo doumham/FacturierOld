@@ -14,5 +14,5 @@ if($id){
 }else{
 	mysql_query("INSERT INTO depenses(date,objet,montant,pourcent_tva,montant_tva,montant_tvac,deductibilite) VALUES  ('$date','$objet','$montant','$pourcent_tva','$montant_tva','$montant_tvac','$deductibilite')") or die(mysql_error());
 }
-header("location:../depenses.php");
+header("location:../depenses.php?annee=".$lannee);
 ?>
