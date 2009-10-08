@@ -8,7 +8,7 @@ if($_GET['id']){
 	$select_factures=mysql_query("
 		SELECT * FROM factures LEFT JOIN clients ON factures.id_client=clients.id_client WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
 }else{
-	header("location:index.php");
+	header("location:entrees.php");
 }
 $f = mysql_fetch_array($select_factures);
 extract($f);
@@ -17,7 +17,7 @@ if($tva){
 	$tva="TVA : ".$tva;
 }
 if($_GET['print']==true){
-	$printing=" onload=\"window.print();document.location.href='index.php?annee=".$_GET['annee']."';\"";
+	$printing=" onload=\"window.print();document.location.href='entrees.php?annee=".$_GET['annee']."';\"";
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

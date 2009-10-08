@@ -13,6 +13,11 @@ while ($row_search = mysql_fetch_array($search_clients)){
 <?php $my_interface->get_header(); ?>
 <?php include ('include/menu.php');?>
 		<div class="contenu">
+		<p>
+			<a href="delete_client(<?php echo "'".$c['denomination']."','".$c['id_client']."'";?>);return false;" title="Supprimer les clients sélectionnés">
+				Supprimer les clients sélectionnés
+			</a>
+		</p>
 		<h3>Clients</h3>
 		<table>
 			<tr class="legende">
@@ -31,20 +36,16 @@ while ($row_search = mysql_fetch_array($search_clients)){
 					<td>
 						<?php
 						if(array_search($c['id_client'], $les_clients)==false){?>
-							<a href="#" onclick="effacer_client(<?php echo "'".$c['denomination']."','".$c['id_client']."'";?>);return false;" title="Delete">
-								<img src="images/icn-delete.png" alt="Delete" />
-							</a>
+							<input type="checkbox" name="clients[]" value="1" />
 						<?php
 						}else{?>
-							<a href="#" onclick="alert('Il existe une ou plusieurs factures au nom de <?php echo htmlspecialchars($c['denomination']);?>');return false;" title="Delete">
-								<img src="images/icn-delete-off.png" alt="Delete" />
-							</a>
+							<input type="checkbox" name="clients[]" value="1" disabled="disabled" title="Il existe une ou plusieurs factures au nom de <?php echo htmlspecialchars($c['denomination']);?>" />
 						<?php
 						}?>
 						<a href="form_client.php?id=<?php echo $c['id_client']?>" title="Edit">
 							<img src="images/icn-edit.png" alt="Edit"/>
 						</a> 
-						<a href="form_facture.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
+						<a href="formEntree.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
 							<img src="images/icn-add-facture.png" alt="New"/>
 						</a> 
 					</td>

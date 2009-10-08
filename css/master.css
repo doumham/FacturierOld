@@ -70,14 +70,6 @@ th,td{
 }
 tr.facture{
 	border-bottom:1px solid #CCC;
-	height: 27px;
-	line-height: 25px;
-}
-#clients tr.facture{
-	cursor: move;
-}
-#clients tr.facture a{
-	cursor: pointer;
 }
 /* */
 tr.titre_trimestre{
@@ -248,9 +240,6 @@ h3 a{
 }
 /* */
 
-.contenu form{
-	border:1px solid #666;
-}
 .contenu form {
 	padding:0;
 	margin:0;
@@ -265,17 +254,6 @@ label{
 	margin-right: 5px;
 	text-align: right;
 	width: 376px;
-}
-#liste-autocompletion{
-border:1px solid #ccc;
-overflow:auto;
-max-height:150px;
-background:#fff;
-list-style-type:none;
-margin:0;
-padding:0;
-cursor:pointer;
-font-family:Verdana;
 }
 #resume{
 	font-family:Helvetica, verdana, sans-serif;
