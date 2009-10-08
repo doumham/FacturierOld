@@ -1,6 +1,6 @@
 body{
-	font-family: Georgia, Times, serif;
-	font-size: 14px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
 	padding:5px 25px;
 	margin:0;
 }
@@ -48,7 +48,7 @@ table{
 }
 tr{
 	border-top: none;
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #CCC;
 }
 table a{
 	color: #333;
@@ -69,8 +69,7 @@ th,td{
 	text-align: right;
 }
 tr.facture{
-	background: #999 url(../images/fond_li.png) repeat-x;
-	border-bottom:1px solid #999;
+	border-bottom:1px solid #CCC;
 	height: 27px;
 	line-height: 25px;
 }
