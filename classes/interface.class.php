@@ -8,6 +8,7 @@ class interface_{
 		ini_set('session.name', "Factures");
 		session_start();
 		setlocale(LC_TIME, "fr_BE");
+		include('include/configApp.php');
 		$return = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'."\r";
 		$return .= "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\">\r";
 		$return .= "<head>\r<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r";
@@ -26,10 +27,10 @@ class interface_{
 	  $return .= "<script type=\"text/javascript\" src=\"js/functions.js\"></script>\r";
 		// Meta Description - Keywords - Author
 		$return .= "<meta name=\"author\" content=\"Samuel De Backer @ Typi Design 2007 info(at)typidesign(dot)be\" />\r";
-		$return .= "<meta name=\"description\" lang=\"fr\" content=\"Frédéric Piérard.\" />\r";
+		$return .= "<meta name=\"description\" lang=\"fr\" content=\"Facturier, logiciel de facturation en PHP/MySQL.\" />\r";
 		$return .= "</head>\r";
 		$return .= "<body>\r";
-		$return .= "<h1>Factures v0.7b</h1>\r";
+		$return .= "<h1>Facturier v".FACTURIER_VERSION."</h1>\r";
 		echo $return;
 	}
 	
