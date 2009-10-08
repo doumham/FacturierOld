@@ -2,6 +2,11 @@
 include ('acces/cle.php');
 include ('classes/interface.class.php');
 $my_interface = new interface_();
+if($_GET['annee']){
+	$annee = $_GET['annee'];
+}else{
+	$annee="all";
+}
 $select_clients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
 $search_clients=mysql_query("SELECT * FROM factures GROUP BY id_client");
 $les_clients[]="";
@@ -13,11 +18,12 @@ while ($row_search = mysql_fetch_array($search_clients)){
 <?php $my_interface->get_header(); ?>
 <?php include ('include/menu.php');?>
 		<div class="contenu">
-		<p>
-			<a href="delete_client(<?php echo "'".$c['denomination']."','".$c['id_client']."'";?>);return false;" title="Supprimer les clients sélectionnés">
-				Supprimer les clients sélectionnés
-			</a>
-		</p>
+		<form action="requetes/delete.php" method="post">
+			<p>
+				<input type="submit" value="Supprimer les clients sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
+				<input type="hidden" value="clients" name="table" />
+				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
+			</p>
 		<h3>Clients</h3>
 		<table>
 			<tr class="legende">
@@ -36,13 +42,13 @@ while ($row_search = mysql_fetch_array($search_clients)){
 					<td>
 						<?php
 						if(array_search($c['id_client'], $les_clients)==false){?>
-							<input type="checkbox" name="clients[]" value="1" />
+							<input type="checkbox" name="selectionElements[]" value="<?php echo $c['id_client'] ?>" />
 						<?php
 						}else{?>
-							<input type="checkbox" name="clients[]" value="1" disabled="disabled" title="Il existe une ou plusieurs factures au nom de <?php echo htmlspecialchars($c['denomination']);?>" />
+							<input type="checkbox" name="selectionElements[]" value="<?php echo $c['id_client'] ?>" disabled="disabled" title="Il existe une ou plusieurs factures au nom de <?php echo htmlspecialchars($c['denomination']);?>" />
 						<?php
 						}?>
-						<a href="form_client.php?id=<?php echo $c['id_client']?>" title="Edit">
+						<a href="formClient.php?id=<?php echo $c['id_client']?>" title="Edit">
 							<img src="images/icn-edit.png" alt="Edit"/>
 						</a> 
 						<a href="formEntree.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
@@ -60,6 +66,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 			<tr class="tot_trimestre">
         <th colspan="6"></th>
 		</table>
+		</form>
 		</div>
 	<script src="js/client_sortable.js" type="text/javascript"></script>
 <?php $my_interface->get_footer(); ?>

@@ -34,9 +34,11 @@ if ($annee != "all") {
   $annee_h3 = $les_annees[0];
 }
 ?>
-		<form class="ajaxForm" action="requetes/deleteEntrees.php" method="post">
+		<form action="requetes/delete.php" method="post">
 			<p>
-				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimerPages" name="boutonSupprimerPages" />
+				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
+				<input type="hidden" value="factures" name="table" />
+				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
 			</p>
       <h3><a href="entrees.php?annee=<?php echo $annee_h3 ?>"><?php echo $annee_h3 ?></a></h3>
       <table> 
@@ -95,9 +97,9 @@ foreach ($facture as $key_annee => $value1) {
   <tr <?php if ($f['paid'] == 0){echo "style='background-image:url(images/fond_li_unpaid.png)'";}?> class="facture" id="element_<?php echo $f['id']?>">
     <td>
         <?php if ($f['paid'] == 0) { ?>
-					<input type="checkbox" name="factures[]" value="<?php echo $f['id'] ?>" />
+					<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
         <?php } else { ?>
-					<input type="checkbox" name="factures[]" value="<?php echo $f['id'] ?>" disabled="disabled" />
+					<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" disabled="disabled" />
         <?php } ?>
       <a href="formEntree.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
         <img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>

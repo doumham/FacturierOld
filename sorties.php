@@ -4,15 +4,15 @@ include ('acces/cle.php');
 include ('classes/interface.class.php');
 $my_interface = new interface_();
 if($_GET['annee']){
-	$annee=$_GET['annee'];
+	$annee = $_GET['annee'];
 }else{
-	$annee="all";
+	$annee = "all";
 }
 if($annee && $annee!="all"){
-  $date1=$annee."-00-00";
-  $date2=$annee+1;
-  $date2=$date2."-00-00";
-	$req="WHERE date>'$date1' AND date<'$date2'";
+  $date1 = $annee."-00-00";
+  $date2 = $annee+1;
+  $date2 = $date2."-00-00";
+	$req = "WHERE date>'$date1' AND date<'$date2'";
 }
 $select_factures=mysql_query("
 	SELECT * FROM depenses ".$req." ORDER BY date
@@ -29,9 +29,11 @@ if ($annee != "all") {
   $annee_h3 = $les_annees[0];
 }
 ?>
-		<form class="ajaxForm" action="requetes/deleteSorties.php" method="post">
+		<form action="requetes/delete.php" method="post">
 			<p>
-				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimerPages" name="boutonSupprimerPages" />
+				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
+				<input type="hidden" value="depenses" name="table" />
+				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
 			</p>
       <h3><a href="sorties.php?annee=<?php echo $annee_h3 ?>"><?php echo $annee_h3 ?></a></h3>
     <table> 
@@ -77,7 +79,7 @@ foreach ($facture as $key_annee => $value1) {
   <tr <?php if ($f['deductibilite']==0){echo "style='background-image:url(images/fond_li_unpaid.png)'";}?> class="facture" id="element_<?php echo $f['id']?>">
     <td>
       <?php if ($f['paid'] == 0) { ?>
-			<input type="checkbox" name="factures[]" value="<?php echo $f['id'] ?>" />
+			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
       <?php } ?>
       <a href="formSortie.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
         <img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>
