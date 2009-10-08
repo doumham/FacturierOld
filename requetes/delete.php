@@ -30,5 +30,5 @@ switch ($_POST['table']) {
 		$redirectPage = 'clients.php';
 		break;
 }
-header('location:../'.$redirectPage.'?annee='.$_POST["annee"]);
+header('location:../'.$redirectPage.'?annee='.$_POST["annee"].'&ordre='.$_POST['ordre']);
 ?>

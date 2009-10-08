@@ -38,6 +38,7 @@ if ($annee != "all") {
 			<p>
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="factures" name="table" />
+				<input type="hidden" value="<?php echo $_GET['ordre'] ?>" name="ordre" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
 			</p>
       <h3><a href="entrees.php?annee=<?php echo $annee_h3 ?>"><?php echo $annee_h3 ?></a></h3>
@@ -107,7 +108,7 @@ foreach ($facture as $key_annee => $value1) {
       <a href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer">
         <img src="images/print.png" alt="Imprimer"/>
       </a>
-      <a id="paid_<?php echo $f['id']?>" href="#" onclick="togglePaid('<?php echo $f['numero']?>','<?php echo $f['id']?>','<?php echo $annee ?>','<?php echo $ordre ?>','<?php echo $f['paid'] ?>');return false;" title="<?php if ($f['paid'] == 0) {echo "Marquer comme payée";}else{echo "Marquer comme impayée";} ?>">
+      <a id="paid_<?php echo $f['id']?>" href="requetes/togglePaid.php?id=<?php echo $f['id'] ?>&amp;annee=<?php echo $annee ?>&amp;paid=<?php echo $f['paid'] ?>&amp;ordre=<?php echo $ordre ?>" title="<?php if ($f['paid'] == 0) {echo "Marquer comme payée";}else{echo "Marquer comme impayée";} ?>">
         <img src="images/money.png" alt="paid"/>
       </a>
     </td>
