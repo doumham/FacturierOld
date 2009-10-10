@@ -2,7 +2,7 @@
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['annee']){
 	$annee=$_GET['annee'];
 }else{
@@ -16,18 +16,18 @@ if($annee && $annee!="all"){
 }
 if($_GET['ordre']){
 	$ordre=$_GET['ordre'];
-	$req2="facturesSortantes.id_client,";
+	$req2="facturesSortantes.idClient,";
 }
-$select_facturesSortantes=mysql_query("
+$selectFacturesSortantes=mysql_query("
 	SELECT * FROM facturesSortantes ".$req." ORDER BY ".$req2." date
 	") or trigger_error(mysql_error(),E_USER_ERROR);
-$nombre_facturesSortantes=mysql_num_rows($select_facturesSortantes);
-$select_facturesEntrantes=mysql_query("
+$nombreFacturesSortantes=mysql_num_rows($selectFacturesSortantes);
+$selectFacturesEntrantes=mysql_query("
 	SELECT * FROM facturesEntrantes ".$req." ORDER BY ".$req2." date
 	") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
-<?php $my_interface->set_title("Statistiques"); ?>
-<?php $my_interface->get_header(); ?>
+<?php $myInterface->set_title("Statistiques"); ?>
+<?php $myInterface->get_header(); ?>
 <?php include ('include/menu.php');?>
 		<div class="contenu">
 <?php include ('include/menu_annees.php');?>
@@ -39,7 +39,7 @@ $select_facturesEntrantes=mysql_query("
         <th class="aR">Total TVAC</th>
       </tr>
 <?php
-while($f = mysql_fetch_array($select_facturesSortantes)){
+while($f = mysql_fetch_array($selectFacturesSortantes)){
 	if($f['date']<$annee."-04-00"){
 		$tt_htva_1+=$f['montant'];
 		$tt_tva_1+=$f['montant_tva'];
@@ -64,7 +64,7 @@ while($f = mysql_fetch_array($select_facturesSortantes)){
 	$t_tva+=$f['montant_tva'];
 	$t_tvac+=$f['montant_tvac'];
 }
-while($f = mysql_fetch_array($select_facturesEntrantes)){
+while($f = mysql_fetch_array($selectFacturesEntrantes)){
 	if($f['date']<$annee."-04-00"){
 		$tt_htva_d_1+=$f['montant'];
 		$tt_tva_d_1+=$f['montant_tva'];
@@ -163,4 +163,4 @@ for ($i=1; $i < 5 ; $i++) {
      </tr>
     </table>
 </div>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

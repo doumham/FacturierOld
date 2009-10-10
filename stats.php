@@ -8,7 +8,7 @@ $hauteur=500;
 $hauteur=$hauteur-40;
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['annee']){
 	$annee=$_GET['annee'];
 }else{
@@ -56,8 +56,8 @@ $lannee=implode(',',$lannee);
 $chiffres_in=implode(',',$chiffres_in);
 @$chiffres_out=implode(',',$chiffres_out);
 ?>
-<?php $my_interface->set_title("Factures sortantes"); ?>
-<?php $my_interface->get_header(); ?>
+<?php $myInterface->set_title("Factures sortantes"); ?>
+<?php $myInterface->get_header(); ?>
 <?php include ('include/menu.php');?>
 		<div style="width:900px;" class="contenu">
 <?php include ('include/menu_annees.php');?>
@@ -69,4 +69,4 @@ $chiffres_in=implode(',',$chiffres_in);
 			</div>
 		</div>
 <?php } ?>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

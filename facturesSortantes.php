@@ -2,7 +2,7 @@
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{
@@ -18,14 +18,15 @@ if($_GET['ordre']){ // classement par client : ordre="clients". Par date : ordre
 	$ordre = $_GET['ordre'];
 	$req2="facturesSortantes.id_client,";
 }
-$select_facturesSortantes = mysql_query("
+$selectFacturesSortantes = mysql_query("
 	SELECT * FROM facturesSortantes LEFT JOIN clients ON facturesSortantes.id_client=clients.id_client ".$req." ORDER BY ".$req2." date, numero
-	") or trigger_error(mysql_error(),E_USER_ERROR);?>
-<?php $nombre_facturesSortantes = mysql_num_rows($select_facturesSortantes); ?>
-<?php $my_interface->set_title("Factures sortantes"); ?>
-<?php $my_interface->get_header(); ?>
-<?php include ('include/menu.php');?>
-<?php include ('include/menu_annees.php');?>
+	") or trigger_error(mysql_error(),E_USER_ERROR);
+$nombreFacturesSortantes = mysql_num_rows($selectFacturesSortantes);
+$myInterface->set_title("Factures sortantes");
+$myInterface->get_header();
+include ('include/menu.php');
+include ('include/menu_annees.php');
+?>
 		<div class="contenu">
 <?php
 if ($annee != "all") {
@@ -55,7 +56,7 @@ if ($annee != "all") {
         </tr>
 <?php
 $client_count=0;
-while($f = mysql_fetch_array($select_facturesSortantes)){
+while($f = mysql_fetch_array($selectFacturesSortantes)){
   if(!$ordre){
     $trimestre_de_la_facture=ceil(substr($f['date'],5,2)*4/12);
     $annee_de_la_facture=substr($f['date'],0,4);
@@ -161,7 +162,7 @@ if($totaux_trim['id']){
           <th class="aR"><?php echo number_format($tt_tva, 2, ',', ' ')?> €</th>
           <th class="aR"><?php echo number_format($tt_tvac, 2, ',', ' ')?> €</th>
         </tr>
-<?php if (($key_trimestre == "4" && !$ordre)||($_GET['annee'] == date("Y") && $count_facture == $nombre_facturesSortantes)){ ?>
+<?php if (($key_trimestre == "4" && !$ordre)||($_GET['annee'] == date("Y") && $count_facture == $nombreFacturesSortantes)){ ?>
         <tr class="tot_annee">
           <th colspan="5">Total de l'année <?php echo substr($f['date'],0,4) ?></th>
           <th class="aR"><?php echo number_format($ta_htva, 2, ',', ' ')?> €</th>
@@ -206,4 +207,4 @@ unset($ta_htva,$ta_tva,$ta_tvac);
   </table>
 </div>
 <?php endif ?>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

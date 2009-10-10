@@ -3,7 +3,7 @@ $lesid=$_GET['clients'];
 include ('../acces/cle.php');
 $i=0;
 foreach($lesid as $id) {
-	$updateSQL = "UPDATE clients SET ordre='$i' WHERE id_client='$id'";
+	$updateSQL = "UPDATE clients SET ordre='$i' WHERE idClient='$id'";
 	$Result1 = mysql_query($updateSQL, $db) or die(mysql_error());
 	$i++;
 }

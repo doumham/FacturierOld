@@ -1,86 +1,91 @@
 <?php
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
-include ('include/config.php');?>
-<?php $my_interface->set_title("Factures sortantes");?>
-<?php $my_interface->get_header();?>
-<?php include ('include/menu.php');?>
+$myInterface = new interface_();
+$selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);
+$utilisateur = mysql_fetch_array($selectUtilisateur);
+extract($utilisateur);
+// include ('include/config.php');
+$myInterface->set_title("Factures sortantes");
+$myInterface->get_header();
+include ('include/menu.php');
+?>
 	<div class="contenu">
 		<h3>Utilisateur</h3>
-		<form method="post" action="requetes/modifUtilisateur.php">
+		<form method="post" action="requetes/updateUtilisateur.php">
+				<input name="id" type="hidden" value="<?php echo $id ?>" />
 			<p>
-				<label for="c_denomination">Dénomination : </label>
-				<input name="c_denomination" type="text" value="<?php echo $c_denomination?>" />
+				<label for="denomination">Dénomination : </label>
+				<input id="denomination" name="denomination" type="text" value="<?php echo $denomination?>" />
 			</p>
 			<p>
-				<label for="c_nom">Nom : </label>
-				<input name="c_nom" type="text" value="<?php echo $c_nom?>" />
+				<label for="nom">Nom : </label>
+				<input id="nom" name="nom" type="text" value="<?php echo $nom?>" />
 			</p>
 			<p>
-				<label for="c_prenom">Prénom : </label>
-				<input name="c_prenom" type="text" value="<?php echo $c_prenom?>" />
+				<label for="prenom">Prénom : </label>
+				<input id="prenom" name="prenom" type="text" value="<?php echo $prenom?>" />
 			</p>
 			<p>
-				<label for="c_legende">Légende : </label>
-				<input name="c_legende" type="text" value="<?php echo $c_legende?>" />
+				<label for="legende">Légende : </label>
+				<input id="legende" name="legende" type="text" value="<?php echo $legende?>" />
 			</p>
 			<p>
-				<label for="c_adresse">Adresse : </label>
-				<input name="c_adresse" value="<?php echo $c_adresse?>" />
+				<label for="adresse">Adresse : </label>
+				<input id="adresse" name="adresse" value="<?php echo $adresse?>" />
 			</p>
 			<p>
-				<label for="c_numero">Numéro : </label>
-				<input name="c_numero" value="<?php echo $c_numero?>" />
+				<label for="numero">Numéro : </label>
+				<input id="numero" name="numero" value="<?php echo $numero?>" />
 			</p>
 			<p>
-				<label for="c_boite">Boîte : </label>
-				<input name="c_boite" value="<?php echo $c_boite?>" />
+				<label for="boite">Boîte : </label>
+				<input id="boite" name="boite" value="<?php echo $boite?>" />
 			</p>
 			<p>
-				<label for="c_cp">Code Postal : </label>
-				<input name="c_cp" value="<?php echo $c_cp?>" />
+				<label for="codepostal">Code Postal : </label>
+				<input id="codepostal" name="codepostal" value="<?php echo $codepostal?>" />
 			</p>
 			<p>
-				<label for="c_localite">Localité : </label>
-				<input name="c_localite" value="<?php echo $c_localite?>" />
+				<label for="localite">Localité : </label>
+				<input id="localite" name="localite" value="<?php echo $localite?>" />
 			</p>
 			<p>
-				<label for="c_tel">Téléphone : </label>
-				<input name="c_tel" value="<?php echo $c_tel?>" />
+				<label for="telephone">Téléphone : </label>
+				<input id="telephone" name="telephone" value="<?php echo $telephone?>" />
 			</p>
 			<p>
-				<label for="c_fax">Fax : </label>
-				<input name="c_fax" value="<?php echo $c_fax?>" />
+				<label for="fax">Fax : </label>
+				<input id="fax" name="fax" value="<?php echo $fax?>" />
 			</p>
 			<p>
-				<label for="c_portable">Portable : </label>
-				<input name="c_portable" value="<?php echo $c_portable?>" />
+				<label for="portable">Portable : </label>
+				<input id="portable" name="portable" value="<?php echo $portable?>" />
 			</p>
 			<p>
-				<label for="c_email">Email : </label>
-				<input name="c_email" value="<?php echo $c_email?>" />
+				<label for="email">Email : </label>
+				<input id="email" name="email" value="<?php echo $email?>" />
 			</p>
 			<p>
-				<label for="c_site">Site web : </label>
-				<input name="c_site" value="<?php echo $c_site?>" />
+				<label for="site">Site web : </label>
+				<input id="site" name="site" value="<?php echo $site?>" />
 			</p>
 			<p>
-				<label for="c_tva">Numéro d'entreprise : </label>
-				<input name="c_tva" value="<?php echo $c_tva?>" />
+				<label for="tva">Numéro d'entreprise : </label>
+				<input id="tva" name="tva" value="<?php echo $tva?>" />
 			</p>
 			<p>
-				<label for="c_cb">Compte bancaire : </label>
-				<input name="c_cb" value="<?php echo $c_cb?>" />
+				<label for="comptebancaire">Compte bancaire : </label>
+				<input id="comptebancaire" name="comptebancaire" value="<?php echo $comptebancaire?>" />
 			</p>
 			<p>
-				<label for="c_iban">Code IBAN : </label>
-				<input name="c_iban" value="<?php echo $c_iban?>" />
+				<label for="iban">Internationnal Bank Account Number (IBAN) : </label>
+				<input id="iban" name="iban" value="<?php echo $iban?>" />
 			</p>
 			<p>
 				<label for="validation">Validation : </label>
-				<input name="validation" type="submit" value="Envoyer" />
+				<input id="validation" name="validation" type="submit" value="Envoyer" />
 			</p>
 		</form>
 	</div>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

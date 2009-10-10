@@ -2,16 +2,16 @@
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['annee']){
 	$annee=$_GET['annee'];
 }
 if($_GET['id']){
 	$id=$_GET['id'];
-	$select_facturesSortantes=mysql_query("SELECT * FROM facturesSortantes WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
-	$f = mysql_fetch_array($select_facturesSortantes);
+	$selectFacturesSortantes=mysql_query("SELECT * FROM facturesSortantes WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
+	$f = mysql_fetch_array($selectFacturesSortantes);
 	extract($f);
-	$date_array=explode("-",$date);
+	$dateArray=explode("-",$date);
 }else{
 	$select_no=mysql_query("SELECT numero FROM facturesSortantes ORDER BY date DESC, numero DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
 	$no = mysql_fetch_array($select_no);
@@ -22,13 +22,13 @@ if($_GET['id']){
 		$numero=1;
 	}
 }
-if($_GET['id_client']){
-	$id_client=$_GET['id_client'];
+if($_GET['idClient']){
+	$idClient=$_GET['idClient'];
 }
-$select_clients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectClients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
-<?php $my_interface->set_title("Ajouter une facturesSortantes sortantes"); ?>
-<?php $my_interface->get_header(); ?>
+<?php $myInterface->set_title("Ajouter une facturesSortantes sortantes"); ?>
+<?php $myInterface->get_header(); ?>
 <?php include ('include/menu.php');?>
 	<div class="contenu">
 		<h3>Nouvelle facture sortante</h3>
@@ -39,15 +39,15 @@ $select_clients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_e
 				</p>
 				<p>
 					<label>Date :</label>
-					<input type="text" class="w2em" id="date-1-dd" name="jour" value="<?php if($date){echo $date_array[2];}else{echo date("d");}?>" maxlength="2" size="2" />
-					<input type="text" class="w2em" id="date-1-mm" name="mois" value="<?php if($date){echo $date_array[1];}else{echo date("m");}?>" maxlength="2" size="2" />
-					<input type="text" class="w4em split-date" id="date-1" name="lannee" value="<?php if($date){echo $date_array[0];}else{echo date("Y");}?>" maxlength="4" size="5" />
+					<input type="text" class="w2em" id="date-1-dd" name="jour" value="<?php if($date){echo $dateArray[2];}else{echo date("d");}?>" maxlength="2" size="2" />
+					<input type="text" class="w2em" id="date-1-mm" name="mois" value="<?php if($date){echo $dateArray[1];}else{echo date("m");}?>" maxlength="2" size="2" />
+					<input type="text" class="w4em split-date" id="date-1" name="lannee" value="<?php if($date){echo $dateArray[0];}else{echo date("Y");}?>" maxlength="4" size="5" />
 				</p>
 				<p>
-					<label for="id_client">Client : </label>
-					<select name="id_client">
-						<?php while($c= mysql_fetch_array($select_clients)){?>
-							<option <?php if($id_client==$c['id_client']){echo 'selected="selected"';}?> value="<?php echo $c['id_client']?>"><?php echo htmlspecialchars($c['denomination'])?></option>
+					<label for="idClient">Client : </label>
+					<select name="idClient">
+						<?php while($c= mysql_fetch_array($selectClients)){?>
+							<option <?php if($idClient==$c['idClient']){echo 'selected="selected"';}?> value="<?php echo $c['idClient']?>"><?php echo htmlspecialchars($c['denomination'])?></option>
 							<?php }?>
 						</select>
 					</p>
@@ -71,4 +71,4 @@ $select_clients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_e
 					</p>
 			</form>
 		</div>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

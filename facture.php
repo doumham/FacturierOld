@@ -2,17 +2,21 @@
 date_default_timezone_set('Europe/Brussels');
 setlocale (LC_ALL, 'fr_FR');
 include ('acces/cle.php');
+$selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);
+$utilisateur = mysql_fetch_array($selectUtilisateur);
+// echo'<pre>';print_r($utilisateur);
+// extract($utilisateur);
 include ('include/config.php');
 if($_GET['id']){
 	$id=$_GET['id'];
-	$select_facturesSortantes=mysql_query("
+	$selectFacturesSortantes=mysql_query("
 		SELECT * FROM facturesSortantes LEFT JOIN clients ON facturesSortantes.id_client=clients.id_client WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
 }else{
 	header("location:facturesSortantes.php");
 }
-$f = mysql_fetch_array($select_facturesSortantes);
+$f = mysql_fetch_array($selectFacturesSortantes);
 extract($f);
-$select_clients=mysql_query("SELECT * FROM clients") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectClients=mysql_query("SELECT * FROM clients") or trigger_error(mysql_error(),E_USER_ERROR);
 if($tva){
 	$tva="TVA : ".$tva;
 }
@@ -24,7 +28,7 @@ if($_GET['print']==true){
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title><?php echo $c_denomination ?>, facture <?php echo strftime("%y",strtotime($date))?>-<?php echo $numero?></title>
+		<title><?php echo $utilisateur['denomination']; ?>, facture <?php echo strftime("%y",strtotime($date))?>-<?php echo $numero?></title>
 		<link href="css/impression.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body<?php echo $printing?>>

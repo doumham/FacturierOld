@@ -2,29 +2,29 @@
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['annee']){
 	$annee=$_GET['annee'];
 }
 if($_GET['id']){
 	$id=$_GET['id'];
-	$select_facturesEntrantes=mysql_query("SELECT * FROM facturesEntrantes WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
-	$d = mysql_fetch_array($select_facturesEntrantes);
+	$selectFacturesEntrantes=mysql_query("SELECT * FROM facturesEntrantes WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
+	$d = mysql_fetch_array($selectFacturesEntrantes);
 	extract($d);
-	$date_array=explode("-",$date);
+	$dateArray=explode("-",$date);
 }
 ?>
-<?php $my_interface->set_title("Ajouter une facture entrante"); ?>
-<?php $my_interface->get_header(); ?>
+<?php $myInterface->set_title("Ajouter une facture entrante"); ?>
+<?php $myInterface->get_header(); ?>
 <?php include ('include/menu.php');?>
 	<div class="contenu">
 		<h3>Nouvelle facture entrante</h3>
 			<form method="post" action="requetes/insertSortie.php">
 				<p>
 					<label>Date :</label>
-					<input type="text" class="w2em" id="date-1-dd" name="jour" value="<?php if($date){echo $date_array[2];}else{echo date("d");}?>" maxlength="2" size="2" />
-					<input type="text" class="w2em" id="date-1-mm" name="mois" value="<?php if($date){echo $date_array[1];}else{echo date("m");}?>" maxlength="2" size="2" />
-					<input type="text" class="w4em split-date" id="date-1" name="lannee" value="<?php if($date){echo $date_array[0];}else{echo date("Y");}?>" maxlength="4" size="5" />
+					<input type="text" class="w2em" id="date-1-dd" name="jour" value="<?php if($date){echo $dateArray[2];}else{echo date("d");}?>" maxlength="2" size="2" />
+					<input type="text" class="w2em" id="date-1-mm" name="mois" value="<?php if($date){echo $dateArray[1];}else{echo date("m");}?>" maxlength="2" size="2" />
+					<input type="text" class="w4em split-date" id="date-1" name="lannee" value="<?php if($date){echo $dateArray[0];}else{echo date("Y");}?>" maxlength="4" size="5" />
 				</p>
 				<p>
 					<label for="objet">Objet : </label>
@@ -57,4 +57,4 @@ if($_GET['id']){
 				</p>
 			</form>
 		</div>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

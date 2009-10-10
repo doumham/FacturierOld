@@ -2,7 +2,7 @@
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{
@@ -14,11 +14,11 @@ if($annee && $annee!="all"){
   $date2 = $date2."-00-00";
 	$req = "WHERE date>'$date1' AND date<'$date2'";
 }
-$select_facturesEntrantes=mysql_query("
+$selectFacturesEntrantes=mysql_query("
 	SELECT * FROM facturesEntrantes ".$req." ORDER BY date
 	") or trigger_error(mysql_error(),E_USER_ERROR);?>
-<?php $my_interface->set_title("Factures entrantes"); ?>
-<?php $my_interface->get_header(); ?>
+<?php $myInterface->set_title("Factures entrantes"); ?>
+<?php $myInterface->get_header(); ?>
 <?php include ('include/menu.php');?>
 <?php include ('include/menu_annees.php');?>
 		<div class="contenu">
@@ -46,7 +46,7 @@ if ($annee != "all") {
         <th class="aR">Total TVAC</th>
       </tr>
 <?php
-while($f = mysql_fetch_array($select_facturesEntrantes)){
+while($f = mysql_fetch_array($selectFacturesEntrantes)){
   $trimestre=ceil(substr($f['date'],5,2)*4/12);
   $premier_indice=substr($f['date'],0,4);
   $facture[$premier_indice][$trimestre][]=array(
@@ -196,4 +196,4 @@ if ($annee=="all"):
 <?php
 endif
 ?>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

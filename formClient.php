@@ -1,18 +1,18 @@
 <?php
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['id']){
 	$id=$_GET['id'];
-	$select_clients=mysql_query("
-		SELECT * FROM clients WHERE id_client='$id'"
+	$selectClients=mysql_query("
+		SELECT * FROM clients WHERE idClient='$id'"
 		) or trigger_error(mysql_error(),E_USER_ERROR);
-	$c=mysql_fetch_array($select_clients);
+	$c=mysql_fetch_array($selectClients);
 	extract($c);
 }
 ?>
-<?php $my_interface->set_title("Ajouter un client"); ?>
-<?php $my_interface->get_header(); ?>
+<?php $myInterface->set_title("Ajouter un client"); ?>
+<?php $myInterface->get_header(); ?>
 <?php include ('include/menu.php');?>
 	<div class="contenu">
 		<h3>Nouveau client</h3>
@@ -72,4 +72,4 @@ if($_GET['id']){
 			</p>
 		</form>
 	</div>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

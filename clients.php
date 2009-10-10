@@ -1,21 +1,21 @@
 <?php
 include ('acces/cle.php');
 include ('classes/interface.class.php');
-$my_interface = new interface_();
+$myInterface = new interface_();
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{
 	$annee="all";
 }
-$select_clients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectClients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
 $search_clients=mysql_query("SELECT * FROM facturesSortantes GROUP BY id_client");
 $les_clients[]="";
 while ($row_search = mysql_fetch_array($search_clients)){
 	$les_clients[]=$row_search['id_client'];
 }
 ?>
-<?php $my_interface->set_title("Clients"); ?>
-<?php $my_interface->get_header(); ?>
+<?php $myInterface->set_title("Clients"); ?>
+<?php $myInterface->get_header(); ?>
 <?php include ('include/menu.php');?>
 		<div class="contenu">
 		<form action="requetes/delete.php" method="post">
@@ -36,7 +36,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 			</tr>
 			<tbody id="clients">
 				<?php
-				while($c = mysql_fetch_array($select_clients)){
+				while($c = mysql_fetch_array($selectClients)){
 				?>
 				<tr class="facture" id="element_<?php echo $c['id_client']; ?>">
 					<td>
@@ -69,4 +69,4 @@ while ($row_search = mysql_fetch_array($search_clients)){
 		</form>
 		</div>
 	<script src="js/client_sortable.js" type="text/javascript"></script>
-<?php $my_interface->get_footer(); ?>
+<?php $myInterface->get_footer(); ?>

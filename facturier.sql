@@ -26,7 +26,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `clients` (
-  `id_client` int(11) NOT NULL AUTO_INCREMENT,
+  `idClient` int(11) NOT NULL AUTO_INCREMENT,
   `denomination` varchar(255) NOT NULL DEFAULT '',
   `nom` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `site` varchar(255) DEFAULT NULL,
   `tva` varchar(20) NOT NULL,
   `ordre` int(11) NOT NULL,
-  PRIMARY KEY (`id_client`)
+  PRIMARY KEY (`idClient`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 -- --------------------------------------------------------
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
 
 CREATE TABLE IF NOT EXISTS `facturesSortantes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_client` int(11) NOT NULL,
+  `idClient` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT '0000-00-00',
   `numero` int(11) NOT NULL,
   `objet` text NOT NULL,
