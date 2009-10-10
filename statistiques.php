@@ -16,14 +16,14 @@ if($annee && $annee!="all"){
 }
 if($_GET['ordre']){
 	$ordre=$_GET['ordre'];
-	$req2="factures.id_client,";
+	$req2="facturesSortantes.id_client,";
 }
-$select_factures=mysql_query("
-	SELECT * FROM factures ".$req." ORDER BY ".$req2." date
+$select_facturesSortantes=mysql_query("
+	SELECT * FROM facturesSortantes ".$req." ORDER BY ".$req2." date
 	") or trigger_error(mysql_error(),E_USER_ERROR);
-$nombre_factures=mysql_num_rows($select_factures);
-$select_depenses=mysql_query("
-	SELECT * FROM depenses ".$req." ORDER BY ".$req2." date
+$nombre_facturesSortantes=mysql_num_rows($select_facturesSortantes);
+$select_facturesEntrantes=mysql_query("
+	SELECT * FROM facturesEntrantes ".$req." ORDER BY ".$req2." date
 	") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
 <?php $my_interface->set_title("Statistiques"); ?>
@@ -39,7 +39,7 @@ $select_depenses=mysql_query("
         <th class="aR">Total TVAC</th>
       </tr>
 <?php
-while($f = mysql_fetch_array($select_factures)){
+while($f = mysql_fetch_array($select_facturesSortantes)){
 	if($f['date']<$annee."-04-00"){
 		$tt_htva_1+=$f['montant'];
 		$tt_tva_1+=$f['montant_tva'];
@@ -64,7 +64,7 @@ while($f = mysql_fetch_array($select_factures)){
 	$t_tva+=$f['montant_tva'];
 	$t_tvac+=$f['montant_tvac'];
 }
-while($f = mysql_fetch_array($select_depenses)){
+while($f = mysql_fetch_array($select_facturesEntrantes)){
 	if($f['date']<$annee."-04-00"){
 		$tt_htva_d_1+=$f['montant'];
 		$tt_tva_d_1+=$f['montant_tva'];

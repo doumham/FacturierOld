@@ -19,10 +19,10 @@ a img{
 	margin: 0 20px 0 0;
 	padding-left:22px;
 }
-#menu li#m_factures{
+#menu li#m_facturesSortantes{
 	background:#fff url(../images/facture_sortante.png) no-repeat;
 }
-#menu li#m_depenses{
+#menu li#m_facturesEntrantes{
 	background:#fff url(../images/facture_entrante.png) no-repeat;
 }
 #menu li#m_clients{

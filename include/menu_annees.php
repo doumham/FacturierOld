@@ -1,5 +1,5 @@
 <?php
-$select_annees=mysql_query("SELECT date FROM factures ORDER BY date ASC") or trigger_error(mysql_error(),E_USER_ERROR);
+$select_annees=mysql_query("SELECT date FROM facturesSortantes ORDER BY date ASC") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
 <?php
 while ($ann=mysql_fetch_array($select_annees)) {

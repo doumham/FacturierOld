@@ -8,7 +8,7 @@ if($_GET['annee']){
 	$annee="all";
 }
 $select_clients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
-$search_clients=mysql_query("SELECT * FROM factures GROUP BY id_client");
+$search_clients=mysql_query("SELECT * FROM facturesSortantes GROUP BY id_client");
 $les_clients[]="";
 while ($row_search = mysql_fetch_array($search_clients)){
 	$les_clients[]=$row_search['id_client'];

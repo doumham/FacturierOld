@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS `clients` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `depenses`
+-- Structure de la table `facturesEntrantes`
 --
 
-CREATE TABLE IF NOT EXISTS `depenses` (
+CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL DEFAULT '0000-00-00',
   `objet` varchar(255) NOT NULL,
@@ -64,10 +64,10 @@ CREATE TABLE IF NOT EXISTS `depenses` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `factures`
+-- Structure de la table `facturesSortantes`
 --
 
-CREATE TABLE IF NOT EXISTS `factures` (
+CREATE TABLE IF NOT EXISTS `facturesSortantes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_client` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT '0000-00-00',

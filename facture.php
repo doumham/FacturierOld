@@ -5,19 +5,19 @@ include ('acces/cle.php');
 include ('include/config.php');
 if($_GET['id']){
 	$id=$_GET['id'];
-	$select_factures=mysql_query("
-		SELECT * FROM factures LEFT JOIN clients ON factures.id_client=clients.id_client WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
+	$select_facturesSortantes=mysql_query("
+		SELECT * FROM facturesSortantes LEFT JOIN clients ON facturesSortantes.id_client=clients.id_client WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
 }else{
-	header("location:entrees.php");
+	header("location:facturesSortantes.php");
 }
-$f = mysql_fetch_array($select_factures);
+$f = mysql_fetch_array($select_facturesSortantes);
 extract($f);
 $select_clients=mysql_query("SELECT * FROM clients") or trigger_error(mysql_error(),E_USER_ERROR);
 if($tva){
 	$tva="TVA : ".$tva;
 }
 if($_GET['print']==true){
-	$printing=" onload=\"window.print();document.location.href='entrees.php?annee=".$_GET['annee']."';\"";
+	$printing=" onload=\"window.print();document.location.href='facturesSortantes.php?annee=".$_GET['annee']."';\"";
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

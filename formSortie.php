@@ -8,8 +8,8 @@ if($_GET['annee']){
 }
 if($_GET['id']){
 	$id=$_GET['id'];
-	$select_depenses=mysql_query("SELECT * FROM depenses WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
-	$d = mysql_fetch_array($select_depenses);
+	$select_facturesEntrantes=mysql_query("SELECT * FROM facturesEntrantes WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
+	$d = mysql_fetch_array($select_facturesEntrantes);
 	extract($d);
 	$date_array=explode("-",$date);
 }

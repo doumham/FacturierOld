@@ -34,7 +34,7 @@ if (is_writable($filename)) {
        exit;
     }
     fclose($handle);
-		header("location:../entrees.php?utilisateur=OK");
+		header("location:../facturesSortantes.php?utilisateur=OK");
 } else {
     echo "Le fichier $filename n'est pas accessible en écriture.";
 }

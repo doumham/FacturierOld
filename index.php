@@ -1,1 +1,1 @@
-<?php header("location:entrees.php") ?>
+<?php header("location:facturesSortantes.php") ?>

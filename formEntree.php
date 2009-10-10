@@ -8,12 +8,12 @@ if($_GET['annee']){
 }
 if($_GET['id']){
 	$id=$_GET['id'];
-	$select_factures=mysql_query("SELECT * FROM factures WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
-	$f = mysql_fetch_array($select_factures);
+	$select_facturesSortantes=mysql_query("SELECT * FROM facturesSortantes WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
+	$f = mysql_fetch_array($select_facturesSortantes);
 	extract($f);
 	$date_array=explode("-",$date);
 }else{
-	$select_no=mysql_query("SELECT numero FROM factures ORDER BY date DESC, numero DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
+	$select_no=mysql_query("SELECT numero FROM facturesSortantes ORDER BY date DESC, numero DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
 	$no = mysql_fetch_array($select_no);
 	if(mysql_num_rows($select_no)>0){
 		extract($no);
@@ -27,7 +27,7 @@ if($_GET['id_client']){
 }
 $select_clients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
-<?php $my_interface->set_title("Ajouter une factures sortantes"); ?>
+<?php $my_interface->set_title("Ajouter une facturesSortantes sortantes"); ?>
 <?php $my_interface->get_header(); ?>
 <?php include ('include/menu.php');?>
 	<div class="contenu">

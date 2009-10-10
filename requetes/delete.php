@@ -18,12 +18,12 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
   // echo json_encode($monCalendrier);
 }
 switch ($_POST['table']) {
-	case 'depenses':
-		$redirectPage = 'sorties.php';
+	case 'facturesEntrantes':
+		$redirectPage = 'facturesEntrantes.php';
 		break;
 	
-	case 'factures':
-		$redirectPage = 'entrees.php';
+	case 'facturesSortantes':
+		$redirectPage = 'facturesSortantes.php';
 		break;
 	
 	default:
