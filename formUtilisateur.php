@@ -5,7 +5,6 @@ $myInterface = new interface_();
 $selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);
 $utilisateur = mysql_fetch_array($selectUtilisateur);
 extract($utilisateur);
-// include ('include/config.php');
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
 include ('include/menu.php');

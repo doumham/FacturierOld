@@ -4,9 +4,6 @@ setlocale (LC_ALL, 'fr_FR');
 include ('acces/cle.php');
 $selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);
 $utilisateur = mysql_fetch_array($selectUtilisateur);
-// echo'<pre>';print_r($utilisateur);
-// extract($utilisateur);
-include ('include/config.php');
 if($_GET['id']){
 	$id=$_GET['id'];
 	$selectFacturesSortantes=mysql_query("
@@ -34,17 +31,17 @@ if($_GET['print']==true){
 	<body<?php echo $printing?>>
 		<div id="global">
 			<div id="entete">
-				<h1><?php echo $c_denomination?></h1>
-					<p><?php echo $c_legende?></p>
+				<h1><?php echo $utilisateur['denomination']; ?></h1>
+					<p><?php echo $utilisateur['legende']; ?></p>
 					<address>
-						<p><?php echo $c_adresse?>, <?php echo $c_numero?><br />
-						<?php echo $c_cp?> <?php echo $c_localite?><br />
+						<p><?php echo $utilisateur['adresse']; ?>, <?php echo $utilisateur['numero']; ?><br />
+						<?php echo $utilisateur['codepostal']; ?> <?php echo $utilisateur['localite']; ?><br />
 						</p><p>
-						Tél. : <?php echo $c_tel?><br />
-						E-mail : <?php echo $c_email?><br />
+						Tél. : <?php echo $utilisateur['telephone']; ?><br />
+						E-mail : <?php echo $utilisateur['email']; ?><br />
 						</p><p>
-						TVA <?php echo $c_tva?><br />
-						Compte bancaire : <?php echo $c_cb?>
+						TVA <?php echo $utilisateur['tva']; ?><br />
+						Compte bancaire : <?php echo $utilisateur['comptebancaire']; ?>
 						</p>
 					</address>
 			</div>
