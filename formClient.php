@@ -13,7 +13,6 @@ if($_GET['id']){
 ?>
 <?php $myInterface->set_title("Ajouter un client"); ?>
 <?php $myInterface->get_header(); ?>
-<?php include ('include/menu.php');?>
 	<div class="contenu">
 		<h3>Nouveau client</h3>
 		<form method="post" action="requetes/insertClient.php">

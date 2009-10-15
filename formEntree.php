@@ -29,13 +29,12 @@ $selectClients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_er
 ?>
 <?php $myInterface->set_title("Ajouter une facturesSortantes sortantes"); ?>
 <?php $myInterface->get_header(); ?>
-<?php include ('include/menu.php');?>
 	<div class="contenu">
 		<h3>Nouvelle facture sortante</h3>
 		<form method="post" action="requetes/insertEntree.php">
 				<p>
-					<label for="numero">Numéro : </label><?php echo $numero;?>
-					<input name="numero" type="hidden" size="3" value="<?php echo $numero;?>" />
+					<label for="numero">Numéro : </label>
+					<input name="numero" readonly="readonly" disabled="disabled" type="text" size="3" value="<?php echo $numero;?>" />
 				</p>
 				<p>
 					<label>Date :</label>
