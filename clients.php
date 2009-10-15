@@ -20,6 +20,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 		<div class="contenu">
 		<form action="requetes/delete.php" method="post">
 			<p>
+				<a href="formClient.php">Ajouter un client</a>
 				<input type="submit" value="Supprimer les clients sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="clients" name="table" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" />

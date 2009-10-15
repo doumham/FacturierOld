@@ -26,11 +26,16 @@ $selectFacturesEntrantes=mysql_query("
 	SELECT * FROM facturesEntrantes ".$req." ORDER BY ".$req2." date
 	") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
-<?php $myInterface->set_title("Statistiques"); ?>
-<?php $myInterface->get_header(); ?>
-<?php include ('include/menu.php');?>
+<?php 
+$myInterface->set_title("Statistiques");
+$myInterface->get_header();
+include ('include/menu.php');
+?>
 		<div class="contenu">
-<?php include ('include/menu_annees.php');?>
+<?php 
+include ('include/menu_annees.php');
+include ('include/onglets.php');
+?>
     <table id="resume"> 
       <tr class="legende">
         <th>Trimestre</th>

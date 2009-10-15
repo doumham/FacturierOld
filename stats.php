@@ -55,12 +55,16 @@ $trimestre=implode(',',$trimestre);
 $lannee=implode(',',$lannee);
 $chiffres_in=implode(',',$chiffres_in);
 @$chiffres_out=implode(',',$chiffres_out);
+
+$myInterface->set_title("Factures sortantes");
+$myInterface->get_header();
+include ('include/menu.php');
 ?>
-<?php $myInterface->set_title("Factures sortantes"); ?>
-<?php $myInterface->get_header(); ?>
-<?php include ('include/menu.php');?>
 		<div style="width:900px;" class="contenu">
-<?php include ('include/menu_annees.php');?>
+<?php 
+include ('include/menu_annees.php');
+include ('include/onglets.php');
+?>
 			<div style="margin-bottom:25px;border:1px solid #666">
   			<object data="stats_graph.php?hauteur=<?php echo $hauteur ?>&amp;lannee=<?php echo $lannee ?>&amp;trimestre=<?php echo $trimestre ?>&amp;larg=<?php echo $larg ?>&amp;max=<?php echo $max ?>&amp;x_pos=<? echo $x_pos?>&amp;chiffres_in=<? echo $chiffres_in?>&amp;chiffres_out=<? echo $chiffres_out?>&amp;max=<? echo $max?>" type="image/svg+xml" width="900" height="<?php echo $hauteur+40 ?>">
 			</div>

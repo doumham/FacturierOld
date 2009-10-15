@@ -3,48 +3,79 @@ body{
 	font-size: 13px;
 	padding:5px 25px;
 	margin:0;
+	min-width:965px;
 }
 a img{
 	border: none;
 }
+h1{
+	font-size:32px;
+	float:left;
+}
+h1 .version{
+	font-size:16px;
+	font-weight:normal;
+}
+h1 a{
+	color:#000;
+}
 #menu{
-	min-width:900px;
-	height:40px;
+	float:left;
 	list-style-type: none;
-	margin: 0 0 10px 0;
+	margin: 18px 0 10px 40px;
 	padding: 0;
 }
 #menu li{
-	float : left;
-	margin: 0 20px 0 0;
+	margin: 0 20px 3px 0;
 	padding-left:22px;
 }
-#menu li#m_facturesSortantes{
-	background:#fff url(../images/facture_sortante.png) no-repeat;
-}
-#menu li#m_facturesEntrantes{
-	background:#fff url(../images/facture_entrante.png) no-repeat;
-}
-#menu li#m_clients{
-	background:#fff url(../images/group.png) no-repeat;
-}
-#menu li#m_config{
-	background:#fff url(../images/wrench.png) no-repeat;
-}
-#menu li#m_statistiques{
-	background:#fff url(../images/chart_line.png) no-repeat;
-}
 #menu li a{
+	text-decoration:none;
 	color: #595;
 }
 #menu li a:hover{
+	background:#595;
+	color: #fff;
+}
+#menu li a:active{
 	color: #8c8;
 }
+
+/* Onglets */
+#onglets{
+	list-style-type:none;
+	line-height:30px;
+	padding:0;
+}
+#onglets li{
+	float:left;
+	margin-right:10px;
+}
+#onglets a{
+	padding:0 10px;
+	text-decoration:none;
+	color:#666;
+	display:block;
+	height:30px;
+	background:#eee;
+}
+#onglets a:hover {
+	background:#ddd;
+	color:#000;
+}
+#onglets a:active {
+	background:#333;
+	color:#DDD;
+}
+#onglets a.actif {
+	background:#ddd;
+	color:#000;
+}
+
 table{
-	border-top:1px solid #AAAAAA;
 	width:100%;
 	border-collapse: collapse;
-	border: 1px solid #4c4c4c;
+	background:#FFF;
 }
 tr{
 	border-top: none;
@@ -57,7 +88,6 @@ table a:hover{
 	color: #666;
 }
 .contenu{
-	min-width:965px;
 	margin-bottom:25px;
 }
 th,td{
@@ -124,13 +154,15 @@ tr.tot_annee th.aR{
 
 /* */
 h3{
-	background: #fefefe url(../images/fond_titre.png) repeat-x;
-	border-top-left-radius:10px;
+/*	background: #fefefe url(../images/fond_titre.png) repeat-x;*/
+	background: #444;
+/*	border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	-webkit-border-top-left-radius:10px;
 	-webkit-border-top-right-radius:10px;
 	-moz-border-radius-topleft:10px;
 	-moz-border-radius-topright:10px;
+*/	
 	font-size:14px;
 	color: #fff;
 	font-weight: bold;
@@ -138,6 +170,7 @@ h3{
 	margin: 0;
 	padding: 5px 0 0 0;
 	height:23px;
+	line-height:22px;
 	text-align: center;
 }
 h3 a{
@@ -145,6 +178,7 @@ h3 a{
 	text-decoration: none;
 }
 #liste_annees{
+	clear:both;
   background:#ddd;
 	-webkit-border-radius:10px;
 	-moz-border-radius:10px;
@@ -240,13 +274,23 @@ h3 a{
 }
 /* */
 
-.contenu form {
+form {
+	background:#DDD;
+	clear:both;
 	padding:0;
 	margin:0;
-	padding-top: 25px;
+	padding:10px 5px 5px 5px;
 }
-.contenu form p{
+form p{
+	font-family:verdana;
+	font-size:10px;
+	padding-left:10px;
 	margin-top: 0;
+	margin-bottom: 5px;
+}
+form p input{
+	font-family:verdana;
+	font-size:10px;
 }
 label{
 	display: block;

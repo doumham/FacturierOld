@@ -26,8 +26,10 @@ $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
 include ('include/menu.php');
 include ('include/menu_annees.php');
+include ('include/onglets.php');
 ?>
-		<div class="contenu">
+<form action="requetes/delete.php" method="post">
+	<div class="contenu">
 <?php
 if ($annee != "all") {
   $annee_h3 = $annee;
@@ -35,8 +37,8 @@ if ($annee != "all") {
   $annee_h3 = $les_annees[0];
 }
 ?>
-		<form action="requetes/delete.php" method="post">
 			<p>
+				<a href="formEntree.php?annee=<?php echo $annee ?>" title="Créer une facture">Ajouter une facture</a>
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="facturesSortantes" name="table" />
 				<input type="hidden" value="<?php echo $_GET['ordre'] ?>" name="ordre" />
@@ -193,18 +195,18 @@ unset($ta_htva,$ta_tva,$ta_tvac);
 }
 ?>
       </table>
-		</form>
    </div>
 <?php if ($annee == "all"): ?>
-<div class="contenu">
-  <table>
-    <tr class="tot_general">
-      <th style="width:66%" colspan="5">Total général</th>
-      <th class="aR"><?php echo number_format($tg_htva, 2, ',', ' ')?> €</th>
-      <th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
-      <th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
-    </tr>
-  </table>
-</div>
+	<div class="contenu">
+	  <table>
+	    <tr class="tot_general">
+	      <th style="width:66%" colspan="5">Total général</th>
+	      <th class="aR"><?php echo number_format($tg_htva, 2, ',', ' ')?> €</th>
+	      <th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
+	      <th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
+	    </tr>
+	  </table>
+	</div>
 <?php endif ?>
+</form>
 <?php $myInterface->get_footer(); ?>

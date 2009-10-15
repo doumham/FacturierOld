@@ -16,12 +16,15 @@ if($annee && $annee!="all"){
 }
 $selectFacturesEntrantes=mysql_query("
 	SELECT * FROM facturesEntrantes ".$req." ORDER BY date
-	") or trigger_error(mysql_error(),E_USER_ERROR);?>
-<?php $myInterface->set_title("Factures entrantes"); ?>
-<?php $myInterface->get_header(); ?>
-<?php include ('include/menu.php');?>
-<?php include ('include/menu_annees.php');?>
-		<div class="contenu">
+	") or trigger_error(mysql_error(),E_USER_ERROR);
+$myInterface->set_title("Factures entrantes");
+$myInterface->get_header();
+include ('include/menu.php');
+include ('include/menu_annees.php');
+include ('include/onglets.php');
+?>
+<form action="requetes/delete.php" method="post">
+	<div class="contenu">
 <?php
 if ($annee != "all") {
   $annee_h3 = $annee;
@@ -29,8 +32,8 @@ if ($annee != "all") {
   $annee_h3 = $les_annees[0];
 }
 ?>
-		<form action="requetes/delete.php" method="post">
 			<p>
+				<a href="formSortie.php?annee=<?php echo $annee ?>" title="Ajouter une facture entrante">Ajouter une facture</a>
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="facturesEntrantes" name="table" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
@@ -178,22 +181,22 @@ unset($ta_htva,$ta_tva,$ta_tvac,$ta_htva_d,$ta_tva_d,$ta_tvac_d);
 }
 ?>
       </table>
-		</form>
     </div>
 <?php
 if ($annee=="all"):
 ?>
-<div class="contenu">
-  <table>
-    <tr class="tot_general">
-      <th style="width:66%" colspan="3">Total général</th>
-      <th class="aR"><?php echo number_format($tg_htva, 2, ',', ' ')?> €</th>
-      <th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
-      <th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
-    </tr>
-  </table>
-</div>
+	<div class="contenu">
+	  <table>
+	    <tr class="tot_general">
+	      <th style="width:66%" colspan="3">Total général</th>
+	      <th class="aR"><?php echo number_format($tg_htva, 2, ',', ' ')?> €</th>
+	      <th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
+	      <th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
+	    </tr>
+	  </table>
+	</div>
 <?php
 endif
 ?>
+</form>
 <?php $myInterface->get_footer(); ?>
