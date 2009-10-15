@@ -263,7 +263,6 @@ h3 a{
 
 /* */
 .legende{
-	border-top:1px solid #666;
 	background: #888;
 	color: #333;
 	font-size: 11px;
@@ -301,6 +300,7 @@ label{
 	width: 100px;
 }
 #resume{
+	clear:both;
 	font-family:Arial, Helvetica, verdana, sans-serif;
 	font-size:16px;
 }
