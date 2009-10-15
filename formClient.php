@@ -5,7 +5,7 @@ $myInterface = new interface_();
 if($_GET['id']){
 	$id=$_GET['id'];
 	$selectClients=mysql_query("
-		SELECT * FROM clients WHERE idClient='$id'"
+		SELECT * FROM clients WHERE id_client='$id'"
 		) or trigger_error(mysql_error(),E_USER_ERROR);
 	$c=mysql_fetch_array($selectClients);
 	extract($c);

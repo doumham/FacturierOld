@@ -16,7 +16,7 @@ if($annee && $annee!="all"){
 }
 if($_GET['ordre']){
 	$ordre=$_GET['ordre'];
-	$req2="facturesSortantes.idClient,";
+	$req2="facturesSortantes.id_client,";
 }
 $selectFacturesSortantes=mysql_query("
 	SELECT * FROM facturesSortantes ".$req." ORDER BY ".$req2." date

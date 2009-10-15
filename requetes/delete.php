@@ -5,7 +5,7 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 	if ($nombreElements > 0) {
 		foreach ($_POST["selectionElements"] as $id) {
 			if ($_POST['table'] == 'clients'){
-				mysql_query("DELETE FROM `".$_POST['table']."` WHERE `idClient`=$id") or die(mysql_error());
+				mysql_query("DELETE FROM `".$_POST['table']."` WHERE `id_client`=$id") or die(mysql_error());
 			} else {
 				mysql_query("DELETE FROM `".$_POST['table']."` WHERE `id`=$id") or die(mysql_error());
 			}

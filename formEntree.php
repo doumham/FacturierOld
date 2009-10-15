@@ -22,8 +22,8 @@ if($_GET['id']){
 		$numero=1;
 	}
 }
-if($_GET['idClient']){
-	$idClient=$_GET['idClient'];
+if($_GET['id_client']){
+	$id_client=$_GET['id_client'];
 }
 $selectClients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
@@ -43,10 +43,10 @@ $selectClients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_er
 					<input type="text" class="w4em split-date" id="date-1" name="lannee" value="<?php if($date){echo $dateArray[0];}else{echo date("Y");}?>" maxlength="4" size="5" />
 				</p>
 				<p>
-					<label for="idClient">Client : </label>
-					<select name="idClient">
+					<label for="id_client">Client : </label>
+					<select name="id_client">
 						<?php while($c= mysql_fetch_array($selectClients)){?>
-							<option <?php if($idClient==$c['idClient']){echo 'selected="selected"';}?> value="<?php echo $c['idClient']?>"><?php echo htmlspecialchars($c['denomination'])?></option>
+							<option <?php if($id_client==$c['id_client']){echo 'selected="selected"';}?> value="<?php echo $c['id_client']?>"><?php echo htmlspecialchars($c['denomination'])?></option>
 							<?php }?>
 						</select>
 					</p>
