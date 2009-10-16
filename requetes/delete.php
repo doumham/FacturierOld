@@ -1,5 +1,7 @@
 <?php
 include('../acces/cle.php');
+$redirectPage = "";
+$redirectNewFacture = "";
 if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 	$nombreElements = count($_POST["selectionElements"]);
 	if ($nombreElements > 0) {
@@ -36,6 +38,12 @@ switch ($_POST['table']) {
 if (isset($_POST['boutonAjouter']) && $_POST['boutonAjouter']) {
 	header('location:../'.$redirectNewFacture);
 	exit();
+} else {
+	if (isset($_POST['annee']) && !empty($_POST['annee'])) {
+		$annee = $_POST['annee'];
+	} else {
+		$annee = "";
+	}
+	header('location:../'.$redirectPage.'?annee='.$annee);
 }
-header('location:../'.$redirectPage.'?annee='.$_POST["annee"].'&ordre='.$_POST['ordre']);
 ?>

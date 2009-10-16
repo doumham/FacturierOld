@@ -3,6 +3,32 @@ date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
+
+// factures non déductibles
+$tt_htva = 0;
+$tt_tva  = 0;
+$tt_tvac = 0;
+$ta_htva = 0;
+$ta_tva  = 0;
+$ta_tvac = 0;
+$tg_htva = 0;
+$tg_tva  = 0;
+$tg_tvac = 0;
+
+// factures déductibles
+$tt_htva_d = 0;
+$tt_tva_d  = 0;
+$tt_tvac_d = 0;
+$tt_tvac_d = 0;
+$ta_htva_d = 0;
+$ta_tva_d  = 0;
+$ta_tvac_d = 0;
+$tg_htva_d = 0;
+$tg_tva_d  = 0;
+$tg_tvac_d = 0;
+$counter_annees = 0;
+$ordre = 0;
+
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{
@@ -52,12 +78,12 @@ if ($annee != "all") {
 while($f = mysql_fetch_array($selectFacturesEntrantes)){
   $trimestre=ceil(substr($f['date'],5,2)*4/12);
   $premier_indice=substr($f['date'],0,4);
-  $facture[$premier_indice][$trimestre][]=array(
+  $facture[$premier_indice][$trimestre][] = array(
     'id'=>$f['id'],
-    'numero'=>$f['numero'],
+    // 'numero'=>$f['numero'],
     'date'=>$f['date'],
-    'id_client'=>$f['id_client'],
-    'denomination'=>$f['denomination'],
+    // 'id_client'=>$f['id_client'],
+    // 'denomination'=>$f['denomination'],
     'objet'=>$f['objet'],
     'montant'=>$f['montant'],
     'montant_tva'=>$f['montant_tva'],
@@ -71,7 +97,12 @@ foreach ($facture as $key_annee => $value1) {
   foreach ($value1 as $key_trimestre => $value2) {
     $nombre=count($value2);
     $counter=0;
-    unset($tt_htva,$tt_tva,$tt_tvac,$tt_htva_d,$tt_tva_d,$tt_tvac_d);
+		$tt_htva = 0;
+		$tt_tva = 0;
+		$tt_tvac = 0;
+		$tt_htva_d = 0;
+		$tt_tva_d = 0;
+		$tt_tvac_d = 0;
     foreach ($value2 as $key3 => $f) {
 ?>
 <?php if ($counter=="0"){ ?>
@@ -81,9 +112,9 @@ foreach ($facture as $key_annee => $value1) {
 <?php }?>
   <tr <?php if ($f['deductibilite']==0){echo "style='background-image:url(images/fond_li_unpaid.png)'";}?> class="facture" id="element_<?php echo $f['id']?>">
     <td>
-      <?php if ($f['paid'] == 0) { ?>
+      <?php //if ($f['paid'] == 0) { ?>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
-      <?php } ?>
+      <?php //} ?>
       <a href="formFacturesEntrante.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
         <img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>
       </a> 
@@ -172,7 +203,12 @@ endif
       <table>
     <?php endif ?>
 <?php
-unset($ta_htva,$ta_tva,$ta_tvac,$ta_htva_d,$ta_tva_d,$ta_tvac_d);
+$ta_htva = 0;
+$ta_tva = 0;
+$ta_tvac = 0;
+$ta_htva_d = 0;
+$ta_tva_d = 0;
+$ta_tvac_d = 0;
 	        }
 	      }
 	    }

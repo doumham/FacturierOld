@@ -1,6 +1,6 @@
 <?php
 function checkActif($page){
-	if (ereg($page, $_SERVER['PHP_SELF'])){
+	if (strstr($_SERVER['PHP_SELF'], $page)){
 		echo 'class="actif"';
 	}
 }

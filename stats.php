@@ -2,17 +2,18 @@
 date_default_timezone_set('Europe/Brussels');
 
 // vars pour les graphiques
-$hauteur=500;
+$hauteur = 500;
 //
 
-$hauteur=$hauteur-40;
+$hauteur = $hauteur-40;
 include ('acces/cle.php');
 include ('classes/interface.class.php');
+$ordre = 0;
 $myInterface = new interface_();
 if($_GET['annee']){
-	$annee=$_GET['annee'];
+	$annee = $_GET['annee'];
 }else{
-	$annee=date("Y");
+	$annee = date("Y");
 }
 if($annee && $annee!="all"){
 	$req=" AND annee='$annee'";
@@ -31,30 +32,30 @@ $max=$max['montant_htva'];
 $nombre_trimestres=mysql_num_rows($select_trimestres);
 if($nombre_trimestres>0){
   if($nombre_trimestres>1){
-    $larg=floor(830/($nombre_trimestres-1));
+    $larg = floor(830/($nombre_trimestres-1));
   }else{
-    $larg=830;
+    $larg = 830;
   }
-$left_pos=45;
+$left_pos = 45;
 while($t = mysql_fetch_array($select_trimestres)){
-  $x_pos[]=$left_pos;
-  $y_pos[]=$hauteur-($t['montant_htva']*$hauteur/$max);
-  $chiffres_in[]=$t['montant_htva'];
-  $trimestre[]=$t['trimestre'];
-  $lannee[]=$t['annee'];
-  $left_pos+=$larg;
+  $x_pos[] = $left_pos;
+  $y_pos[] = $hauteur-($t['montant_htva']*$hauteur/$max);
+  $chiffres_in[] = $t['montant_htva'];
+  $trimestre[] = $t['trimestre'];
+  $lannee[] = $t['annee'];
+  $left_pos += $larg;
 }
 while($t_d = mysql_fetch_array($select_trimestres_d)){
-  $y_pos_d[]=$hauteur-($t_d['montant_htva']*$hauteur/$max);
-  $chiffres_out[]=$t_d['montant_htva'];
+  $y_pos_d[] = $hauteur-($t_d['montant_htva']*$hauteur/$max);
+  $chiffres_out[] = $t_d['montant_htva'];
 }
-$x_pos=implode(',',$x_pos);
-$y_pos=implode(',',$y_pos);
-@$y_pos_d=implode(',',$y_pos_d);
-$trimestre=implode(',',$trimestre);
-$lannee=implode(',',$lannee);
-$chiffres_in=implode(',',$chiffres_in);
-@$chiffres_out=implode(',',$chiffres_out);
+$x_pos = implode(',',$x_pos);
+$y_pos = implode(',',$y_pos);
+@$y_pos_d = implode(',',$y_pos_d);
+$trimestre = implode(',',$trimestre);
+$lannee = implode(',',$lannee);
+$chiffres_in = implode(',',$chiffres_in);
+@$chiffres_out = implode(',',$chiffres_out);
 
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();

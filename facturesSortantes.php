@@ -3,10 +3,25 @@ date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
+
+$tt_htva = 0;
+$tt_tva  = 0;
+$tt_tvac = 0;
+$ta_htva = 0;
+$ta_tva  = 0;
+$ta_tvac = 0;
+$tg_htva = 0;
+$tg_tva  = 0;
+$tg_tvac = 0;
+$count_facture = 0;
+$ordre = "";
+$id_client_old = 0;
+$counter_annees = 0;
+
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{
-	$annee="all";
+	$annee = "all";
 }
 if($annee && $annee != "all"){
   $date1 = $annee."-00-00";
@@ -90,7 +105,9 @@ foreach ($facture as $key_annee => $value1) {
   foreach ($value1 as $key_trimestre => $value2) {
     $nombre=count($value2);
     $counter=0;
-    unset($tt_htva,$tt_tva,$tt_tvac);
+		$tt_htva = 0;
+		$tt_tva = 0;
+		$tt_tvac = 0;
     foreach ($value2 as $key3 => $f) {
 ?>
 <?php if ($counter == "0" && !$ordre){ ?>
@@ -164,7 +181,7 @@ if($totaux_trim['id']){
           <th class="aR"><?php echo number_format($tt_tva, 2, ',', ' ')?> €</th>
           <th class="aR"><?php echo number_format($tt_tvac, 2, ',', ' ')?> €</th>
         </tr>
-<?php if (($key_trimestre == "4" && !$ordre)||($_GET['annee'] == date("Y") && $count_facture == $nombreFacturesSortantes)){ ?>
+<?php if (($key_trimestre == "4" && !$ordre)||($annee == date("Y") && $count_facture == $nombreFacturesSortantes)){ ?>
         <tr class="tot_annee">
           <th colspan="5">Total de l'année <?php echo substr($f['date'],0,4) ?></th>
           <th class="aR"><?php echo number_format($ta_htva, 2, ',', ' ')?> €</th>
@@ -186,7 +203,9 @@ endif
       <table>
 <?php endif ?>
 <?php
-unset($ta_htva,$ta_tva,$ta_tvac);
+$ta_htva = 0;
+$ta_tva = 0;
+$ta_tvac = 0;
 	        }
 	      }
 	    }
