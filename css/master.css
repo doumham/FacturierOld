@@ -1,7 +1,11 @@
+h1, h2, h3, h4, h5, form, ul, ol, li {
+	margin:0;
+	padding:0;
+}
 body{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
-	padding:5px 0;
+	padding:0;
 	margin:0;
 	min-width:965px;
 }
@@ -9,9 +13,14 @@ a img{
 	border: none;
 }
 #header{
+	background:#EEE;
+	border-bottom:1px solid #ddd;
 	padding:0 30px;
+	margin-bottom:20px;
+	height:70px;
 }
 h1{
+	margin-top:20px;
 	font-size:32px;
 	float:left;
 }
@@ -26,7 +35,7 @@ h1 a{
 #menu{
 	float:left;
 	list-style-type: none;
-	margin: 18px 0 10px 40px;
+	margin: 22px 0 10px 40px;
 	padding: 0;
 }
 #menu li{
@@ -193,7 +202,7 @@ h3 a{
   font-family:verdana, sans-serif;
   font-size:12px;
 	list-style-type: none;
-	height:35px;
+	height:45px;
 	margin:0 30px;
 	padding:0;
 }
@@ -233,7 +242,7 @@ h3 a{
 #liste_annees li a:active, #liste_annees li a.actif{
 	padding-left:1px;
 	padding-right:0px;
-  color:#FFF;
+  color:#666;
   background:#CCC;
 }
 
