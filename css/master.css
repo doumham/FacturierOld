@@ -14,9 +14,7 @@ a img{
 }
 #header{
 	background:#EEE;
-	border-bottom:1px solid #ddd;
 	padding:0 30px;
-	margin-bottom:20px;
 	height:70px;
 }
 h1{
@@ -39,7 +37,7 @@ h1 a{
 	padding: 0;
 }
 #menu li{
-	margin: 0 20px 3px 0;
+	margin: 0 20px 0 0;
 	padding-left:22px;
 }
 #menu li a{
@@ -68,13 +66,13 @@ h1 a{
 #onglets li{
 	float:left;
 	margin-right:10px;
+	padding-top:10px;
 }
 #onglets a{
 	padding:0 10px;
 	text-decoration:none;
 	color:#666;
 	display:block;
-	height:24px;
 	background:#eee;
 	border-top-left-radius:3px;
 	border-top-right-radius:3px;
@@ -90,7 +88,13 @@ h1 a{
 	background:#666;
 	color:#DDD;
 }
-#onglets a.actif {
+#onglets .actif {
+	padding-top:3px;
+	line-height:32px;
+	font-size:12px;
+}
+#onglets .actif a {
+	padding:0 15px;
 	background:#ddd;
 	color:#000;
 }
@@ -198,13 +202,16 @@ h3 a{
 	text-decoration: none;
 }
 #liste_annees{
+	border-bottom:1px solid #CCC;
+	border-top:1px solid #CCC;
 	clear:both;
   font-family:verdana, sans-serif;
   font-size:12px;
 	list-style-type: none;
-	height:45px;
-	margin:0 30px;
-	padding:0;
+	height:25px;
+	margin-bottom:15px;
+	padding-left:30px;
+	background:#ddd;
 }
 #liste_annees li{
 	float:left;
@@ -220,8 +227,6 @@ h3 a{
 	text-decoration:none;
 	text-align:center;
 	width:70px;
-	padding-left:0px;
-	padding-right:1px;
 }
 #liste_annees li#recule a, #liste_annees li#avance a{
   font-size:18px;
@@ -229,6 +234,7 @@ h3 a{
   width:20px;
 }
 #liste_annees li#recule a{
+  border-left:1px solid #BBB;
 /*	-webkit-border-bottom-left-radius:5px;
 	-webkit-border-top-left-radius:5px;
 	-moz-border-radius-bottomleft:5px;
@@ -240,8 +246,6 @@ h3 a{
   color:#777;
 }
 #liste_annees li a:active, #liste_annees li a.actif{
-	padding-left:1px;
-	padding-right:0px;
   color:#666;
   background:#CCC;
 }
