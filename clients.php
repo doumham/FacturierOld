@@ -20,7 +20,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 		<div class="contenu">
 		<form action="requetes/delete.php" method="post">
 			<p class="tools">
-				<a href="formClient.php">Ajouter un client</a>
+				<input type="submit" value="Ajouter un client" id="boutonAjouter" name="boutonAjouter" />
 				<input type="submit" value="Supprimer les clients sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="clients" name="table" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
@@ -52,7 +52,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 						<a href="formClient.php?id=<?php echo $c['id_client']?>" title="Edit">
 							<img src="images/icn-edit.png" alt="Edit"/>
 						</a> 
-						<a href="formEntree.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
+						<a href="formFacturesSortantes.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
 							<img src="images/icn-add-facture.png" alt="New"/>
 						</a> 
 					</td>

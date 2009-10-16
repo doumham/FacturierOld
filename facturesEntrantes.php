@@ -33,7 +33,7 @@ if ($annee != "all") {
 }
 ?>
 			<p class="tools">
-				<a href="formSortie.php?annee=<?php echo $annee ?>" title="Ajouter une facture entrante">Ajouter une facture</a>
+				<input type="submit" value="Ajouter une facture" id="boutonAjouter" name="boutonAjouter" />
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="facturesEntrantes" name="table" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
@@ -84,7 +84,7 @@ foreach ($facture as $key_annee => $value1) {
       <?php if ($f['paid'] == 0) { ?>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
       <?php } ?>
-      <a href="formSortie.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
+      <a href="formFacturesEntrante.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
         <img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>
       </a> 
     </td>
