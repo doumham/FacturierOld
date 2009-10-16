@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, form, ul, ol, li {
 }
 body{
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
+	font-size: 12px;
 	padding:0;
 	margin:0;
 	min-width:965px;
@@ -265,7 +265,7 @@ form {
 	margin:0;
 	padding-top:10px;
 }
-form p.menu, form p.menu input{
+form p.tools, form p.tools input{
 	font-family:verdana;
 	font-size:10px;
 	padding-left:10px;

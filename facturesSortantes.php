@@ -37,7 +37,7 @@ if ($annee != "all") {
   $annee_h3 = $les_annees[0];
 }
 ?>
-			<p class="menu">
+			<p class="tools">
 				<a href="formEntree.php?annee=<?php echo $annee ?>" title="Créer une facture">Ajouter une facture</a>
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="facturesSortantes" name="table" />
