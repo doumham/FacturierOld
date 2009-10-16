@@ -128,6 +128,7 @@ th,td{
 tr.facture{
 	border-bottom:1px solid #CCC;
 }
+
 /* */
 tr.titre_trimestre{
 	border-bottom:none;
@@ -169,7 +170,7 @@ tr.tot_annee th, tr.tot_general th{
 	padding-bottom:0;
 	padding-top:0px;
 	height: 28px;
-	background: #555 url(../images/fond_titre.png) repeat-x bottom;
+	background: #555;
 }
 tr.tot_annee th{
 	color: #fff;
@@ -181,13 +182,6 @@ tr.tot_annee th.aR{
 
 /* */
 h3{
-/*	border-top-left-radius:10px;
-	border-top-right-radius:10px;
-	-webkit-border-top-left-radius:10px;
-	-webkit-border-top-right-radius:10px;
-	-moz-border-radius-topleft:10px;
-	-moz-border-radius-topright:10px;
-*/
 	background:#AAA;
 	clear:both;
 	font-size:14px;
@@ -235,11 +229,6 @@ h3 a{
 }
 #liste_annees li#recule a{
   border-left:1px solid #BBB;
-/*	-webkit-border-bottom-left-radius:5px;
-	-webkit-border-top-left-radius:5px;
-	-moz-border-radius-bottomleft:5px;
-	-moz-border-radius-topleft:5px;
-*/
 }
 #liste_annees li a:hover{
   background:#ddd;
@@ -267,8 +256,8 @@ h3 a{
 	text-decoration: none;
 	color: #333;
 }
-/* */
 
+/* */
 form {
 	background:#DDD;
 	clear:both;
