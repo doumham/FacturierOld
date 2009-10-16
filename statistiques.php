@@ -29,7 +29,7 @@ $selectFacturesEntrantes=mysql_query("
 <?php 
 $myInterface->set_title("Statistiques");
 $myInterface->get_header();
-include ('include/menu.php');
+include ('include/header.php');
 ?>
 		<div class="contenu">
 <?php 

@@ -1,12 +1,15 @@
 body{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
-	padding:5px 25px;
+	padding:5px 0;
 	margin:0;
 	min-width:965px;
 }
 a img{
 	border: none;
+}
+#header{
+	padding:0 30px;
 }
 h1{
 	font-size:32px;
@@ -51,6 +54,7 @@ h1 a{
 	list-style-type:none;
 	padding:0;
 	text-transform:uppercase;
+	margin-left:30px;
 }
 #onglets li{
 	float:left;
@@ -63,6 +67,12 @@ h1 a{
 	display:block;
 	height:24px;
 	background:#eee;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	-webkit-border-top-left-radius:3px;
+	-webkit-border-top-right-radius:3px;
+	-moz-border-radius-topleft:3px;
+	-moz-border-radius-topright:3px;
 }
 #onglets a:hover {
 	color:#000;
@@ -114,7 +124,7 @@ tr.titre_trimestre th{
 	background:#ccc;
 	color:#fff;
 	text-align:center;
-	border-top:1px solid #666;
+	border-top:1px solid #999;
 }
 
 /* */
@@ -150,7 +160,7 @@ tr.tot_annee th, tr.tot_general th{
 }
 tr.tot_annee th{
 	color: #fff;
-	background: #555 url(../images/fond_titre_tot_annee.png) repeat-x bottom;
+	background: #999;
 }
 tr.tot_annee th.aR{
 	color: #333;
@@ -158,8 +168,6 @@ tr.tot_annee th.aR{
 
 /* */
 h3{
-/*	background: #fefefe url(../images/fond_titre.png) repeat-x;*/
-	background: #444;
 /*	border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	-webkit-border-top-left-radius:10px;
@@ -167,16 +175,14 @@ h3{
 	-moz-border-radius-topleft:10px;
 	-moz-border-radius-topright:10px;
 */
+	background:#AAA;
 	clear:both;
 	font-size:14px;
-	color: #fff;
-	font-weight: bold;
-	width:100%;
-	margin: 0;
-	padding: 5px 0 0 0;
-	height:23px;
+	font-weight:bold;
 	line-height:22px;
-	text-align: center;
+	margin:0;
+	padding-left:10px;
+	text-align:center;
 }
 h3 a{
 	color: #fff;
@@ -184,34 +190,24 @@ h3 a{
 }
 #liste_annees{
 	clear:both;
-  background:#ddd;
-	-webkit-border-radius:10px;
-	-moz-border-radius:10px;
   font-family:verdana, sans-serif;
   font-size:12px;
 	list-style-type: none;
 	height:35px;
-	padding-top:8px;
-	padding-left:13px;
-	margin-bottom:25px;
+	margin:0 30px;
+	padding:0;
 }
 #liste_annees li{
 	float:left;
 }
 #liste_annees li a{
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-  background:#ccc;
-  border-left:1px solid #eee;
-  border-top:1px solid #eee;
-  border-bottom:1px solid #aaa;
-  border-right:1px solid #999;
+  background:#DDD;
+  border-right:1px solid #BBB;
   color:#fff;
 	display:block;
 	font-weight:bold;
 	height:25px;
 	line-height:26px;
-  margin-right:5px;
 	text-decoration:none;
 	text-align:center;
 	width:70px;
@@ -224,41 +220,21 @@ h3 a{
   width:20px;
 }
 #liste_annees li#recule a{
-	-webkit-border-bottom-right-radius:0px;
-	-webkit-border-top-right-radius:0px;
-	-moz-border-radius-bottomright:0px;
-	-moz-border-radius-topright:0px;
-  border-right:1px solid #aaa;
-  margin-right:0px;
-}
-#liste_annees li#avance a{
-	-webkit-border-bottom-left-radius:0px;
-	-webkit-border-top-left-radius:0px;
-	-moz-border-radius-bottomleft:0px;
-	-moz-border-radius-topleft:0px;
-  margin-right:15px;
+/*	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-topleft:5px;
+*/
 }
 #liste_annees li a:hover{
   background:#ddd;
   color:#777;
 }
 #liste_annees li a:active, #liste_annees li a.actif{
-  border-left:1px solid #999;
-  border-top:1px solid #999;
-  border-bottom:1px solid #ddd;
-  border-right:1px solid #ddd;
-	line-height:28px;
 	padding-left:1px;
 	padding-right:0px;
-  color:#666;
-  background:#fff;
-}
-#liste_annees li a:active{
-  background:#ddd;
-  border-left:1px solid #bbb;
-  border-top:1px solid #bbb;
-  border-bottom:1px solid #eee;
-  border-right:1px solid #eee;
+  color:#FFF;
+  background:#CCC;
 }
 
 .facture img{
@@ -267,11 +243,12 @@ h3 a{
 
 /* */
 .legende{
-	background: #888;
-	color: #333;
-	font-size: 11px;
-	height: 18px;
-	line-height: 16px;
+	background:#BBB;
+	border-top:1px solid #888888;
+	color:#333333;
+	font-size:11px;
+	height:18px;
+	line-height:16px;
 }
 .legende a{
 	text-decoration: none;
@@ -284,14 +261,14 @@ form {
 	clear:both;
 	padding:0;
 	margin:0;
-	padding:10px 5px 5px 5px;
+	padding-top:10px;
 }
 form p.menu, form p.menu input{
 	font-family:verdana;
 	font-size:10px;
 	padding-left:10px;
 	margin-top: 0;
-	margin-bottom: 5px;
+	margin-bottom:3px;
 }
 label, textarea, input, select {
 	font-family:Arial, Helvetica, verdana, sans-serif;

@@ -24,7 +24,7 @@ $selectFacturesSortantes = mysql_query("
 $nombreFacturesSortantes = mysql_num_rows($selectFacturesSortantes);
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
-include ('include/menu.php');
+include ('include/header.php');
 include ('include/menu_annees.php');
 include ('include/onglets.php');
 ?>

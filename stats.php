@@ -58,7 +58,7 @@ $chiffres_in=implode(',',$chiffres_in);
 
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
-include ('include/menu.php');
+include ('include/header.php');
 ?>
 		<div style="width:900px;" class="contenu">
 <?php 

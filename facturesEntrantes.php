@@ -19,7 +19,7 @@ $selectFacturesEntrantes=mysql_query("
 	") or trigger_error(mysql_error(),E_USER_ERROR);
 $myInterface->set_title("Factures entrantes");
 $myInterface->get_header();
-include ('include/menu.php');
+include ('include/header.php');
 include ('include/menu_annees.php');
 include ('include/onglets.php');
 ?>

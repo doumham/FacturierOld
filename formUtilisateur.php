@@ -7,7 +7,7 @@ $utilisateur = mysql_fetch_array($selectUtilisateur);
 extract($utilisateur);
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
-include ('include/menu.php');
+include ('include/header.php');
 ?>
 	<div class="contenu">
 		<h3>Utilisateur</h3>

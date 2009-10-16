@@ -28,7 +28,6 @@ class interface_{
 		$return .= "<meta name=\"description\" lang=\"fr\" content=\"Facturier, logiciel de facturation en PHP/MySQL.\" />\r";
 		$return .= "</head>\r";
 		$return .= "<body>\r";
-		$return .= '<h1><a href="index.php">Facturier <span class="version">v'.FACTURIER_VERSION.'</span></a></h1>'."\r";
 		echo $return;
 	}
 	

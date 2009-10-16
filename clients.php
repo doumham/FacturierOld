@@ -16,7 +16,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 ?>
 <?php $myInterface->set_title("Clients"); ?>
 <?php $myInterface->get_header(); ?>
-<?php include ('include/menu.php');?>
+<?php include('include/header.php');?>
 		<div class="contenu">
 		<form action="requetes/delete.php" method="post">
 			<p>
