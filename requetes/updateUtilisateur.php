@@ -19,7 +19,8 @@ if($id){
 		`site`='$site', 
 		`tva`='$tva', 
 		`comptebancaire`='$comptebancaire', 
-		`iban`='$iban' 
+		`iban`='$iban', 
+		`bic`='$bic' 
 		WHERE `id`='$id'") or die(mysql_error());
 }
 header("location:../formUtilisateur.php");

@@ -82,6 +82,10 @@ include ('include/header.php');
 				<input id="iban" name="iban" value="<?php echo $iban?>" />
 			</p>
 			<p>
+				<label for="bic">Code BIC : </label>
+				<input id="bic" name="bic" value="<?php echo $bic?>" />
+			</p>
+			<p>
 				<label for="validation">Validation : </label>
 				<input id="validation" name="validation" type="submit" value="Envoyer" />
 			</p>
