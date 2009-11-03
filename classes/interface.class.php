@@ -22,6 +22,7 @@ class interface_{
 		// Javascript
 		$return .= "<script type=\"text/javascript\" src=\"js/jquery-".JQUERY_VERSION.".min.js\"></script>\r";
 		$return .= "<script type=\"text/javascript\" src=\"js/jquery-ui-".JQUERY_UI_VERSION.".custom.min.js\"></script>\r";
+		$return .= "<script type=\"text/javascript\" src=\"js/jquery-form.js\"></script>\r";
 	  $return .= "<script type=\"text/javascript\" src=\"js/functions.js\"></script>\r";
 		// Meta Description - Keywords - Author
 		$return .= "<meta name=\"author\" content=\"Samuel De Backer @ Typi Design 2007 info(at)typidesign(dot)be\" />\r";

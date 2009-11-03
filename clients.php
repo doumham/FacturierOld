@@ -7,11 +7,11 @@ if($_GET['annee']){
 }else{
 	$annee="all";
 }
-$selectClients=mysql_query("SELECT * FROM clients ORDER BY ordre") or trigger_error(mysql_error(),E_USER_ERROR);
-$search_clients=mysql_query("SELECT * FROM facturesSortantes GROUP BY id_client");
-$les_clients[]="";
+$selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `ordre`") or trigger_error(mysql_error(),E_USER_ERROR);
+$search_clients = mysql_query("SELECT * FROM `facturesSortantes` GROUP BY `id_client`");
+$les_clients[] = "";
 while ($row_search = mysql_fetch_array($search_clients)){
-	$les_clients[]=$row_search['id_client'];
+	$les_clients[] = $row_search['id_client'];
 }
 ?>
 <?php $myInterface->set_title("Clients"); ?>

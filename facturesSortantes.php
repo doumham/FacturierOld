@@ -33,9 +33,7 @@ if($_GET['ordre']){ // classement par client : ordre="clients". Par date : ordre
 	$ordre = $_GET['ordre'];
 	$req2="facturesSortantes.id_client,";
 }
-$selectFacturesSortantes = mysql_query("
-	SELECT * FROM facturesSortantes LEFT JOIN clients ON facturesSortantes.id_client=clients.id_client ".$req." ORDER BY ".$req2." date, numero
-	") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` LEFT JOIN `clients` ON `facturesSortantes`.`id_client`=`clients`.`id_client` ".$req." ORDER BY ".$req2." `date`, `numero`") or trigger_error(mysql_error(),E_USER_ERROR);
 $nombreFacturesSortantes = mysql_num_rows($selectFacturesSortantes);
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
@@ -43,7 +41,7 @@ include ('include/header.php');
 include ('include/menu_annees.php');
 include ('include/onglets.php');
 ?>
-<form action="requetes/delete.php" method="post">
+<form id="listing" action="requetes/delete.php" method="post">
 	<div class="contenu">
 <?php
 if ($annee != "all") {
@@ -53,7 +51,7 @@ if ($annee != "all") {
 }
 ?>
 			<p class="tools">
-				<input type="submit" value="Ajouter une facture" id="boutonAjouter" name="boutonAjouter" />
+				<input type="submit" value="Ajouter une facture" id="boutonAjouterFactureSortante" name="boutonAjouter" />
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="facturesSortantes" name="table" />
 				<input type="hidden" value="<?php echo $_GET['ordre'] ?>" name="ordre" />
@@ -122,7 +120,7 @@ foreach ($facture as $key_annee => $value1) {
         <?php } else { ?>
 					<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" disabled="disabled" />
         <?php } ?>
-      <a href="formFacturesSortantes.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
+      <a class="boutonModifier" href="formFacturesSortantes.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
         <img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>
       </a> 
       <a href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer">
@@ -163,18 +161,18 @@ if($counter == $nombre){
 <?php else: ?>
         <th colspan="5">Total du trimestre <?php echo $key_trimestre ?></th>
 <?php
-/////// MISE EN DB DES TOTAUX (TABLE TRIMESTRE) //////////
-$select_trimestre = mysql_query("SELECT * FROM trimestres WHERE annee='".substr($f['date'],0,4)."' AND trimestre='$key_trimestre' AND type=1") or trigger_error(mysql_error(),E_USER_ERROR);;
+// Mise en DB des totaux (table trimestre)
+$select_trimestre = mysql_query("SELECT * FROM `trimestres` WHERE `annee`='".substr($f['date'],0,4)."' AND `trimestre`='$key_trimestre' AND `type`=1") or trigger_error(mysql_error(),E_USER_ERROR);;
 $totaux_trim = mysql_fetch_array($select_trimestre);
 if($totaux_trim['id']){
   if($totaux_trim['montant_htva'] != $tt_htva){
     $id_trim = $totaux_trim['id'];
-    $update_trimestre = mysql_query("UPDATE trimestres SET montant_htva='$tt_htva',montant_tva='$tt_tva',montant_tvac='$tt_tvac' WHERE id='$id_trim' AND type=1") or trigger_error(mysql_error(),E_USER_ERROR);;
+    $update_trimestre = mysql_query("UPDATE `trimestres` SET `montant_htva`='$tt_htva', `montant_tva`='$tt_tva', `montant_tvac`='$tt_tvac' WHERE `id`='$id_trim' AND `type`=1") or trigger_error(mysql_error(),E_USER_ERROR);;
   }
 }else{
-  $insert_trimestre = mysql_query("INSERT INTO trimestres (annee,trimestre,montant_htva,montant_tva,montant_tvac,type) VALUES ('".substr($f['date'],0,4)."','$key_trimestre','$tt_htva','$tt_tva','$tt_tvac',1)") or trigger_error(mysql_error(),E_USER_ERROR);;
+  $insert_trimestre = mysql_query("INSERT INTO `trimestres` (`annee`,`trimestre`,`montant_htva`,`montant_tva`,`montant_tvac`,`type`) VALUES ('".substr($f['date'],0,4)."','$key_trimestre','$tt_htva','$tt_tva','$tt_tvac',1)") or trigger_error(mysql_error(),E_USER_ERROR);;
 }
-//////////////////////////////////////////////////////////
+// Fin de mise en DB des totaux
 ?>
 <?php endif ?>
           <th class="aR"><?php echo number_format($tt_htva, 2, ',', ' ')?> €</th>

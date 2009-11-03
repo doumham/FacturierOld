@@ -40,16 +40,14 @@ if($annee && $annee!="all"){
   $date2 = $date2."-00-00";
 	$req = "WHERE date>'$date1' AND date<'$date2'";
 }
-$selectFacturesEntrantes=mysql_query("
-	SELECT * FROM facturesEntrantes ".$req." ORDER BY date
-	") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectFacturesEntrantes = mysql_query("SELECT * FROM `facturesEntrantes` ".$req." ORDER BY `date`") or trigger_error(mysql_error(),E_USER_ERROR);
 $myInterface->set_title("Factures entrantes");
 $myInterface->get_header();
 include ('include/header.php');
 include ('include/menu_annees.php');
 include ('include/onglets.php');
 ?>
-<form action="requetes/delete.php" method="post">
+<form id="listing" action="requetes/delete.php" method="post">
 	<div class="contenu">
 <?php
 if ($annee != "all") {
@@ -59,7 +57,7 @@ if ($annee != "all") {
 }
 ?>
 			<p class="tools">
-				<input type="submit" value="Ajouter une facture" id="boutonAjouter" name="boutonAjouter" />
+				<input type="submit" value="Ajouter une facture" id="boutonAjouterFactureEntrante" name="boutonAjouter" />
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 				<input type="hidden" value="facturesEntrantes" name="table" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
@@ -115,7 +113,7 @@ foreach ($facture as $key_annee => $value1) {
       <?php //if ($f['paid'] == 0) { ?>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
       <?php //} ?>
-      <a href="formFacturesEntrante.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
+      <a class="boutonModifier" href="formFacturesEntrantes.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
         <img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>
       </a> 
     </td>
@@ -157,15 +155,15 @@ if($counter==$nombre){
         <th colspan="3">Total du trimestre <?php echo $key_trimestre ?></th>
 <?php
 /////// MISE EN DB DES TOTAUX (TABLE TRIMESTRE) //////////
-$select_trimestre=mysql_query("SELECT * FROM trimestres WHERE annee='".substr($f['date'],0,4)."' AND trimestre='$key_trimestre' AND type=2") or trigger_error(mysql_error(),E_USER_ERROR);;
-$totaux_trim=mysql_fetch_array($select_trimestre);
+$select_trimestre = mysql_query("SELECT * FROM `trimestres` WHERE `annee`='".substr($f['date'],0,4)."' AND `trimestre`='$key_trimestre' AND `type`=2") or trigger_error(mysql_error(),E_USER_ERROR);;
+$totaux_trim = mysql_fetch_array($select_trimestre);
 if($totaux_trim['id']){
   if($totaux_trim['montant_htva']!=$tt_htva){
-    $id_trim=$totaux_trim['id'];
-    $update_trimestre=mysql_query("UPDATE trimestres SET montant_htva='$tt_htva',montant_tva='$tt_tva',montant_tvac='$tt_tvac' WHERE id='$id_trim' AND type=2") or trigger_error(mysql_error(),E_USER_ERROR);;
+    $id_trim = $totaux_trim['id'];
+    $update_trimestre=mysql_query("UPDATE `trimestres` SET `montant_htva`='$tt_htva', `montant_tva`='$tt_tva', `montant_tvac`='$tt_tvac' WHERE `id`='$id_trim' AND `type`=2") or trigger_error(mysql_error(),E_USER_ERROR);;
   }
 }else{
-  $insert_trimestre=mysql_query("INSERT INTO trimestres (annee,trimestre,montant_htva,montant_tva,montant_tvac,type) VALUES ('".substr($f['date'],0,4)."','$key_trimestre','$tt_htva','$tt_tva','$tt_tvac',2)") or trigger_error(mysql_error(),E_USER_ERROR);;
+  $insert_trimestre=mysql_query("INSERT INTO `trimestres` (`annee`,`trimestre`,`montant_htva`,`montant_tva`,`montant_tvac`,`type`) VALUES ('".substr($f['date'],0,4)."','$key_trimestre','$tt_htva','$tt_tva','$tt_tvac',2)") or trigger_error(mysql_error(),E_USER_ERROR);;
 }
 //////////////////////////////////////////////////////////
 ?>
@@ -219,7 +217,7 @@ $ta_tvac_d = 0;
       </table>
     </div>
 <?php
-if ($annee=="all"):
+if ($annee == "all"):
 ?>
 	<div class="contenu">
 	  <table>

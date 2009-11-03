@@ -22,7 +22,7 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 switch ($_POST['table']) {
 	case 'facturesEntrantes':
 		$redirectPage = 'facturesEntrantes.php';
-		$redirectNewFacture = 'formFacturesEntrante.php';
+		$redirectNewFacture = 'formFacturesEntrantes.php';
 		break;
 	
 	case 'facturesSortantes':
