@@ -1,4 +1,6 @@
 <?php
+$id_client = '';
+
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');

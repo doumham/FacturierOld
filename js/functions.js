@@ -1,5 +1,66 @@
 var urlFormDialog;
 var laSection;
+var annee;
+var ordre;
+
+function initialize(section){
+	// makeSortable(section);
+	initForms(section);
+	// initCheckboxes(section);
+}
+
+function reloadSection(section){
+	if ($('#'+section).length) {
+		$('#'+section).load('include/listingFacturesSortantes.php?ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
+			initialize(section);
+		});
+	};
+}
+
+function initForms(section){
+	if ($('#'+section).length) {
+		$('#'+section+' form')
+		.prepend('<input type="hidden" name="ajaxed" value="1" />')
+		.ajaxForm({
+			// resetForm: true,
+			sectionName: section,
+			dataType: "json",
+			beforeSubmit: ajaxShowRequest,
+			success: ajaxShowResponse,
+			error: javascriptError
+		});
+	};
+}
+
+function ajaxShowRequest(formData, jqForm, options){
+	var nombreElementsSelectionnes = elementsATraiter.size();
+	if (nombreElementsSelectionnes > 0) {
+		if ($('#actionName').val() != "duplicate"){
+			if (nombreElementsSelectionnes == 1) {
+				var confirmation = confirm("Voulez-vous supprimer "+nombreElementsSelectionnes+" élément ?");
+			}else{
+				var confirmation = confirm("Voulez-vous supprimer "+nombreElementsSelectionnes+" éléments ?");
+			}
+			if (confirmation) {
+				$('#'+options.sectionName+' input[type="submit"],input[type="button"]').attr('disabled','disabled');
+				$('#'+options.sectionName+' input[type="submit"]').parent().append('<img id="signalLoading" style="position:absolute;margin:3px 0 0 5px;" src="../images_admin/icn-loading.gif" />');
+			} else {
+				return false;
+			}
+		}
+	} else {
+		$.jGrowl('Aucun élément sélectionné.');
+		return false;
+	}
+}
+
+function ajaxShowResponse(data, statusText){
+	//console.log(data.name.fr);
+	//elementsATraiter.slideUp();
+	reloadSection("Liste");
+	// $("#id_element").val(data.id);
+	$.jGrowl(data.msg);
+}
 
 function ajaxShowRequestFormDialog(formData, jqForm, options){
 }
@@ -16,6 +77,10 @@ function javascriptError(data, statusText){
 
 $(document).ready(function() {
 
+	annee = $('#annee').val();
+	ordre = $('#ordre').val();
+	initialize("Liste");
+
 	// $('form').prepend('<input type="hidden" name="ajaxed" value="1" />');
 	
 	// dialog : formulaire d'ajout/modification d’un élément
@@ -23,12 +88,12 @@ $(document).ready(function() {
 	$('#dialog').dialog({
 		title:'Ajouter ou modifier un élément',
 		width:500,
-		height:515,
+		height:525,
 		// hide: 'slide',
 		modal: true,
 		autoOpen: false,
 		close: function(event, ui) {
-			//reloadSection('Pages');
+			reloadSection('Liste');
 		},
 		open: function(event, ui){
 			$(this).load(urlFormDialog, function(){

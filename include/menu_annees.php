@@ -1,14 +1,14 @@
 <?php
-$select_annees=mysql_query("SELECT date FROM facturesSortantes ORDER BY date ASC") or trigger_error(mysql_error(),E_USER_ERROR);
+$select_annees = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` ASC") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
 <?php
 $une_annee_old = "";
-while ($ann=mysql_fetch_array($select_annees)) {
-  $une_annee=substr($ann['date'],0,4);
-  if ($une_annee!=$une_annee_old) {
-    $les_annees[]=$une_annee;
+while ($ann = mysql_fetch_array($select_annees)) {
+  $une_annee = substr($ann['date'],0,4);
+  if ($une_annee != $une_annee_old) {
+    $les_annees[] = $une_annee;
   }
-  $une_annee_old=$une_annee;
+  $une_annee_old = $une_annee;
 }
 ?>
         <ul id="liste_annees">

@@ -272,7 +272,6 @@ form p.tools, form p.tools input{
 }
 label, textarea, input, select {
 	font-family:Arial, Helvetica, verdana, sans-serif;
-	font-size:14px;
 	line-height:20px;
 }
 textarea {

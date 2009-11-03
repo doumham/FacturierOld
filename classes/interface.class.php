@@ -15,14 +15,15 @@ class interface_{
 		$return .= "<title>".$this->title."</title>\r";
 		// CSS
 		$return .= "<link type=\"text/css\" href=\"css/master.css\" rel=\"stylesheet\" media=\"screen\"  />\r";
-		$return .= "<link type=\"text/css\" href=\"css/ui-lightness/jquery-ui-".JQUERY_UI_VERSION.".custom.css\" rel=\"stylesheet\" media=\"screen\" />\r";
+		$return .= "<link type=\"text/css\" href=\"plugins/jquery-ui/css/custom-theme/jquery-ui-".JQUERY_UI_VERSION.".custom.css\" rel=\"stylesheet\" media=\"screen\" />\r";
 		$return .= "<link type=\"text/css\" href=\"css/print.css\" rel=\"stylesheet\" media=\"print\" />\r";
 		// Icone
 		$return .= "<link type=\"image/png\" href=\"images/favicon.png\" rel=\"shortcut icon\" />\r";
 		// Javascript
-		$return .= "<script type=\"text/javascript\" src=\"js/jquery-".JQUERY_VERSION.".min.js\"></script>\r";
-		$return .= "<script type=\"text/javascript\" src=\"js/jquery-ui-".JQUERY_UI_VERSION.".custom.min.js\"></script>\r";
-		$return .= "<script type=\"text/javascript\" src=\"js/jquery-form.js\"></script>\r";
+		$return .= "<script type=\"text/javascript\" src=\"plugins/jquery-ui/js/jquery-".JQUERY_VERSION.".min.js\"></script>\r";
+		$return .= "<script type=\"text/javascript\" src=\"plugins/jquery-ui/js/jquery-ui-".JQUERY_UI_VERSION.".custom.min.js\"></script>\r";
+		$return .= "<script type=\"text/javascript\" src=\"plugins/jquery-form.js\"></script>\r";
+		$return .= "<script type=\"text/javascript\" src=\"plugins/jGrowl/jquery.jgrowl_minimized.js\"></script>\r";
 	  $return .= "<script type=\"text/javascript\" src=\"js/functions.js\"></script>\r";
 		// Meta Description - Keywords - Author
 		$return .= "<meta name=\"author\" content=\"Samuel De Backer @ Typi Design 2007 info(at)typidesign(dot)be\" />\r";
