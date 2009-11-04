@@ -61,7 +61,7 @@ $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
 include ('include/header.php');
 ?>
-		<div style="width:900px;" class="contenu">
+		<div style="width:900px;margin-top:146px;" class="contenu">
 <?php 
 include ('include/menu_annees.php');
 include ('include/onglets.php');

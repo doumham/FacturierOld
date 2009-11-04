@@ -79,7 +79,7 @@ $myInterface->set_title("Statistiques");
 $myInterface->get_header();
 include ('include/header.php');
 ?>
-		<div class="contenu">
+		<div class="contenu" style=" margin-top:146px;">
 <?php 
 include ('include/menu_annees.php');
 include ('include/onglets.php');

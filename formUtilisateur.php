@@ -9,7 +9,7 @@ $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
 include ('include/header.php');
 ?>
-	<div class="contenu">
+	<div class="contenu" style="margin-top:70px;">
 		<h3>Utilisateur</h3>
 		<form method="post" action="requetes/updateUtilisateur.php">
 				<input name="id" type="hidden" value="<?php echo $id ?>" />
