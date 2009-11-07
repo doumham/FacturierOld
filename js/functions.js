@@ -1,5 +1,4 @@
 var urlFormDialog;
-var laSection;
 var annee;
 var ordre;
 
@@ -11,7 +10,7 @@ function initialize(section){
 
 function reloadSection(section){
 	if ($('#'+section).length) {
-		$('#'+section).load('include/listingFacturesSortantes.php?ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
+	$('#'+section).load('include/listingFacturesSortantes.php?ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
 			initialize(section);
 		});
 	};
@@ -66,6 +65,8 @@ function ajaxShowRequestFormDialog(formData, jqForm, options){
 }
 
 function ajaxShowResponseFormDialog(data, statusText){
+	// alert('test');
+	$.jGrowl(data.msg);
 	$('#dialog').dialog('close');
 }
 
@@ -97,14 +98,15 @@ $(document).ready(function() {
 		},
 		open: function(event, ui){
 			$(this).load(urlFormDialog, function(){
-				if(laSection != "Pages"){
-					$(this).children('form').wrap('<div id="'+laSection+'"></div>');
-					initialize(laSection);
-				}
+				// if(laSection != "Pages"){
+				// 	$(this).children('form').wrap('<div id="'+laSection+'"></div>');
+				// 	initialize(laSection);
+				// }
 				$(this).children('form')
 				.prepend('<input type="hidden" name="ajaxed" value="1" />')
 				.ajaxForm({
 					clearForm: true,
+					dataType: "json",
 					beforeSubmit: ajaxShowRequestFormDialog,
 					success: ajaxShowResponseFormDialog,
 					error: javascriptError
@@ -113,8 +115,29 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('.boutonPaye').live('click',function(){
+		var payeInputHidden = $(this).parent().children("input[name='paye[]']");
+		var paidValue = payeInputHidden.val();
+		var id = $(this).parent().children("input[type='checkbox']").val();
+		annee = $("#annee").val();
+		ordre = $("#ordre").val();
+		// console.log(paidValue);
+		$.ajax({
+			type: "GET",
+			dataType: "json",
+			url: "requetes/togglePaid.php",
+			data: { paid: paidValue, id: id, ajaxed: 1, annee: annee, ordre: ordre },
+			success: function(data){
+				$.jGrowl(data.msg);
+				reloadSection("Liste");
+			},
+			error: javascriptError
+		});
+		return false;
+	});
+
 	$('#boutonAjouterFactureSortante').live('click',function(){
-		laSection = "Pages";
+		// laSection = "Pages";
 		urlFormDialog = "formFacturesSortantes.php?ajaxed=1";
 		$('#dialog').data('title.dialog', 'Ajouter une facture Sortante'); 
 		$('#dialog').dialog('open');
@@ -122,7 +145,7 @@ $(document).ready(function() {
 	});
 
 	$('#boutonAjouterFactureEntrante').live('click',function(){
-		laSection = "Pages";
+		// laSection = "Pages";
 		urlFormDialog = "formFacturesEntrantes.php?ajaxed=1";
 		$('#dialog').data('title.dialog', 'Ajouter une facture Entrante'); 
 		$('#dialog').dialog('open');
@@ -130,7 +153,7 @@ $(document).ready(function() {
 	});
 	
 	$('.boutonModifier').live('click',function(){
-		laSection = "Pages";
+		// laSection = "Pages";
 		urlFormDialog = $(this).attr('href')+"&ajaxed=1";
 		$('#dialog').data('title.dialog', 'Modifier la facture'); 
 		$('#dialog').dialog('open');

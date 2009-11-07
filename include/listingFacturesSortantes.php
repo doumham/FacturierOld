@@ -136,9 +136,10 @@ foreach ($facture as $key_annee => $value1) {
 			<a href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer">
 				<img src="images/print.png" alt="Imprimer"/>
 			</a>
-			<a id="paid_<?php echo $f['id']?>" href="requetes/togglePaid.php?id=<?php echo $f['id'] ?>&amp;annee=<?php echo $annee ?>&amp;paid=<?php echo $f['paid'] ?>&amp;ordre=<?php echo $ordre ?>" title="<?php if ($f['paid'] == 0) {echo "Marquer comme payée";}else{echo "Marquer comme impayée";} ?>">
+			<a class="boutonPaye" id="paid_<?php echo $f['id']?>" href="requetes/togglePaid.php?id=<?php echo $f['id'] ?>&amp;annee=<?php echo $annee ?>&amp;paid=<?php echo $f['paid'] ?>&amp;ordre=<?php echo $ordre ?>" title="<?php if ($f['paid'] == 0) {echo "Marquer comme payée";}else{echo "Marquer comme impayée";} ?>">
 				<img src="images/money.png" alt="paid"/>
 			</a>
+			<input type="hidden" value="<?php echo $f['paid'] ?>" name="paye[]"/>
 		</td>
 		<td class="aR"><?php echo $f['numero']?></td>
 		<td><?php echo strftime("%d/%m/%Y",strtotime($f['date']))?></td>
