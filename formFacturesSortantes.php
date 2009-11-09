@@ -34,7 +34,7 @@ if (!isset($_GET['ajaxed'])) {
 	$myInterface->get_header();
 }
 ?>
-	<form method="post" action="requetes/insertEntree.php">
+	<form method="post" action="requetes/insertFactureSortante.php">
 		<p>
 			<label for="numero">Numéro : </label>
 			<input name="numero" readonly="readonly" type="text" size="3" value="<?php echo $numero;?>" />

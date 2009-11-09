@@ -123,7 +123,7 @@ foreach ($facture as $key_annee => $value1) {
 					<th colspan="8">Trimestre <?php echo $key_trimestre ?></th>
 				</tr>
 <?php }?>
-	<tr <?php if ($f['paid'] == 0){echo "style='background-image:url(images/fond_li_unpaid.png)'";}?> class="facture" id="element_<?php echo $f['id']?>">
+	<tr class="facture<?php if ($f['paid'] == 0){echo " unpaid";}?>" id="element_<?php echo $f['id']?>">
 		<td>
 				<?php if ($f['paid'] == 0) { ?>
 					<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />

@@ -19,7 +19,7 @@ if (!isset($_GET['ajaxed'])) {
 	$myInterface->get_header();
 }
 ?>
-	<form method="post" action="requetes/insertSortie.php">
+	<form method="post" action="requetes/insertFactureEntrante.php">
 		<p>
 			<label>Date :</label>
 			<input type="text" class="w2em" id="date-1-dd" name="jour" value="<?php if(isset($date) && $date){echo $dateArray[2];}else{echo date("d");}?>" maxlength="2" size="2" />

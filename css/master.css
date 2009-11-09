@@ -130,6 +130,12 @@ th,td{
 tr.facture{
 	border-bottom:1px solid #CCC;
 }
+tr.unpaid {
+	background-color:#FFF3E6;
+}
+.facture img{
+/*	margin: 3px 8px 0 0;*/
+}
 
 /* */
 tr.titre_trimestre{
@@ -243,10 +249,6 @@ h3 a{
 	color:#666666;
 }
 
-.facture img{
-	margin: 3px 8px 0 0;
-}
-
 /* */
 .legende{
 	background:#BBB;
@@ -269,11 +271,11 @@ form {
 }
 form#listing {
 	background:#DDD;
-	margin-top:178px;
+	margin-top:177px;
 }
 form p.tools {
 	background-color:#DDDDDD;
-	border-bottom:2px solid #666666;
+	border-bottom:1px solid #666666;
 	height:20px;
 	position: fixed;
 	top:146px;

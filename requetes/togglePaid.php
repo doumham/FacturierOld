@@ -13,9 +13,9 @@ if($_GET['paid']=='0'){
 if (isset($_GET['ajaxed']) && !empty($_GET['ajaxed'])) {
 	if ($req) {
 		if ($_GET['paid']=='1') {
-			echo '{msg:"Facture marquée comme payée."}';
-		} else {
 			echo '{msg:"Facture marquée comme impayée."}';
+		} else {
+			echo '{msg:"Facture marquée comme payée."}';
 		}
 	} else {
 		echo '{msg:"Une erreur s’est produite."}';
