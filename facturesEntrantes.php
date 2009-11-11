@@ -47,7 +47,7 @@ include ('include/header.php');
 include ('include/menu_annees.php');
 include ('include/onglets.php');
 ?>
-<form id="listing" action="requetes/delete.php" method="post">
+<form id="listing" action="requetes/traitements.php" method="post">
 	<div class="contenu">
 <?php
 if ($annee != "all") {

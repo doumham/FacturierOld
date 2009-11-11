@@ -27,8 +27,7 @@ if($_GET['id']){
 <?php $myInterface->set_title("Ajouter un client"); ?>
 <?php $myInterface->get_header(); ?>
 	<div class="contenu">
-		<h3>Nouveau client</h3>
-		<form method="post" action="requetes/insertClient.php">
+		<form id="client" method="post" action="requetes/insertClient.php">
 			<p>
 				<label for="denomination">Dénomination : </label>
 				<input name="denomination" type="text" value="<?php echo htmlspecialchars($denomination)?>" id="denomination" />
@@ -43,43 +42,43 @@ if($_GET['id']){
 			</p>
 			<p>
 				<label for="adresse">Adresse : </label>
-				<input name="adresse" value="<?php echo $adresse?>" id="adresse" />
+				<input name="adresse" type="text" value="<?php echo $adresse?>" id="adresse" />
 			</p>
 			<p>
 				<label for="num">Numéro : </label>
-				<input name="num" value="<?php echo $num?>" id="num" />
+				<input name="num" type="text" value="<?php echo $num?>" id="num" />
 			</p>
 			<p>
 				<label for="boite">Boîte : </label>
-				<input name="boite" value="<?php echo $boite?>" id="boite" />
+				<input name="boite" type="text" value="<?php echo $boite?>" id="boite" />
 			</p>
 			<p>
 				<label for="cp">Code Postal : </label>
-				<input name="cp" value="<?php echo $cp?>" id="cp" />
+				<input name="cp" type="text" value="<?php echo $cp?>" id="cp" />
 			</p>
 			<p>
 				<label for="localite">Localité : </label>
-				<input name="localite" value="<?php echo $localite?>" id="localite" />
+				<input name="localite" type="text" value="<?php echo $localite?>" id="localite" />
 			</p>
 			<p>
 				<label for="tel">Tel : </label>
-				<input name="tel" value="<?php echo $tel?>" id="tel" />
+				<input name="tel" type="text" value="<?php echo $tel?>" id="tel" />
 			</p>
 			<p>
 				<label for="email">Email : </label>
-				<input name="email" value="<?php echo $email?>" id="email" />
+				<input name="email" type="text" value="<?php echo $email?>" id="email" />
 			</p>
 			<p>
 				<label for="site">Site : </label>
-				<input name="site" value="<?php echo $site?>" id="site" />
+				<input name="site" type="text" value="<?php echo $site?>" id="site" />
 			</p>
 			<p>
 				<label for="tva">TVA : </label>
-				<input name="tva" value="<?php echo $tva?>" id="tva" />
+				<input name="tva" type="text" value="<?php echo $tva?>" id="tva" />
 			</p>
 			<p>
 				<label for="validation">Validation : </label>
-				<input type="submit" value="Envoyer" id="validation" />
+				<input type="submit" type="text" value="Envoyer" id="validation" />
 			</p>
 			<input name="id" type="hidden" value="<?php echo $id?>" />			
 		</form>

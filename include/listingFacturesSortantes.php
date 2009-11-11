@@ -49,7 +49,7 @@ if($annee && $annee != "all"){
 $selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` LEFT JOIN `clients` ON `facturesSortantes`.`id_client`=`clients`.`id_client` ".$req." ORDER BY ".$req2." `date`, `numero`") or trigger_error(mysql_error(),E_USER_ERROR);
 $nombreFacturesSortantes = mysql_num_rows($selectFacturesSortantes);
 ?>
-	<form id="listing" action="requetes/delete.php" method="post">
+	<form id="listing" action="requetes/traitements.php" method="post">
 		<input type="hidden" name="annee" value="<?php echo $annee ?>" id="annee" />
 		<input type="hidden" name="ordre" value="<?php echo $ordre ?>" id="ordre" />
 		<div class="contenu">
@@ -228,7 +228,7 @@ $ta_tvac = 0;
 	<div class="contenu">
 		<table>
 			<tr class="tot_general">
-				<th style="width:66%" colspan="5">Total général</th>
+				<th style="width:66%" colspan="5">Total de toutes les années</th>
 				<th class="aR"><?php echo number_format($tg_htva, 2, ',', ' ')?> €</th>
 				<th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
 				<th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 

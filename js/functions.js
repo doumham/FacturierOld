@@ -1,11 +1,10 @@
 var urlFormDialog;
 var annee;
 var ordre;
+var elementsATraiter;
 
 function initialize(section){
-	// makeSortable(section);
 	initForms(section);
-	// initCheckboxes(section);
 }
 
 function reloadSection(section){
@@ -22,7 +21,7 @@ function initForms(section){
 		.prepend('<input type="hidden" name="ajaxed" value="1" />')
 		.ajaxForm({
 			// resetForm: true,
-			sectionName: section,
+			// sectionName: section,
 			dataType: "json",
 			beforeSubmit: ajaxShowRequest,
 			success: ajaxShowResponse,
@@ -54,10 +53,7 @@ function ajaxShowRequest(formData, jqForm, options){
 }
 
 function ajaxShowResponse(data, statusText){
-	//console.log(data.name.fr);
-	//elementsATraiter.slideUp();
 	reloadSection("Liste");
-	// $("#id_element").val(data.id);
 	$.jGrowl(data.msg);
 }
 
@@ -71,7 +67,7 @@ function ajaxShowResponseFormDialog(data, statusText){
 }
 
 function javascriptError(data, statusText){
-	$.jGrowl("Erreur Javascript, veuillez recharger la page.");
+	$.jGrowl("Erreur, veuillez recharger la page.");
 	console.log(statusText);
 	console.log(data);
 }
@@ -98,10 +94,6 @@ $(document).ready(function() {
 		},
 		open: function(event, ui){
 			$(this).load(urlFormDialog, function(){
-				// if(laSection != "Pages"){
-				// 	$(this).children('form').wrap('<div id="'+laSection+'"></div>');
-				// 	initialize(laSection);
-				// }
 				$(this).children('form')
 				.prepend('<input type="hidden" name="ajaxed" value="1" />')
 				.ajaxForm({
@@ -133,6 +125,11 @@ $(document).ready(function() {
 			},
 			error: javascriptError
 		});
+		return false;
+	});
+
+	$('#boutonSupprimer').live('click',function(){
+		elementsATraiter = $('#'+section+' input[type="checkbox"]:checked').parent();
 		return false;
 	});
 

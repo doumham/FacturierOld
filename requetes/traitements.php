@@ -12,12 +12,14 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 				mysql_query("DELETE FROM `".$_POST['table']."` WHERE `id`=$id") or die(mysql_error());
 			}
 		}
+		if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
+			echo '{msg:"Élément supprimé."}';
+		}
 	} else {
 		echo "Aucun élément sélectionné.";
 	}
 	$_POST["selectionElements"] = array();
 	$nombreElements = 0;
-  // echo json_encode($monCalendrier);
 }
 switch ($_POST['table']) {
 	case 'facturesEntrantes':

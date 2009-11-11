@@ -18,7 +18,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 <?php $myInterface->get_header(); ?>
 <?php include('include/header.php');?>
 		<div class="contenu">
-		<form action="requetes/delete.php" method="post">
+		<form action="requetes/traitements.php" method="post">
 			<p class="tools" style="position:relative; margin-top:70px; top:0px; width:auto">
 				<input type="submit" value="Ajouter un client" id="boutonAjouter" name="boutonAjouter" />
 				<input type="submit" value="Supprimer les clients sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
