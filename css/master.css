@@ -166,6 +166,9 @@ input[type="checkbox"] {
 .modifier {
 	background-image:url('../images/icn-edit.png');
 }
+.nouvelleFacture {
+	background-image:url('../images/icn-add.png');
+}
 
 /* */
 tr.titre_trimestre{
