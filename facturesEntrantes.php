@@ -108,13 +108,13 @@ foreach ($facture as $key_annee => $value1) {
           <th colspan="8">Trimestre <?php echo $key_trimestre ?></th>
         </tr>
 <?php }?>
-  <tr <?php if ($f['deductibilite']==0){echo "style='background-image:url(images/fond_li_unpaid.png)'";}?> class="facture" id="element_<?php echo $f['id']?>">
+  <tr <?php if ($f['deductibilite']==0){echo "style='background:#ffe'";}?> class="facture" id="element_<?php echo $f['id']?>">
     <td>
       <?php //if ($f['paid'] == 0) { ?>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
       <?php //} ?>
-      <a class="boutonModifier" href="formFacturesEntrantes.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
-        <img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>
+      <a class="bouton modifier" href="formFacturesEntrantes.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
+        Modifier
       </a> 
     </td>
     <td><?php echo strftime("%d/%m/%Y",strtotime($f['date']))?></td>

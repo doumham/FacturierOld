@@ -155,7 +155,7 @@ input[type="checkbox"] {
 	background-position:0 0;
 }	
 .bouton:active {
-	background-position:0 -28px;
+	background-position:0 -14px;
 }	
 .paye {
 	background-image:url('../images/money.png');
