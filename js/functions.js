@@ -115,7 +115,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('.boutonPaye').live('click',function(){
+	$('.bouton.paye').live('click',function(){
 		var payeInputHidden = $(this).parent().children("input[name='paye[]']");
 		var paidValue = payeInputHidden.val();
 		var id = $(this).parent().children("input[type='checkbox']").val();
@@ -152,7 +152,7 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	$('.boutonModifier').live('click',function(){
+	$('.bouton.modifier').live('click',function(){
 		// laSection = "Pages";
 		urlFormDialog = $(this).attr('href')+"&ajaxed=1";
 		$('#dialog').data('title.dialog', 'Modifier la facture'); 

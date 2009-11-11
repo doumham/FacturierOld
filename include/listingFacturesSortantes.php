@@ -5,13 +5,13 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 	include ('../classes/interface.class.php');
 	$myInterface = new interface_();
 	$tt_htva = 0;
-	$tt_tva  = 0;
+	$tt_tva	= 0;
 	$tt_tvac = 0;
 	$ta_htva = 0;
-	$ta_tva  = 0;
+	$ta_tva	= 0;
 	$ta_tvac = 0;
 	$tg_htva = 0;
-	$tg_tva  = 0;
+	$tg_tva	= 0;
 	$tg_tvac = 0;
 	$count_facture = 0;
 	$ordre = '';
@@ -31,19 +31,19 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 	$select_annees = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` ASC") or trigger_error(mysql_error(),E_USER_ERROR);
 	$une_annee_old = "";
 	while ($ann = mysql_fetch_array($select_annees)) {
-	  $une_annee = substr($ann['date'],0,4);
-	  if ($une_annee != $une_annee_old) {
-	    $les_annees[] = $une_annee;
-	  }
-	  $une_annee_old = $une_annee;
+		$une_annee = substr($ann['date'],0,4);
+		if ($une_annee != $une_annee_old) {
+			$les_annees[] = $une_annee;
+		}
+		$une_annee_old = $une_annee;
 	}
 
 }
 
 if($annee && $annee != "all"){
-  $date1 = $annee."-00-00";
-  $date2 = $annee+1;
-  $date2 = $date2."-00-00";
+	$date1 = $annee."-00-00";
+	$date2 = $annee+1;
+	$date2 = $date2."-00-00";
 	$req = "WHERE date>'$date1' AND date<'$date2'";
 }
 $selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` LEFT JOIN `clients` ON `facturesSortantes`.`id_client`=`clients`.`id_client` ".$req." ORDER BY ".$req2." `date`, `numero`") or trigger_error(mysql_error(),E_USER_ERROR);
@@ -125,19 +125,19 @@ foreach ($facture as $key_annee => $value1) {
 <?php }?>
 	<tr class="facture<?php if ($f['paid'] == 0){echo " unpaid";}?>" id="element_<?php echo $f['id']?>">
 		<td>
-				<?php if ($f['paid'] == 0) { ?>
-					<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
-				<?php } else { ?>
-					<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" disabled="disabled" />
-				<?php } ?>
-			<a class="boutonModifier" href="formFacturesSortantes.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
-				<img id="icn_edit_<?php echo $f['id']?>" src="images/icn-edit.png" alt="Modifier"/>
+<?php if ($f['paid'] == 0) { ?>
+			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" />
+<?php } else { ?>
+			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>" disabled="disabled" />
+<?php } ?>
+			<a class="bouton modifier" href="formFacturesSortantes.php?annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
+				Modifier
 			</a> 
-			<a href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer">
-				<img src="images/print.png" alt="Imprimer"/>
+			<a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer">
+				Imprimer
 			</a>
-			<a class="boutonPaye" id="paid_<?php echo $f['id']?>" href="requetes/togglePaid.php?id=<?php echo $f['id'] ?>&amp;annee=<?php echo $annee ?>&amp;paid=<?php echo $f['paid'] ?>&amp;ordre=<?php echo $ordre ?>" title="<?php if ($f['paid'] == 0) {echo "Marquer comme payée";}else{echo "Marquer comme impayée";} ?>">
-				<img src="images/money.png" alt="paid"/>
+			<a class="bouton paye" id="paid_<?php echo $f['id']?>" href="requetes/togglePaid.php?id=<?php echo $f['id'] ?>&amp;annee=<?php echo $annee ?>&amp;paid=<?php echo $f['paid'] ?>&amp;ordre=<?php echo $ordre ?>" title="<?php if ($f['paid'] == 0) {echo "Marquer comme payée";}else{echo "Marquer comme impayée";} ?>">
+				Payée/Impayée
 			</a>
 			<input type="hidden" value="<?php echo $f['paid'] ?>" name="paye[]"/>
 		</td>

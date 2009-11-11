@@ -8,6 +8,7 @@ body{
 	padding:0;
 	margin:0;
 	min-width:965px;
+	line-height:18px;
 }
 a img{
 	border: none;
@@ -133,8 +134,37 @@ tr.facture{
 tr.unpaid {
 	background-color:#FFF3E6;
 }
-.facture img{
-/*	margin: 3px 8px 0 0;*/
+
+/* Buttons */
+input[type="checkbox"] {
+	float:left;
+	margin:0 10px 0 0;
+}
+.bouton {
+	margin:0 3px 0 0;
+	width:14px;
+	height:14px;
+	display:block;
+	float:left;
+	font-size:0px;
+	text-indent:-100px;
+	color:#5F5F5F;
+	background:0 -28px no-repeat;
+}
+.bouton:hover {
+	background-position:0 0;
+}	
+.bouton:active {
+	background-position:0 -28px;
+}	
+.paye {
+	background-image:url('../images/money.png');
+}
+.imprimer {
+	background-image:url('../images/print.png');
+}
+.modifier {
+	background-image:url('../images/icn-edit.png');
 }
 
 /* */
@@ -142,7 +172,6 @@ tr.titre_trimestre{
 	border-bottom:none;
 }
 tr.titre_trimestre th{
-	height:19px;
 	background:#ccc;
 	color:#fff;
 	text-align:center;
@@ -150,16 +179,9 @@ tr.titre_trimestre th{
 }
 
 /* */
-tr.tot_trimestre{
-	height: 19px;
-}
 tr.tot_trimestre, tr.tot_annee{
 	background: #f3f3f3;
 	color: #666;
-	line-height: 16px;
-}
-tr.tot_trimestre th, tr.tot_annee th{
-	padding-bottom:3px;
 }
 tr.tot_trimestre th{
 	font-weight:normal;
@@ -177,7 +199,6 @@ tr.tot_annee, tr.tot_general{
 tr.tot_annee th, tr.tot_general th{
 	padding-bottom:0;
 	padding-top:0px;
-	height: 28px;
 	background: #555;
 }
 tr.tot_annee th{
@@ -194,7 +215,6 @@ h3{
 	clear:both;
 	font-size:14px;
 	font-weight:bold;
-	line-height:22px;
 	margin:0;
 	padding-left:10px;
 	text-align:center;
@@ -255,8 +275,6 @@ h3 a{
 	border-top:1px solid #888888;
 	color:#333333;
 	font-size:11px;
-	height:18px;
-	line-height:16px;
 }
 .legende a{
 	text-decoration: none;
@@ -289,7 +307,6 @@ form p.tools input{
 }
 label, textarea, input, select {
 	font-family: Arial, Helvetica, Verdana, sans-serif;
-	line-height:20px;
 }
 textarea {
 	width:355px;
