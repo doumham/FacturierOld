@@ -109,7 +109,6 @@ table{
 }
 tr{
 	border-top: none;
-	border-bottom: 1px solid #CCC;
 }
 table a{
 	color: #333;
@@ -178,7 +177,6 @@ tr.titre_trimestre th{
 	background:#ccc;
 	color:#fff;
 	text-align:center;
-	border-top:1px solid #999;
 }
 
 /* */
@@ -228,7 +226,6 @@ h3 a{
 }
 #liste_annees{
 	background:#AAAAAA none repeat scroll 0 0;
-	border-top:1px solid #999999;
 	clear:both;
 	font-family:verdana,sans-serif;
 	font-size:12px;
@@ -245,7 +242,7 @@ h3 a{
 }
 #liste_annees li a{
 	background:#AAAAAA;
-	border-right:1px solid #888888;
+	border-right:1px solid #999;
 	color:#DDDDDD;
 	display:block;
 	font-weight:bold;
@@ -261,7 +258,7 @@ h3 a{
   width:20px;
 }
 #liste_annees li#recule a{
-  border-left:1px solid #888888;
+  border-left:1px solid #999;
 }
 #liste_annees li a:hover{
   background:#FFF;
@@ -275,7 +272,6 @@ h3 a{
 /* */
 .legende{
 	background:#BBB;
-	border-top:1px solid #888888;
 	color:#333333;
 	font-size:11px;
 }
@@ -296,8 +292,7 @@ form#listing {
 }
 form p.tools {
 	background-color:#DDDDDD;
-	border-bottom:1px solid #666666;
-	height:20px;
+	height:21px;
 	position: fixed;
 	top:146px;
 	width:100%;
