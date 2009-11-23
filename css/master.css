@@ -62,20 +62,20 @@ h1 a{
 	font-family:verdana,arial,helvetica,sans-serif;
 	font-size:11px;
 	font-weight:bold;
-	height:35px;
+	height:36px;
 	line-height:25px;
 	list-style-type:none;
 	padding-left:30px;
 	padding-top:15px;
 	position:fixed;
 	text-transform:uppercase;
-	top:96px;
+	top:95px;
 	width:100%;
 }
 #onglets li{
 	float:left;
 	margin-right:10px;
-	padding-top:10px;
+	padding-top:11px;
 }
 #onglets a{
 	background:#EEEEEE none repeat scroll 0 0;
@@ -92,7 +92,7 @@ h1 a{
 	color:#DDD;
 }
 #onglets .actif {
-	padding-top:3px;
+	padding-top:4px;
 	line-height:32px;
 	font-size:12px;
 }
@@ -212,7 +212,7 @@ tr.tot_annee th.aR{
 
 /* */
 h3{
-	background:#AAA;
+	background:#999;
 	clear:both;
 	font-size:14px;
 	font-weight:bold;
