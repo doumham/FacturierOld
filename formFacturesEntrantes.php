@@ -22,9 +22,9 @@ if (!isset($_GET['ajaxed'])) {
 	<form method="post" action="requetes/insertFactureEntrante.php">
 		<p>
 			<label>Date :</label>
-			<input type="text" class="w2em" id="date-1-dd" name="jour" value="<?php if(isset($date) && $date){echo $dateArray[2];}else{echo date("d");}?>" maxlength="2" size="2" />
-			<input type="text" class="w2em" id="date-1-mm" name="mois" value="<?php if(isset($date) && $date){echo $dateArray[1];}else{echo date("m");}?>" maxlength="2" size="2" />
-			<input type="text" class="w4em split-date" id="date-1" name="lannee" value="<?php if(isset($date) && $date){echo $dateArray[0];}else{echo date("Y");}?>" maxlength="4" size="5" />
+			<input type="number" name="jour" value="<?php if(isset($date) && $date){echo $dateArray[2];}else{echo date("d");}?>" maxlength="2" size="2" />
+			<input type="number" name="mois" value="<?php if(isset($date) && $date){echo $dateArray[1];}else{echo date("m");}?>" maxlength="2" size="2" />
+			<input type="number" name="lannee" value="<?php if(isset($date) && $date){echo $dateArray[0];}else{echo date("Y");}?>" maxlength="4" size="4" />
 		</p>
 		<p>
 			<label for="objet">Objet : </label>

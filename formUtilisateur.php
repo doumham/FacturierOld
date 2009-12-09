@@ -63,11 +63,11 @@ include ('include/header.php');
 			</p>
 			<p>
 				<label for="email">Email : </label>
-				<input id="email" name="email" type="text" value="<?php echo $email?>" />
+				<input id="email" name="email" type="email" value="<?php echo $email?>" />
 			</p>
 			<p>
 				<label for="site">Site web : </label>
-				<input id="site" name="site" type="text" value="<?php echo $site?>" />
+				<input id="site" name="site" type="url" value="<?php echo $site?>" />
 			</p>
 			<p>
 				<label for="tva">Numéro d'entreprise : </label>

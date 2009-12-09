@@ -66,7 +66,7 @@ if($_GET['id']){
 			</p>
 			<p>
 				<label for="email">Email : </label>
-				<input name="email" type="text" value="<?php echo $email?>" id="email" />
+				<input name="email" type="email" value="<?php echo $email?>" id="email" />
 			</p>
 			<p>
 				<label for="site">Site : </label>
