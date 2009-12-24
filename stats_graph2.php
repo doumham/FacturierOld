@@ -2,40 +2,40 @@
 mb_internal_encoding("UTF-8");
 header('Content-Type: image/svg+xml');
 echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?>';
-$x_pos=explode(",",$_GET['x_pos']);
-$lannee=explode(",",$_GET['lannee']);
-$trimestre=explode(",",$_GET['trimestre']);
-$chiffres_in_tmp=explode(",",$_GET['chiffres_in']);
-$chiffres_out_tmp=explode(",",$_GET['chiffres_out']);
-$hauteur=$_GET['hauteur'];
+$x_pos = explode(",",$_GET['x_pos']);
+$lannee = explode(",",$_GET['lannee']);
+$trimestre = explode(",",$_GET['trimestre']);
+$chiffres_in_tmp = explode(",",$_GET['chiffres_in']);
+$chiffres_out_tmp = explode(",",$_GET['chiffres_out']);
+$hauteur = $_GET['hauteur'];
 foreach ($chiffres_in_tmp as $value) {
-  $total_in+=$value;
-  $chiffres_in[]=$total_in;
+  $total_in += $value;
+  $chiffres_in[] = $total_in;
 }
 foreach ($chiffres_in as $value) {
-  $y_pos[]=$hauteur-($value*$hauteur/$total_in);
+  $y_pos[] = $hauteur-($value*$hauteur/$total_in);
 }
 foreach ($chiffres_out_tmp as $value_d) {
-  $total_out+=$value_d;
-  $chiffres_out[]=$total_out;
+  $total_out += $value_d;
+  $chiffres_out[] = $total_out;
 }
 foreach ($chiffres_out as $value_d) {
-  $y_pos_d[]=$hauteur-($value_d*$hauteur/$total_in);
+  $y_pos_d[] = $hauteur-($value_d*$hauteur/$total_in);
 }
 for ($i=0; $i < count($chiffres_in); $i++) { 
-  $y_pos_in_out[]=$hauteur-( ($chiffres_in[$i]-$chiffres_out[$i])*$hauteur/$total_in );
-  $chiffres_in_out[]=$chiffres_in[$i]-$chiffres_out[$i];
+  $y_pos_in_out[] = $hauteur-( ($chiffres_in[$i]-$chiffres_out[$i])*$hauteur/$total_in );
+  $chiffres_in_out[] = $chiffres_in[$i]-$chiffres_out[$i];
 }
 function taille_de_vignette($string){
-  $taille=mb_strlen($string);
+  $taille = mb_strlen($string);
   echo $taille*5.5+5;
 }
 ?>
 <svg width="900px" height="<?php echo $hauteur+40 ?>px" version="1.0" xmlns="http://www.w3.org/2000/svg">
   <g stroke="grey">
-    <?php $rapport=$hauteur/$total_in ?>
+    <?php $rapport = $hauteur/$total_in ?>
 <!--  lignes horizontales  -->
-<?php $graduations=0; ?>
+<?php $graduations = 0; ?>
         <?php for ($i=$hauteur; $i >= -40 ; $i=$i-$rapport*5000) {?>
       <line x1="0" y1="<?php echo $i+20 ?>" x2="900" y2="<?php echo $i+20 ?>" stroke-width=".2" />       
       <text fill="#ccc" transform="translate(5,<?php echo $i+17 ?>)" stroke="none" font-size="10" font-family="Verdana" ><?php echo $graduations ?></text>

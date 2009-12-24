@@ -2,18 +2,18 @@
 mb_internal_encoding("UTF-8");
 header('Content-Type: image/svg+xml');
 echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?>';
-$x_pos=explode(",",$_GET['x_pos']);
-$lannee=explode(",",$_GET['lannee']);
-$trimestre=explode(",",$_GET['trimestre']);
-$chiffres_in=explode(",",$_GET['chiffres_in']);
-$chiffres_out=explode(",",$_GET['chiffres_out']);
-$max=$_GET['max'];
-$hauteur=$_GET['hauteur'];
+$x_pos = explode(",",$_GET['x_pos']);
+$lannee = explode(",",$_GET['lannee']);
+$trimestre = explode(",",$_GET['trimestre']);
+$chiffres_in = explode(",",$_GET['chiffres_in']);
+$chiffres_out = explode(",",$_GET['chiffres_out']);
+$max = $_GET['max'];
+$hauteur = $_GET['hauteur'];
 foreach ($chiffres_in as $value) {
-  $y_pos[]=$hauteur-($value*$hauteur/$max);
+  $y_pos[] = $hauteur-($value*$hauteur/$max);
 }
 foreach ($chiffres_out as $value) {
-  $y_pos_d[]=$hauteur-($value*$hauteur/$max);
+  $y_pos_d[] = $hauteur-($value*$hauteur/$max);
 }
 for ($i=0; $i < count($chiffres_in); $i++) { 
   $y_pos_in_out[]=$hauteur-( ($chiffres_in[$i]-$chiffres_out[$i])*$hauteur/$max );

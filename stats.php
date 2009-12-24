@@ -13,25 +13,19 @@ $myInterface = new interface_();
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{
-	$annee = date("Y");
+	$annee = date("all");
 }
 if($annee && $annee!="all"){
 	$req=" AND annee='$annee'";
 }
-$select_trimestres=mysql_query("
-	SELECT * FROM trimestres WHERE type=1".$req." ORDER BY annee, trimestre
-	") or trigger_error(mysql_error(),E_USER_ERROR);
-$select_trimestres_d=mysql_query("
-	SELECT * FROM trimestres WHERE type=2".$req." ORDER BY annee, trimestre
-	") or trigger_error(mysql_error(),E_USER_ERROR);
-$select_max=mysql_query("
-	SELECT montant_htva FROM trimestres ORDER BY montant_htva DESC LIMIT 1
-	") or trigger_error(mysql_error(),E_USER_ERROR);
-$max=mysql_fetch_array($select_max);
-$max=$max['montant_htva'];
-$nombre_trimestres=mysql_num_rows($select_trimestres);
-if($nombre_trimestres>0){
-  if($nombre_trimestres>1){
+$select_trimestres = mysql_query("SELECT * FROM trimestres WHERE type='sortantes'".$req." ORDER BY `annee`, `trimestre`") or trigger_error(mysql_error(),E_USER_ERROR);
+$select_trimestres_d = mysql_query("SELECT * FROM trimestres WHERE type='entrantes'".$req." ORDER BY `annee`, `trimestre`") or trigger_error(mysql_error(),E_USER_ERROR);
+$select_max = mysql_query("SELECT montant_htva FROM trimestres ORDER BY montant_htva DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
+$max = mysql_fetch_array($select_max);
+$max = $max['montant_htva'];
+$nombre_trimestres = mysql_num_rows($select_trimestres);
+if($nombre_trimestres > 0){
+  if($nombre_trimestres > 1){
     $larg = floor(830/($nombre_trimestres-1));
   }else{
     $larg = 830;

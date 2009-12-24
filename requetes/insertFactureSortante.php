@@ -19,6 +19,6 @@ if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
 		echo '{msg:"Une erreur s’est produite."}';
 	}
 }else{
-	header("location:../facturesSortantes.php?annee=$lannee&ordre=$ordre");
+	header("location:../factures.php?type=sortantes&annee=$lannee");
 }
 ?>

@@ -308,7 +308,7 @@ label, textarea, input, select {
 }
 textarea {
 	width:355px;
-	height:220px;
+	height:100px;
 }
 label{
 	display: block;

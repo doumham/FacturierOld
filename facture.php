@@ -6,22 +6,21 @@ $selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error
 $utilisateur = mysql_fetch_array($selectUtilisateur);
 if($_GET['id']){
 	$id=$_GET['id'];
-	$selectFacturesSortantes=mysql_query("
-		SELECT * FROM facturesSortantes LEFT JOIN clients ON facturesSortantes.id_client=clients.id_client WHERE id='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
+	$selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` LEFT JOIN `clients` ON `facturesSortantes`.`id_client`=`clients`.`id_client` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
 }else{
-	header("location:facturesSortantes.php");
+	header("location:factures.php?type=sortantes&annee=".$annee);
 }
 $f = mysql_fetch_array($selectFacturesSortantes);
 extract($f);
-$selectClients=mysql_query("SELECT * FROM clients") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectClients = mysql_query("SELECT * FROM clients") or trigger_error(mysql_error(),E_USER_ERROR);
 if($tva){
-	$tva="TVA : ".$tva;
+	$tva = "TVA : ".$tva;
 }
-if($_GET['print']==true){
-	$printing=" onload=\"window.print();document.location.href='facturesSortantes.php?annee=".$_GET['annee']."';\"";
+if($_GET['print'] == true){
+	$printing = " onload=\"window.print();document.location.href='factures.php?type=sortantes&amp;annee=".$_GET['annee']."';\"";
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

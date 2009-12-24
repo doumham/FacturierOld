@@ -13,22 +13,30 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 			}
 		}
 		if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
-			echo '{msg:"Élément supprimé."}';
+			if (count($_POST["selectionElements"]) == 1) {
+				echo '{msg:"1 élément supprimé."}';
+			} else {
+				echo '{msg:"'.count($_POST["selectionElements"]).' éléments supprimés."}';
+			}
+			exit();
 		}
 	} else {
-		echo "Aucun élément sélectionné.";
+		if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
+			echo '{msg:"Aucun élément sélectionné."}';
+			exit();
+		}
 	}
 	$_POST["selectionElements"] = array();
 	$nombreElements = 0;
 }
 switch ($_POST['table']) {
 	case 'facturesEntrantes':
-		$redirectPage = 'facturesEntrantes.php';
+		$redirectPage = 'factures.php?type=entrantes';
 		$redirectNewFacture = 'formFacturesEntrantes.php';
 		break;
 	
 	case 'facturesSortantes':
-		$redirectPage = 'facturesSortantes.php';
+		$redirectPage = 'factures.php?type=sortantes';
 		$redirectNewFacture = 'formFacturesSortantes.php';
 		break;
 	
@@ -46,6 +54,10 @@ if (isset($_POST['boutonAjouter']) && $_POST['boutonAjouter']) {
 	} else {
 		$annee = "";
 	}
-	header('location:../'.$redirectPage.'?annee='.$annee);
+	if ($redirectPage == 'clients.php') {
+		header('location:../'.$redirectPage);
+	} else {
+		header('location:../'.$redirectPage.'&annee='.$annee);
+	}
 }
 ?>

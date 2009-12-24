@@ -2,6 +2,11 @@
 include ('acces/cle.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
+if($_GET['type']){
+	$type = $_GET['type'];
+} else {
+	$type = "sortantes";
+}
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{

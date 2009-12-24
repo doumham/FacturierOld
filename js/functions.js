@@ -1,4 +1,5 @@
 var urlFormDialog;
+var type;
 var annee;
 var ordre;
 var elementsATraiter;
@@ -9,7 +10,7 @@ function initialize(section){
 
 function reloadSection(section){
 	if ($('#'+section).length) {
-	$('#'+section).load('include/listingFacturesSortantes.php?ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
+	$('#'+section).load('include/listingFactures.php?type='+type+'&ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
 			initialize(section);
 		});
 	};
@@ -31,20 +32,19 @@ function initForms(section){
 }
 
 function ajaxShowRequest(formData, jqForm, options){
+	elementsATraiter = $('input[type="checkbox"]:checked').parent();
 	var nombreElementsSelectionnes = elementsATraiter.size();
 	if (nombreElementsSelectionnes > 0) {
-		if ($('#actionName').val() != "duplicate"){
-			if (nombreElementsSelectionnes == 1) {
-				var confirmation = confirm("Voulez-vous supprimer "+nombreElementsSelectionnes+" élément ?");
-			}else{
-				var confirmation = confirm("Voulez-vous supprimer "+nombreElementsSelectionnes+" éléments ?");
-			}
-			if (confirmation) {
-				$('#'+options.sectionName+' input[type="submit"],input[type="button"]').attr('disabled','disabled');
-				$('#'+options.sectionName+' input[type="submit"]').parent().append('<img id="signalLoading" style="position:absolute;margin:3px 0 0 5px;" src="../images_admin/icn-loading.gif" />');
-			} else {
-				return false;
-			}
+		if (nombreElementsSelectionnes == 1) {
+			var confirmation = confirm("Voulez-vous supprimer "+nombreElementsSelectionnes+" élément ?");
+		}else{
+			var confirmation = confirm("Voulez-vous supprimer "+nombreElementsSelectionnes+" éléments ?");
+		}
+		if (confirmation) {
+			$('#'+options.sectionName+' input[type="submit"],input[type="button"]').attr('disabled','disabled');
+			$('#'+options.sectionName+' input[type="submit"]').parent().append('<img id="signalLoading" style="position:absolute;margin:3px 0 0 5px;" src="../images_admin/icn-loading.gif" />');
+		} else {
+			return false;
 		}
 	} else {
 		$.jGrowl('Aucun élément sélectionné.');
@@ -74,6 +74,7 @@ function javascriptError(data, statusText){
 
 $(document).ready(function() {
 
+	type = $('#type').val();
 	annee = $('#annee').val();
 	ordre = $('#ordre').val();
 	initialize("Liste");
@@ -128,10 +129,10 @@ $(document).ready(function() {
 		return false;
 	});
 
-	$('#boutonSupprimer').live('click',function(){
-		elementsATraiter = $('#'+section+' input[type="checkbox"]:checked').parent();
-		return false;
-	});
+	// $('#boutonSupprimer').live('click',function(){
+	// 	elementsATraiter = $('input[type="checkbox"]:checked').parent();
+	// 	return false;
+	// });
 
 	$('#boutonAjouterFactureSortante').live('click',function(){
 		// laSection = "Pages";
@@ -152,6 +153,7 @@ $(document).ready(function() {
 	$('.bouton.modifier').live('click',function(){
 		// laSection = "Pages";
 		urlFormDialog = $(this).attr('href')+"&ajaxed=1";
+		// console.log(urlFormDialog);
 		$('#dialog').data('title.dialog', 'Modifier la facture'); 
 		$('#dialog').dialog('open');
 		return false;

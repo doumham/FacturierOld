@@ -1,4 +1,15 @@
 <?php
+if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
+	$type = "entrantes";
+	$table = "facturesEntrantes";
+	$form = "formFacturesEntrantes";
+	$idBouton = "boutonAjouterFactureEntrante";
+} else {
+	$type = "sortantes";
+	$table = "facturesSortantes";
+	$form = "formFacturesSortantes";
+	$idBouton = "boutonAjouterFactureSortante";
+}
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
 include ('classes/interface.class.php');
@@ -27,7 +38,7 @@ if($_GET['annee']){
 }
 if($_GET['ordre']){ // classement par client : ordre="clients". Par date : ordre n'existe pas
 	$ordre = $_GET['ordre'];
-	$req2 = "facturesSortantes.id_client,";
+	$req2 = $table.".id_client,";
 }
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
@@ -36,7 +47,7 @@ include_once ('include/menu_annees.php');
 include_once ('include/onglets.php');
 ?>
 <div id="Liste">
-<?php include_once ("include/listingFacturesSortantes.php"); ?>
+<?php include_once ("include/listingFactures.php"); ?>
 </div>
 <?php
 $myInterface->get_footer();

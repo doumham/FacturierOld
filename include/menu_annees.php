@@ -1,4 +1,9 @@
 <?php
+if (isset($type) && !empty($type)) {
+	$paramGetType = 'type='.$type.'&amp;';
+} else {
+	$paramGetType = '';
+}
 $select_annees = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` ASC") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
 <?php
@@ -14,20 +19,20 @@ while ($ann = mysql_fetch_array($select_annees)) {
         <ul id="liste_annees">
           <li id="recule">
 <?php if($annee>$les_annees[0] && $annee!="all"){?>
-            <a href="?annee=<?php echo $annee-1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee-1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
 <?php }else if($annee=="all"){?>
-            <a href="?annee=<?php echo $les_annees[count($les_annees)-1];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[count($les_annees)-1];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
 <?php }else{?>
-            <a href="?annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
 <?php } ?>
           </li>
           <li id="avance">
 <?php if($annee<$les_annees[count($les_annees)-1] && $annee!="all"){?>
-            <a href="?annee=<?php echo $annee+1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee+1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
 <?php }else if($annee=="all"){?>
-            <a href="?annee=<?php echo $les_annees[0];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[0];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
 <?php }else{?>
-            <a href="?annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
 <?php } ?>
           </li>
 <?php
@@ -37,7 +42,7 @@ if ($annee == "all"){
   $actif = "";
 }
 ?>
-          <li><a <?php echo $actif; ?>href="?annee=all">Toutes</a></li>
+          <li><a <?php echo $actif; ?>href="?<?php echo $paramGetType ?>annee=all">Toutes</a></li>
 <?php foreach ($les_annees as $key) {?>
 <?php
 if ($key == $annee){
@@ -46,7 +51,7 @@ if ($key == $annee){
   $actif = "";
 }
 ?>
-          <li><a <?php echo $actif; ?>href="?annee=<?php echo "$key" ?><?php if ($ordre): echo "&ordre=".$ordre;endif ?>"><?php echo $key;?></a></li>
+          <li><a <?php echo $actif; ?>href="?<?php echo $paramGetType ?>annee=<?php echo "$key" ?><?php if ($ordre): echo "&ordre=".$ordre;endif ?>"><?php echo $key;?></a></li>
 <?php }
 ?>
         </ul>

@@ -6,6 +6,9 @@ $myInterface = new interface_();
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }
+if($_GET['type']){
+	$type = $_GET['type'];
+}
 if($_GET['id']){
 	$id = $_GET['id'];
 	$selectFacturesEntrantes = mysql_query("SELECT * FROM `facturesEntrantes` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
@@ -20,6 +23,9 @@ if (!isset($_GET['ajaxed'])) {
 }
 ?>
 	<form method="post" action="requetes/insertFactureEntrante.php">
+		<input name="id" type="hidden" value="<?php if(isset($id)){echo $id;}?>" />			
+		<input name="type" type="hidden" value="<?php if(isset($type)){echo $type;}?>" />			
+		<input name="annee" type="hidden" value="<?php if(isset($annee)){echo $annee;}?>" />			
 		<p>
 			<label>Date :</label>
 			<input type="number" name="jour" value="<?php if(isset($date) && $date){echo $dateArray[2];}else{echo date("d");}?>" maxlength="2" size="2" />
@@ -27,13 +33,18 @@ if (!isset($_GET['ajaxed'])) {
 			<input type="number" name="lannee" value="<?php if(isset($date) && $date){echo $dateArray[0];}else{echo date("Y");}?>" maxlength="4" size="4" />
 		</p>
 		<p>
+			<label for="denomination">Fournisseur : </label>
+			<input type="text" name="denomination" id="denomination" value="<?php if(isset($denomination))echo $denomination?>" autofocus="autofocus" />
+			 <!-- <div style="display: none;" id="laListe"></div> -->
+		</p>
+		<p>
 			<label for="objet">Objet : </label>
-			<textarea rows="10" cols="50" name="objet" id="objet"><?php if(isset($objet))echo $objet?></textarea>
+			<input type="text" name="objet" id="objet" value="<?php if(isset($objet))echo $objet?>" size="40" />
 			 <!-- <div style="display: none;" id="laListe"></div> -->
 		</p>
 		<p>
 			<label for="montant">Montant : </label>
-			<input type="text" name="montant" value="<?php if(isset($montant))echo $montant = strtr($montant, ".", ",");?>" id="montant" />			
+			<input type="text" name="montant" value="<?php if(isset($montant))echo $montant = strtr($montant, ".", ",");?>" id="montant" required="required" />			
 		</p>
 		<p>
 			<label>HTVA : </label>
@@ -53,7 +64,5 @@ if (!isset($_GET['ajaxed'])) {
 			<label for="validation">Validation : </label>
 			<input type="submit" value="Envoyer" id="validation" />
 		</p>
-		<input name="id" type="hidden" value="<?php if(isset($id))echo $id?>" />			
-		<input name="annee" type="hidden" value="<?php if(isset($annee))echo $annee?>" />			
 	</form>
 <?php $myInterface->get_footer(); ?>

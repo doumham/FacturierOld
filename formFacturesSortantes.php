@@ -8,6 +8,9 @@ $myInterface = new interface_();
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }
+if($_GET['type']){
+	$type = $_GET['type'];
+}
 if($_GET['id']){
 	$id = $_GET['id'];
 	$selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
@@ -35,6 +38,9 @@ if (!isset($_GET['ajaxed'])) {
 }
 ?>
 	<form method="post" action="requetes/insertFactureSortante.php">
+		<input name="id" type="hidden" value="<?php if(isset($id)){echo $id;}?>" />			
+		<input name="type" type="hidden" value="<?php if(isset($type)){echo $type;}?>" />			
+		<input name="annee" type="hidden" value="<?php if(isset($annee)){echo $annee;}?>" />			
 		<p>
 			<label for="numero">Numéro : </label>
 			<input name="numero" readonly="readonly" type="text" size="3" value="<?php echo $numero;?>" />
@@ -59,7 +65,7 @@ if (!isset($_GET['ajaxed'])) {
 		</p>
 		<p>
 			<label for="montant">Montant : </label>
-			<input name="montant" value="<?php if(isset($montant))echo $montant=strtr($montant, ".", ",");?>" id="montant" />			
+			<input name="montant" value="<?php if(isset($montant))echo $montant=strtr($montant, ".", ",");?>" id="montant" required="required" />			
 		</p>
 		<p>
 			<label for="pourcent_tva">TVA (%) : </label>
@@ -69,7 +75,5 @@ if (!isset($_GET['ajaxed'])) {
 			<label for="validation">Validation : </label>
 			<input type="submit" value="Envoyer" id="validation" />
 		</p>
-		<input name="id" type="hidden" value="<?php if(isset($id)){echo $id;}?>" />			
-		<input name="annee" type="hidden" value="<?php if(isset($annee)){echo $annee;}?>" />			
 	</form>
 <?php $myInterface->get_footer(); ?>

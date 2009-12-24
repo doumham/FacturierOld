@@ -4,4 +4,4 @@ How to install :
 – Install MySQL tables (facturier.sql)
 – Modify acces/cle.php according to your DB Info
 
-Launch facturesSortantes.php
+Load index.php in a browser

@@ -1,1 +1,1 @@
-<?php header("location:facturesSortantes.php") ?>
+<?php header("location:factures.php?type=sortantes") ?>

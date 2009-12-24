@@ -30,7 +30,7 @@ if($_GET['id']){
 		<form id="client" method="post" action="requetes/insertClient.php">
 			<p>
 				<label for="denomination">Dénomination : </label>
-				<input name="denomination" type="text" value="<?php echo htmlspecialchars($denomination)?>" id="denomination" />
+				<input name="denomination" type="text" value="<?php echo htmlspecialchars($denomination)?>" id="denomination" autofocus="autofocus" required="required" />
 			</p>
 			<p>
 				<label for="nom">Nom : </label>
