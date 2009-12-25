@@ -6,6 +6,8 @@ $selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error
 $utilisateur = mysql_fetch_array($selectUtilisateur);
 if (is_array($utilisateur)) {
 	extract($utilisateur);
+} else {
+	mysql_query("INSERT INTO `utilisateur` (`id`) VALUES (1)") or trigger_error(mysql_error(),E_USER_ERROR);
 }
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
