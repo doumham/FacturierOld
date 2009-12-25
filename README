@@ -1,7 +1,7 @@
 Installation
 ------------
 
-– First you need PHP 5.2 and a MySQL Database to use Facturier
+– First you need PHP 5.1 and a MySQL Database to use Facturier
 – Create a MySQL database
 – Install MySQL tables (facturier.sql)
 – Modify acces/cle.php according to your system
