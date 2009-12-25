@@ -1,15 +1,16 @@
 <?php
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
+include ('include/config.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
-if($_GET['annee']){
+if(isset($_GET['annee']) && $_GET['annee']){
 	$annee = $_GET['annee'];
 }
-if($_GET['type']){
+if(isset($_GET['type']) && $_GET['type']){
 	$type = $_GET['type'];
 }
-if($_GET['id']){
+if(isset($_GET['id']) && $_GET['id']){
 	$id = $_GET['id'];
 	$selectFacturesEntrantes = mysql_query("SELECT * FROM `facturesEntrantes` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
 	$d = mysql_fetch_array($selectFacturesEntrantes);

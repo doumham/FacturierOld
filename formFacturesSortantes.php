@@ -3,15 +3,16 @@ $id_client = '';
 
 date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
+include ('include/config.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
-if($_GET['annee']){
+if(isset($_GET['annee']) && $_GET['annee']){
 	$annee = $_GET['annee'];
 }
-if($_GET['type']){
+if(isset($_GET['type']) && $_GET['type']){
 	$type = $_GET['type'];
 }
-if($_GET['id']){
+if(isset($_GET['id']) && $_GET['id']){
 	$id = $_GET['id'];
 	$selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
 	$f = mysql_fetch_array($selectFacturesSortantes);
@@ -27,7 +28,7 @@ if($_GET['id']){
 		$numero = 1;
 	}
 }
-if($_GET['id_client']){
+if(isset($_GET['id_client']) && $_GET['id_client']){
 	$id_client = $_GET['id_client'];
 }
 $selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `ordre`") or trigger_error(mysql_error(),E_USER_ERROR);
@@ -69,7 +70,7 @@ if (!isset($_GET['ajaxed'])) {
 		</p>
 		<p>
 			<label for="pourcent_tva">TVA (%) : </label>
-			<input name="pourcent_tva" value="<?php if(isset($pourcent_tva) && !empty($pourcent_tva)){echo strtr($pourcent_tva, ".", ",");}else{echo "21";}?>" id="pourcent_tva" />			
+			<input name="pourcent_tva" value="<?php if(isset($pourcent_tva) && !empty($pourcent_tva)){echo strtr($pourcent_tva, ".", ",");}else{echo DEFAULT_TVA;}?>" id="pourcent_tva" />			
 		</p>
 		<p>
 			<label for="validation">Validation : </label>
