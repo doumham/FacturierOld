@@ -16,7 +16,7 @@ include ('include/header.php');
 	<div class="contenu" style="margin-top:70px;">
 		<h3>Utilisateur</h3>
 		<form id="utilisateur" method="post" action="requetes/updateUtilisateur.php">
-				<input name="id" type="hidden" value="<?php if(isset($id))echo $id ?>" />
+				<input name="id" type="hidden" value="1" />
 			<p>
 				<label for="denomination">Dénomination : </label>
 				<input id="denomination" name="denomination" type="text" value="<?php if(isset($denomination))echo $denomination?>" />
