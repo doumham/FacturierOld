@@ -44,7 +44,7 @@ if (!isset($_GET['ajaxed'])) {
 		<input name="annee" type="hidden" value="<?php if(isset($annee)){echo $annee;}?>" />			
 		<p>
 			<label for="numero">Numéro : </label>
-			<input name="numero" readonly="readonly" type="text" size="3" value="<?php echo $numero;?>" />
+			<input name="numero" type="text" size="4" value="<?php echo $numero;?>" />
 		</p>
 		<p>
 			<label>Date :</label>
