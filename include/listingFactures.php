@@ -293,6 +293,7 @@ $ta_tvac = 0;
 }
 ?>
 		</table>
+		<hr id="bottom" />
 	</div>
 <?php if ($annee == "all"): ?>
 	<div class="contenu">
