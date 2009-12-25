@@ -1,7 +1,15 @@
-How to install :
+Installation
+------------
 
 – Create a MySQL database
 – Install MySQL tables (facturier.sql)
 – Modify acces/cle.php according to your DB Info
 
-Load index.php in a browser
+Configuration
+-------------
+
+— Load index.php in a browser
+— Click on Préférences and enter your informations
+— Click on Clients and add a first Client
+
+Now you are ready to create invoices.
