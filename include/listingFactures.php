@@ -84,7 +84,11 @@ $nombreFactures = mysql_num_rows($selectFactures);
 if ($annee != "all") {
 	$annee_h3 = $annee;
 }else {
-	$annee_h3 = $les_annees[0];
+	if (isset($les_annees) && is_array($les_annees) && !empty($les_annees[0])) {
+		$annee_h3 = $les_annees[0];
+	} else {
+		$annee_h3 = date('Y');
+	}
 }
 ?>
 			<p class="tools">
@@ -162,7 +166,7 @@ if ($type == 'entrantes') {
 	}
 }
 
-if (is_array($facture)) {
+if (isset($facture) && is_array($facture)) {
 foreach ($facture as $key_annee => $value1) {
 	$counter_annees++;
 	foreach ($value1 as $key_trimestre => $value2) {

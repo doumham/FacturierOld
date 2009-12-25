@@ -16,9 +16,10 @@ while ($ann = mysql_fetch_array($select_annees)) {
   $une_annee_old = $une_annee;
 }
 ?>
+<?php if (isset($les_annees) && is_array($les_annees)): ?>
         <ul id="liste_annees">
           <li id="recule">
-<?php if($annee>$les_annees[0] && $annee!="all"){?>
+<?php if($annee > $les_annees[0] && $annee != "all"){?>
             <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee-1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
 <?php }else if($annee=="all"){?>
             <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[count($les_annees)-1];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
@@ -27,7 +28,7 @@ while ($ann = mysql_fetch_array($select_annees)) {
 <?php } ?>
           </li>
           <li id="avance">
-<?php if($annee<$les_annees[count($les_annees)-1] && $annee!="all"){?>
+<?php if($annee < $les_annees[count($les_annees)-1] && $annee != "all"){?>
             <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee+1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
 <?php }else if($annee=="all"){?>
             <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[0];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
@@ -55,3 +56,4 @@ if ($key == $annee){
 <?php }
 ?>
         </ul>
+<?php endif ?>
