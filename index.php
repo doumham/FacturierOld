@@ -1,1 +1,1 @@
-<?php header("location:factures.php?type=sortantes") ?>
+<?php header("location:factures.php?type=sortantes&annee=".date('Y')) ?>
