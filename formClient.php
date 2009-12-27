@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set('Europe/Brussels');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 $id = '';
