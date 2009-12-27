@@ -46,11 +46,8 @@ if (!isset($_GET['ajaxed'])) {
 		<p>
 			<label for="montant">Montant : </label>
 			<input type="text" name="montant" value="<?php if(isset($montant))echo $montant = strtr($montant, ".", ",");?>" id="montant" required="required" />			
-		</p>
-		<p>
-			<label>HTVA : </label>
-			<input type="radio" name="htva" value="oui" checked="checked" />oui			
-			<input type="radio" name="htva" value="non" />non		
+			<input type="radio" name="htva" value="oui" checked="checked" /> HTVA			
+			<input type="radio" name="htva" value="non" /> TVAC		
 		</p>
 		<p>
 			<label for="pourcent_tva">TVA (%) : </label>

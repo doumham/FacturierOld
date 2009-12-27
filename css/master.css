@@ -318,12 +318,13 @@ label{
 	float: left;
 	width: 100px;
 }
-form#utilisateur label{
+/*form#utilisateur label{
 	width: 260px;
 }
 form#utilisateur input[type="text"], form#client input[type="text"]{
 	width: 260px;
 }
+*/
 #resume{
 	clear:both;
 	font-family:Arial, Helvetica, verdana, sans-serif;

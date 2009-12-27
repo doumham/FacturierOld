@@ -65,7 +65,7 @@ if (!isset($_GET['ajaxed'])) {
 			<textarea rows="10" cols="50" name="objet" id="objet"><?php if(isset($objet))echo $objet?></textarea>
 		</p>
 		<p>
-			<label for="montant">Montant : </label>
+			<label for="montant">Montant HTVA : </label>
 			<input name="montant" value="<?php if(isset($montant))echo $montant=strtr($montant, ".", ",");?>" id="montant" required="required" />			
 		</p>
 		<p>

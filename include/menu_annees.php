@@ -20,20 +20,20 @@ while ($ann = mysql_fetch_array($select_annees)) {
         <ul id="liste_annees">
           <li id="recule">
 <?php if($annee > $les_annees[0] && $annee != "all"){?>
-            <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee-1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee-1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>#bottom">&lsaquo;</a>
 <?php }else if($annee=="all"){?>
-            <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[count($les_annees)-1];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[count($les_annees)-1];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>#bottom">&lsaquo;</a>
 <?php }else{?>
-            <a href="?<?php echo $paramGetType ?>annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&lsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>#bottom">&lsaquo;</a>
 <?php } ?>
           </li>
           <li id="avance">
 <?php if($annee < $les_annees[count($les_annees)-1] && $annee != "all"){?>
-            <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee+1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $annee+1;?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>#bottom">&rsaquo;</a>
 <?php }else if($annee=="all"){?>
-            <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[0];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=<?php echo $les_annees[0];?><?php if ($ordre):echo "&ordre=".$ordre;endif ?>#bottom">&rsaquo;</a>
 <?php }else{?>
-            <a href="?<?php echo $paramGetType ?>annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>">&rsaquo;</a>
+            <a href="?<?php echo $paramGetType ?>annee=all<?php if ($ordre):echo "&ordre=".$ordre;endif ?>#bottom">&rsaquo;</a>
 <?php } ?>
           </li>
 <?php
@@ -43,7 +43,7 @@ if ($annee == "all"){
   $actif = "";
 }
 ?>
-          <li><a <?php echo $actif; ?>href="?<?php echo $paramGetType ?>annee=all">Toutes</a></li>
+          <li><a <?php echo $actif; ?>href="?<?php echo $paramGetType ?>annee=all#bottom">Toutes</a></li>
 <?php foreach ($les_annees as $key) {?>
 <?php
 if ($key == $annee){
@@ -52,7 +52,7 @@ if ($key == $annee){
   $actif = "";
 }
 ?>
-          <li><a <?php echo $actif; ?>href="?<?php echo $paramGetType ?>annee=<?php echo "$key" ?><?php if ($ordre): echo "&ordre=".$ordre;endif ?>"><?php echo $key;?></a></li>
+          <li><a <?php echo $actif; ?>href="?<?php echo $paramGetType ?>annee=<?php echo "$key" ?><?php if ($ordre): echo "&ordre=".$ordre;endif ?>#bottom"><?php echo $key;?></a></li>
 <?php }
 ?>
         </ul>

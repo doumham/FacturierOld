@@ -1,4 +1,4 @@
-var urlFormDialog;
+var dialogFormUrl;
 var type;
 var annee;
 var ordre;
@@ -10,7 +10,7 @@ function initialize(section){
 
 function reloadSection(section){
 	if ($('#'+section).length) {
-	$('#'+section).load('include/listingFactures.php?type='+type+'&ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
+	$('#'+section).load('include/listing.php?type='+type+'&ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
 			initialize(section);
 		});
 	};
@@ -63,6 +63,7 @@ function ajaxShowRequestFormDialog(formData, jqForm, options){
 function ajaxShowResponseFormDialog(data, statusText){
 	// alert('test');
 	$.jGrowl(data.msg);
+	reloadSection('Liste');
 	$('#dialog').dialog('close');
 }
 
@@ -84,21 +85,21 @@ $(document).ready(function() {
 	// dialog : formulaire d'ajout/modification d’un élément
 	$('body').prepend('<div id="dialog"></div>');
 	$('#dialog').dialog({
-		title:'Ajouter ou modifier un élément',
-		width:500,
-		height:525,
-		// hide: 'slide',
+		resizable: false,
 		modal: true,
 		autoOpen: false,
 		close: function(event, ui) {
-			reloadSection('Liste');
+			//reloadSection('Liste');
 		},
 		open: function(event, ui){
-			$(this).load(urlFormDialog, function(){
+			$(this).html("");
+			$(this).load(dialogFormUrl, function(){
+				$('input[autofocus="autofocus"]').focus();
+				$('#dialog').dialog('option', 'width', 'auto');
+				$('#dialog').dialog('option', 'position', 'center');
 				$(this).children('form')
 				.prepend('<input type="hidden" name="ajaxed" value="1" />')
 				.ajaxForm({
-					clearForm: true,
 					dataType: "json",
 					beforeSubmit: ajaxShowRequestFormDialog,
 					success: ajaxShowResponseFormDialog,
@@ -129,32 +130,34 @@ $(document).ready(function() {
 		return false;
 	});
 
-	// $('#boutonSupprimer').live('click',function(){
-	// 	elementsATraiter = $('input[type="checkbox"]:checked').parent();
-	// 	return false;
-	// });
-
 	$('#boutonAjouterFactureSortante').live('click',function(){
-		// laSection = "Pages";
-		urlFormDialog = "formFacturesSortantes.php?ajaxed=1";
-		$('#dialog').data('title.dialog', 'Ajouter une facture Sortante'); 
-		$('#dialog').dialog('open');
-		return false;
-	});
-
-	$('#boutonAjouterFactureEntrante').live('click',function(){
-		// laSection = "Pages";
-		urlFormDialog = "formFacturesEntrantes.php?ajaxed=1";
-		$('#dialog').data('title.dialog', 'Ajouter une facture Entrante'); 
+		dialogFormUrl = "formFacturesSortantes.php?ajaxed=1";
+		dialogTitle = $(this).attr('title');
+		$('#dialog').dialog('option', 'title', dialogTitle);
 		$('#dialog').dialog('open');
 		return false;
 	});
 	
-	$('.bouton.modifier').live('click',function(){
-		// laSection = "Pages";
-		urlFormDialog = $(this).attr('href')+"&ajaxed=1";
-		// console.log(urlFormDialog);
-		$('#dialog').data('title.dialog', 'Modifier la facture'); 
+	$('#boutonAjouterFactureEntrante').live('click',function(){
+		dialogFormUrl = "formFacturesEntrantes.php?ajaxed=1";
+		dialogTitle = $(this).attr('title');
+		$('#dialog').dialog('option', 'title', dialogTitle);
+		$('#dialog').dialog('open');
+		return false;
+	});
+	
+	$('#boutonAjouterClient').live('click',function(){
+		dialogFormUrl = "formClient.php?ajaxed=1";
+		dialogTitle = $(this).attr('title');
+		$('#dialog').dialog('option', 'title', dialogTitle);
+		$('#dialog').dialog('open');
+		return false;
+	});
+
+	$('.popup').live('click',function(){
+		dialogFormUrl = $(this).attr('href')+"&ajaxed=1";
+		dialogTitle = $(this).attr('title');
+		$('#dialog').dialog('option', 'title', dialogTitle);
 		$('#dialog').dialog('open');
 		return false;
 	});

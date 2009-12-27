@@ -9,12 +9,13 @@ if (is_array($utilisateur)) {
 } else {
 	mysql_query("INSERT INTO `utilisateur` (`id`) VALUES (1)") or trigger_error(mysql_error(),E_USER_ERROR);
 }
-$myInterface->set_title("Factures sortantes");
-$myInterface->get_header();
-include ('include/header.php');
+if (!isset($_GET['ajaxed'])) {
+	$myInterface->set_title("Factures sortantes");
+	$myInterface->get_header();
 ?>
 	<div class="contenu" style="margin-top:70px;">
 		<h3>Utilisateur</h3>
+<?php } ?>
 		<form id="utilisateur" method="post" action="requetes/updateUtilisateur.php">
 				<input name="id" type="hidden" value="1" />
 			<p>
@@ -82,7 +83,7 @@ include ('include/header.php');
 				<input id="comptebancaire" name="comptebancaire" type="text" value="<?php if(isset($comptebancaire))echo $comptebancaire?>" />
 			</p>
 			<p>
-				<label for="iban">Internationnal Bank Account Number (IBAN) : </label>
+				<label for="iban">Int. Bank Account Number (IBAN) : </label>
 				<input id="iban" name="iban" type="text" value="<?php if(isset($iban))echo $iban?>" />
 			</p>
 			<p>
@@ -94,5 +95,7 @@ include ('include/header.php');
 				<input id="validation" name="validation" type="submit" value="Envoyer" />
 			</p>
 		</form>
+<?php if (!isset($_GET['ajaxed'])) { ?>
 	</div>
+<?php } ?>
 <?php $myInterface->get_footer(); ?>

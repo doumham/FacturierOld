@@ -77,6 +77,7 @@ $nombreFactures = mysql_num_rows($selectFactures);
 ?>
 	<form id="listing" action="requetes/traitements.php" method="post">
 		<input type="hidden" name="type" value="<?php echo $type ?>" id="type" />
+		<input type="hidden" value="<?php echo $table ?>" name="table" />
 		<input type="hidden" name="annee" value="<?php echo $annee ?>" id="annee" />
 		<input type="hidden" name="ordre" value="<?php echo $ordre ?>" id="ordre" />
 		<div class="contenu">
@@ -92,11 +93,10 @@ if ($annee != "all") {
 }
 ?>
 			<p class="tools">
-				<input type="submit" value="Ajouter une facture" id="<?php echo $idBouton ?>" name="boutonAjouter" />
+				<input type="submit" value="Ajouter une facture" id="<?php echo $idBouton ?>" name="boutonAjouter" title="Ajouter une facture" />
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
-				<input type="hidden" value="<?php echo $table ?>" name="table" />
-				<input type="hidden" value="<?php if(isset($_GET['ordre']))echo $_GET['ordre'] ?>" name="ordre" />
-				<input type="hidden" value="<?php echo $annee ?>" name="annee" />
+				<!-- <input type="hidden" value="<?php if(isset($_GET['ordre']))echo $_GET['ordre'] ?>" name="ordre" />
+				<input type="hidden" value="<?php echo $annee ?>" name="annee" /> -->
 			</p>
 			<h3><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee_h3 ?>"><?php echo $annee_h3 ?></a></h3>
 			<table> 
@@ -189,7 +189,7 @@ foreach ($facture as $key_annee => $value1) {
 <?php endif ?>
 		<td>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>"<?php if (isset($f['paid']) && $f['paid'] == 1) { echo 'disabled="disabled"'; } ?> />
-			<a class="bouton modifier" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier">
+			<a class="bouton modifier popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture du <?php echo strftime("%d/%m/%Y",strtotime($f['date']))?>">
 				Modifier
 			</a> 
 <?php if ($type == "sortantes"): ?>

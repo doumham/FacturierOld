@@ -1,5 +1,7 @@
 <?php
+date_default_timezone_set('Europe/Brussels');
 include ('acces/cle.php');
+include ('include/config.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 $id = '';
@@ -15,18 +17,19 @@ $tel = '';
 $email = '';
 $site = '';
 $tva = '';
-if($_GET['id']){
-	$id=$_GET['id'];
+if(isset($_GET['id']) && !empty($_GET['id'])){
+	$id = $_GET['id'];
 	$selectClients=mysql_query("
 		SELECT * FROM clients WHERE id_client='$id'"
 		) or trigger_error(mysql_error(),E_USER_ERROR);
 	$c = mysql_fetch_array($selectClients);
 	extract($c);
 }
+if (!isset($_GET['ajaxed'])) {
+	$myInterface->set_title("Ajouter un client");
+	$myInterface->get_header();
+}
 ?>
-<?php $myInterface->set_title("Ajouter un client"); ?>
-<?php $myInterface->get_header(); ?>
-	<div class="contenu">
 		<form id="client" method="post" action="requetes/insertClient.php">
 			<p>
 				<label for="denomination">Dénomination : </label>
@@ -82,5 +85,4 @@ if($_GET['id']){
 			</p>
 			<input name="id" type="hidden" value="<?php echo $id?>" />			
 		</form>
-	</div>
 <?php $myInterface->get_footer(); ?>

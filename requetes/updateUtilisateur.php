@@ -2,7 +2,7 @@
 extract($_POST);
 include('../acces/cle.php');
 if($id){
-	mysql_query("UPDATE `utilisateur` SET 
+	$req = mysql_query("UPDATE `utilisateur` SET 
 		`denomination`='$denomination', 
 		`prenom`='$prenom', 
 		`nom`='$nom', 
@@ -23,5 +23,13 @@ if($id){
 		`bic`='$bic' 
 		WHERE `id`='$id'") or die(mysql_error());
 }
-header("location:../formUtilisateur.php");
+if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
+	if ($req) {
+		echo '{msg:"Modifications enregistrées."}';
+	} else {
+		echo '{msg:"Une erreur s’est produite."}';
+	}
+}else{
+	header("location:../formUtilisateur.php");
+}
 ?>

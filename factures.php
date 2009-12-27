@@ -49,6 +49,4 @@ include_once ('include/onglets.php');
 <div id="Liste">
 <?php include_once ("include/listingFactures.php"); ?>
 </div>
-<?php
-$myInterface->get_footer();
-?>
+<?php $myInterface->get_footer(); ?>
