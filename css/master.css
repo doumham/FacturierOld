@@ -8,7 +8,7 @@ body{
 	padding:0;
 	margin:0;
 	min-width:965px;
-	line-height:18px;
+	line-height:13px;
 }
 a img{
 	border: none;
@@ -103,6 +103,7 @@ h1 a{
 }
 
 table{
+	line-height:26px;
 	width:100%;
 	border-collapse: collapse;
 	background:#FFF;
@@ -128,10 +129,14 @@ th,td{
 	text-align: right;
 }
 tr.facture{
-	border-bottom:1px solid #CCC;
+/*	border-bottom:1px solid #CCC;*/
+}
+tr:nth-child(even) {
+	background: #F3F3F3;
+/*	border-bottom:1px solid #CCC;*/
 }
 tr.unpaid {
-	background-color:#FFF3E6;
+	background-color:#DDC;
 }
 
 /* Buttons */
@@ -171,30 +176,29 @@ input[type="checkbox"] {
 
 /* */
 tr.titre_trimestre{
+	font-size: 16px;
 	border-bottom:none;
+	display:none;
 }
 tr.titre_trimestre th{
-	background:#ccc;
+	background-color:#ccc;
 	color:#fff;
 	text-align:center;
 }
 
 /* */
 tr.tot_trimestre, tr.tot_annee{
-	background: #f3f3f3;
-	color: #666;
-}
-tr.tot_trimestre th{
-	font-weight:normal;
-	font-style:italic;
+	font-size: 14px;
+	line-height:39px;
+	background-color: #ccc;
+	color:#333;
 }
 tr.tot_trimestre th.aR{
-	color:#333;
 	font-weight:bold;
 	font-style:normal;
 }
 tr.tot_annee, tr.tot_general{
-	color: #fff;
+	font-size: 18px;
 	font-weight: bold;
 }
 tr.tot_annee th, tr.tot_general th{
@@ -203,7 +207,6 @@ tr.tot_annee th, tr.tot_general th{
 	background: #555;
 }
 tr.tot_annee th{
-	color: #fff;
 	background: #999;
 }
 tr.tot_annee th.aR{
@@ -212,6 +215,7 @@ tr.tot_annee th.aR{
 
 /* */
 h3{
+	line-height:26px;
 	background:#999;
 	clear:both;
 	font-size:14px;
@@ -272,12 +276,11 @@ h3 a{
 /* */
 .legende{
 	background:#BBB;
-	color:#333333;
-	font-size:11px;
+	color:#FFF;
 }
 .legende a{
 	text-decoration: none;
-	color: #333;
+	color:#FFF;
 }
 
 /* */
