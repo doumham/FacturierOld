@@ -1,9 +1,5 @@
 <?php
 $id_client = '';
-
-date_default_timezone_set('Europe/Brussels');
-include ('acces/cle.php');
-include ('include/config.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 if(isset($_GET['annee']) && $_GET['annee']){

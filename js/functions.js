@@ -10,7 +10,7 @@ function initialize(section){
 
 function reloadSection(section){
 	if ($('#'+section).length) {
-	$('#'+section).load('include/listing.php?type='+type+'&ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
+	$('#'+section).load('listing.php?type='+type+'&ordre='+ordre+'&annee='+annee+'&ajaxed=1',function(){
 			initialize(section);
 		});
 	};

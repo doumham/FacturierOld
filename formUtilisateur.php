@@ -1,5 +1,4 @@
 <?php
-include ('acces/cle.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 $selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);

@@ -1,8 +1,6 @@
 <?php
 if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
-	date_default_timezone_set('Europe/Brussels');
-	include ('../acces/cle.php');
-	include ('../classes/interface.class.php');
+	include ('classes/interface.class.php');
 	$myInterface = new interface_();
 }
 $type = "clients";
@@ -48,9 +46,9 @@ while ($row_search = mysql_fetch_array($search_clients)){
 				<a class="bouton modifier popup" href="formClient.php?id=<?php echo $c['id_client']?>" title="Modifier <?php echo htmlspecialchars($c['denomination']);?>">
 					Modifier
 				</a> 
-				<a class="bouton nouvelleFacture" href="formFacturesSortantes.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
+				<!-- <a class="bouton nouvelleFacture" href="formFacturesSortantes.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
 					Nouvelle facture
-				</a> 
+				</a>  -->
 			</td>
 			<td><?php echo htmlspecialchars($c['denomination'])?></td>
 			<td><?php echo $c['adresse'].", ".$c['num']?></td>

@@ -10,8 +10,6 @@ if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
 	$form = "formFacturesSortantes";
 	$idBouton = "boutonAjouterFactureSortante";
 }
-date_default_timezone_set('Europe/Brussels');
-include ('acces/cle.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 
@@ -31,12 +29,12 @@ $counter_annees = 0;
 $req = '';
 $req2 = '';
 
-if($_GET['annee']){
+if(isset($_GET['annee']) && !empty($_GET['annee'])){
 	$annee = $_GET['annee'];
 }else{
 	$annee = "all";
 }
-if($_GET['ordre']){ // classement par client : ordre="clients". Par date : ordre n'existe pas
+if(isset($_GET['ordre']) && !empty($_GET['ordre'])){ // classement par client : ordre="clients". Par date : ordre n'existe pas
 	$ordre = $_GET['ordre'];
 	$req2 = $table.".id_client,";
 }
@@ -47,6 +45,6 @@ include_once ('include/menu_annees.php');
 include_once ('include/onglets.php');
 ?>
 <div id="Liste">
-<?php include_once ("include/listingFactures.php"); ?>
+<?php include_once ("listingFactures.php"); ?>
 </div>
 <?php $myInterface->get_footer(); ?>

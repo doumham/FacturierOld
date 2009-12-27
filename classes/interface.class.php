@@ -5,7 +5,7 @@ class interface_{
 		include('include/config.php');
 		ini_set('session.name', "Factures");
 		session_start();
-		date_default_timezone_set('Europe/Brussels');
+		date_default_timezone_set(TIME_ZONE);
 		setlocale(LC_TIME, COUNTRY_CODE);
 	}
 	

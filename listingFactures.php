@@ -1,8 +1,6 @@
 <?php
 if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
-	date_default_timezone_set('Europe/Brussels');
-	include ('../acces/cle.php');
-	include ('../classes/interface.class.php');
+	include ('classes/interface.class.php');
 	$myInterface = new interface_();
 	$tt_htva = 0;
 	$tt_tva	= 0;

@@ -1,5 +1,5 @@
 <?php
-include('../acces/cle.php');
+include('../include/config.php');
 $redirectPage = "";
 $redirectNewFacture = "";
 if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {

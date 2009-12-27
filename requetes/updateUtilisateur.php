@@ -1,6 +1,6 @@
 <?php
 extract($_POST);
-include('../acces/cle.php');
+include('../include/config.php');
 if($id){
 	$req = mysql_query("UPDATE `utilisateur` SET 
 		`denomination`='$denomination', 

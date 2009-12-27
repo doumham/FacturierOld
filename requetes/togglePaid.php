@@ -1,5 +1,5 @@
 <?php
-include('../acces/cle.php');
+include('../include/config.php');
 $id = $_GET['id'];
 $annee = $_GET['annee'];
 $ordre = $_GET['ordre'];

@@ -1,6 +1,4 @@
 <?php
-date_default_timezone_set('Europe/Brussels');
-include ('acces/cle.php');
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 
@@ -51,7 +49,7 @@ $ts_tva      = 0;
 $ts_tvac     = 0;
 $ordre       = 0;
 
-if($_GET['annee']){
+if(isset($_GET['annee']) && !empty($_GET['annee'])){
 	$annee = $_GET['annee'];
 }else{
 	$annee = date("Y");
@@ -61,10 +59,14 @@ if($annee && $annee!="all"){
   $date2 = $annee+1;
   $date2 = $date2."-00-00";
 	$req = "WHERE date>'$date1' AND date<'$date2'";
+} else {
+	$req = '';
 }
-if($_GET['ordre']){
+if(isset($_GET['ordre']) && !empty($_GET['ordre'])){
 	$ordre = $_GET['ordre'];
 	$req2 = "facturesSortantes.id_client,";
+} else {
+	$req2 = '';
 }
 $selectFacturesSortantes = mysql_query("SELECT * FROM facturesSortantes ".$req." ORDER BY ".$req2." date") or trigger_error(mysql_error(),E_USER_ERROR);
 $nombreFacturesSortantes = mysql_num_rows($selectFacturesSortantes);

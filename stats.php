@@ -1,15 +1,11 @@
 <?php
-date_default_timezone_set('Europe/Brussels');
-
+include ('classes/interface.class.php');
+$myInterface = new interface_();
 // vars pour les graphiques
 $hauteur = 500;
 //
-
 $hauteur = $hauteur-40;
-include ('acces/cle.php');
-include ('classes/interface.class.php');
 $ordre = 0;
-$myInterface = new interface_();
 if($_GET['annee']){
 	$annee = $_GET['annee'];
 }else{

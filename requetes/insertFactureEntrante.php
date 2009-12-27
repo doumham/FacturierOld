@@ -8,7 +8,7 @@ if($htva == "non"){
 }
 $montant_tva = $montant*$pourcent_tva/100;
 $montant_tvac = $montant*($pourcent_tva/100+1);
-include('../acces/cle.php');
+include('../include/config.php');
 if($id){
 	$req = mysql_query("UPDATE `facturesEntrantes` SET date='$date',`denomination`='$denomination',`objet`='$objet',`montant`='$montant',`pourcent_tva`='$pourcent_tva',`montant_tva`='$montant_tva',`montant_tvac`='$montant_tvac',`deductibilite`='$deductibilite' WHERE `id`='$id'") or die(mysql_error());
 }else{

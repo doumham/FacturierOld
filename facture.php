@@ -1,7 +1,7 @@
 <?php
-date_default_timezone_set('Europe/Brussels');
-setlocale (LC_ALL, 'fr_FR');
-include ('acces/cle.php');
+include ('classes/interface.class.php');
+$myInterface = new interface_();
+
 $selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);
 $utilisateur = mysql_fetch_array($selectUtilisateur);
 if($_GET['id']){
@@ -16,8 +16,10 @@ $selectClients = mysql_query("SELECT * FROM clients") or trigger_error(mysql_err
 if($tva){
 	$tva = "TVA : ".$tva;
 }
-if($_GET['print'] == true){
+if(isset($_GET['print']) && $_GET['print'] == true){
 	$printing = " onload=\"window.print();document.location.href='factures.php?type=sortantes&amp;annee=".$_GET['annee']."';\"";
+} else {
+	$printing = "";
 }
 ?>
 <!DOCTYPE html">
