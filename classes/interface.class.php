@@ -2,13 +2,14 @@
 class interface_{
   
 	function interface_(){
-	}
-	
-	function get_header(){
 		include('include/config.php');
 		ini_set('session.name', "Factures");
 		session_start();
+		date_default_timezone_set('Europe/Brussels');
 		setlocale(LC_TIME, COUNTRY_CODE);
+	}
+	
+	function get_header(){
 		$return = '<!DOCTYPE html>'."\r";
 		$return .= "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\">\r";
 		$return .= "<head>\r<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r";
@@ -35,8 +36,8 @@ class interface_{
 	}
 	
 	function get_footer(){
-    $return="  </body>\r";
-    $return.="</html>\r";
+    $return = "  </body>\r";
+    $return .= "</html>\r";
 		echo $return;
   }
   
