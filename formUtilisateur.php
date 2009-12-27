@@ -30,6 +30,16 @@ if (!isset($_GET['ajaxed'])) {
 				<input id="prenom" name="prenom" type="text" value="<?php if(isset($prenom))echo $prenom?>" />
 			</p>
 			<p>
+				<label for="login">Identifiant : </label>
+				<input id="login" name="login" type="text" value="<?php if(isset($login))echo $login?>" />
+			</p>
+			<?php if (isset($password) && empty($password)): ?>
+				<p>
+					<label for="password">Mot de passe : </label>
+					<input id="password" name="password" type="password" value="<?php if(isset($password))echo $password?>" />
+				</p>
+			<?php endif ?>
+			<p>
 				<label for="legende">Légende : </label>
 				<input id="legende" name="legende" type="text" value="<?php if(isset($legende))echo $legende?>" />
 			</p>

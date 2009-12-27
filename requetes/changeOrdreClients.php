@@ -1,6 +1,6 @@
 <?php
+include('../include/config.php');
 $lesid = $_GET['clients'];
-include ('../include/config.php');
 $i = 0;
 foreach($lesid as $id) {
 	$updateSQL = "UPDATE `clients` SET `ordre`='$i' WHERE `id_client`='$id'";

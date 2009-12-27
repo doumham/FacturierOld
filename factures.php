@@ -1,4 +1,6 @@
 <?php
+include ('classes/interface.class.php');
+$myInterface = new interface_();
 if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
 	$type = "entrantes";
 	$table = "facturesEntrantes";
@@ -10,8 +12,6 @@ if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
 	$form = "formFacturesSortantes";
 	$idBouton = "boutonAjouterFactureSortante";
 }
-include ('classes/interface.class.php');
-$myInterface = new interface_();
 
 $tt_htva = 0;
 $tt_tva  = 0;
@@ -40,7 +40,6 @@ if(isset($_GET['ordre']) && !empty($_GET['ordre'])){ // classement par client : 
 }
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
-include_once ('include/header.php');
 include_once ('include/menu_annees.php');
 include_once ('include/onglets.php');
 ?>

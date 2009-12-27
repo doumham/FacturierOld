@@ -12,7 +12,9 @@ if($_GET['annee']){
 	$annee = date("all");
 }
 if($annee && $annee!="all"){
-	$req=" AND annee='$annee'";
+	$req = " AND annee='$annee'";
+} else {
+	$req = '';
 }
 $select_trimestres = mysql_query("SELECT * FROM trimestres WHERE type='sortantes'".$req." ORDER BY `annee`, `trimestre`") or trigger_error(mysql_error(),E_USER_ERROR);
 $select_trimestres_d = mysql_query("SELECT * FROM trimestres WHERE type='entrantes'".$req." ORDER BY `annee`, `trimestre`") or trigger_error(mysql_error(),E_USER_ERROR);
@@ -49,7 +51,6 @@ $chiffres_in = implode(',',$chiffres_in);
 
 $myInterface->set_title("Factures sortantes");
 $myInterface->get_header();
-include ('include/header.php');
 ?>
 		<div style="width:900px;margin-top:146px;" class="contenu">
 <?php 

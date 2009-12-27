@@ -4,6 +4,8 @@ define(DATABASE, 'facturier');
 define(USERNAME, 'root');
 define(PASSWORD, 'sam');
 
+define(NEED_LOGIN, false);
+
 define(FACTURIER_VERSION, '0.75b');
 define(JQUERY_VERSION, '1.3.2');
 define(JQUERY_UI_VERSION, '1.7.2');

@@ -75,7 +75,6 @@ $selectFacturesEntrantes = mysql_query("SELECT * FROM facturesEntrantes ".$req."
 <?php 
 $myInterface->set_title("Statistiques");
 $myInterface->get_header();
-include('include/header.php');
 ?>
 		<div class="contenu" style=" margin-top:146px;">
 <?php 

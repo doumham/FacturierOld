@@ -1,14 +1,13 @@
 <?php
 include ('classes/interface.class.php');
 $myInterface = new interface_();
-
 $selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);
 $utilisateur = mysql_fetch_array($selectUtilisateur);
-if($_GET['id']){
-	$id=$_GET['id'];
+if(isset($_GET['id']) && !empty($_GET['id'])){
+	$id = $_GET['id'];
 	$selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` LEFT JOIN `clients` ON `facturesSortantes`.`id_client`=`clients`.`id_client` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
 }else{
-	header("location:factures.php?type=sortantes&annee=".$annee);
+	header("location:./");
 }
 $f = mysql_fetch_array($selectFacturesSortantes);
 extract($f);
@@ -22,10 +21,10 @@ if(isset($_GET['print']) && $_GET['print'] == true){
 	$printing = "";
 }
 ?>
-<!DOCTYPE html">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title><?php echo $utilisateur['denomination']; ?>, facture <?php echo strftime("%y",strtotime($date))?>-<?php echo $numero?></title>
 		<link href="css/impression.css" rel="stylesheet" type="text/css" />
 	</head>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Ven 25 Décembre 2009 à 10:32
+-- Généré le : Dim 27 Décembre 2009 à 19:00
 -- Version du serveur: 5.1.37
 -- Version de PHP: 5.3.0
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `tva` varchar(20) NOT NULL,
   `ordre` int(11) NOT NULL,
   PRIMARY KEY (`id_client`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
   `montant_tvac` decimal(10,2) NOT NULL,
   `deductibilite` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=248 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `facturesSortantes` (
   `montant_tvac` decimal(10,2) NOT NULL,
   `paid` int(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=269 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `trimestres` (
   `montant_tvac` decimal(10,2) NOT NULL DEFAULT '0.00',
   `type` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
 
 -- --------------------------------------------------------
 
@@ -110,6 +110,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `denomination` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `legende` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
   `numero` varchar(11) NOT NULL,
@@ -126,4 +128,4 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `iban` varchar(100) NOT NULL,
   `bic` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;

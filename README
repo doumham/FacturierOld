@@ -10,7 +10,8 @@ Configuration
 -------------
 
 — Load index.php in a browser
-— Click on Préférences and enter your informations
+— Click on Utilisateur and enter your informations
+– If you want, secure the system by setting NEED_LOGIN constant to true
 — Click on Clients and add a first Client
 
 Now you are ready to create invoices.
