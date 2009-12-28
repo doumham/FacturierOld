@@ -50,7 +50,9 @@ class interface_{
 			$return .= '	<ul id="menu">'."\r";
 			$return .= '		<li><a href="clients.php" title="Gestion des clients">Clients</a></li>'."\r";
 			$return .= '		<li><a href="formUtilisateur.php?id=1" class="popup" title="Utilisateur">Utilisateur</a></li>'."\r";
-			$return .= '		<li><a href="seDeconnecter.php" title="Déconnexion">Déconnexion</a></li>'."\r";
+			if(NEED_LOGIN){
+				$return .= '		<li><a href="seDeconnecter.php" title="Déconnexion">Déconnexion</a></li>'."\r";
+			}
 			$return .= '	</ul>'."\r";
 		}
 		$return .= '</div>';
