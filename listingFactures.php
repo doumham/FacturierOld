@@ -185,7 +185,7 @@ foreach ($facture as $key_annee => $value1) {
 <?php if ($type == "sortantes"): ?>
 	<tr class="facture<?php if ($f['paid'] == 0){echo " unpaid";}?>" id="element_<?php echo $f['id']?>">
 <?php else: ?>
-	<tr <?php if ($f['deductibilite']==0){echo "style='background:#ffe'";}?> class="facture" id="element_<?php echo $f['id']?>">
+	<tr class="facture<?php if ($f['deductibilite'] == 0){echo " undeductible";}?>" id="element_<?php echo $f['id']?>">
 <?php endif ?>
 		<td>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>"<?php if (isset($f['paid']) && $f['paid'] == 1) { echo 'disabled="disabled"'; } ?> />
