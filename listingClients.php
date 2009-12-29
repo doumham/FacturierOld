@@ -12,7 +12,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 }
 ?>
 <form action="requetes/traitements.php" method="post">
-	<p class="tools" style="position:relative; margin-top:70px; top:0px; width:auto">
+	<p class="tools">
 		<input type="submit" value="Ajouter un client" id="boutonAjouterClient" name="boutonAjouter" title="Ajouter un Client" />
 		<input type="submit" value="Supprimer les clients sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 		<input type="hidden" name="type" value="<?php echo $type ?>" id="type" />

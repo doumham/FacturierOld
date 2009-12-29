@@ -118,7 +118,7 @@ table a:hover{
 	color: #666;
 }
 .contenu{
-	margin-bottom:25px;
+/*	margin-bottom:25px;*/
 }
 th,td{
 	padding: 0 10px;
@@ -187,9 +187,11 @@ tr.titre_trimestre th{
 }
 
 /* */
+tr.tot_trimestre, tr.tot_annee, tr.tot_general {
+	line-height:39px;
+}
 tr.tot_trimestre, tr.tot_annee{
 	font-size: 14px;
-	line-height:39px;
 	background-color: #ccc;
 	color:#333;
 }
@@ -204,7 +206,7 @@ tr.tot_annee, tr.tot_general{
 tr.tot_annee th, tr.tot_general th{
 	padding-bottom:0;
 	padding-top:0px;
-	background: #555;
+	background: #666;
 }
 tr.tot_annee th{
 	background: #999;
@@ -212,9 +214,18 @@ tr.tot_annee th{
 tr.tot_annee th.aR{
 	color: #333;
 }
+hr {
+	background: #FFF;
+	margin:0;
+	padding:0;
+	border:0;
+/*	visibility:hidden;*/
+	height:0;
+}
 
 /* */
 h3{
+	display:none;
 	line-height:26px;
 	background:#999;
 	clear:both;
@@ -279,7 +290,6 @@ h3 a{
 	color:#FFF;
 }
 .legende a{
-	text-decoration: none;
 	color:#FFF;
 }
 
@@ -294,7 +304,10 @@ form#listing {
 	margin-top:177px;
 }
 form p.tools {
-	background-color:#DDDDDD;
+	-webkit-box-shadow:0 4px 4px #999;
+	-moz-box-shadow:0 4px 4px #999;
+	box-shadow:0 4px 4px #999;
+	background-color:#DDD;
 	height:21px;
 	position: fixed;
 	top:146px;
