@@ -175,59 +175,57 @@ input[type="checkbox"] {
 }
 
 /* */
-tr.titre_trimestre{
-	font-size: 16px;
-	border-bottom:none;
-	display:none;
-}
-tr.titre_trimestre th{
-	background-color:#ccc;
-	color:#fff;
-	text-align:center;
-}
-
-/* */
-tr.tot_trimestre, tr.tot_annee, tr.tot_general {
-	line-height:39px;
-}
-tr.tot_trimestre, tr.tot_annee{
+tr.tot_trimestre{
+	font-weight:normal;
+	line-height:26px;
 	font-size: 14px;
-	background-color: #ccc;
 	color:#333;
+}
+tr.tot_trimestre th{
+	font-weight:normal;
+	font-style:italic;
+	color:#AAA;
 }
 tr.tot_trimestre th.aR{
 	font-weight:bold;
 	font-style:normal;
+	color:#333;
 }
-tr.tot_annee, tr.tot_general{
-	font-size: 18px;
-	font-weight: bold;
+tr.titre_trimestre, tr.tot_annee, tr.tot_general {
+	line-height:39px;
 }
-tr.tot_annee th, tr.tot_general th{
-	padding-bottom:0;
-	padding-top:0px;
-	background: #666;
+tr.titre_trimestre{
+	font-weight:normal;
+	line-height:26px;
+	font-size: 14px;
+	background-color: #ccc;
+	color:#FFF;
 }
-tr.tot_annee th{
+tr.titre_trimestre th{
+	text-align:center;
+}
+tr.tot_annee{
+	background-color: #CCC;
+	color:#333;
+	font-size: 15px;
+}
+tr.tot_general{
 	background: #999;
-}
-tr.tot_annee th.aR{
-	color: #333;
+	font-size: 18px;
 }
 hr {
 	background: #FFF;
 	margin:0;
 	padding:0;
 	border:0;
-/*	visibility:hidden;*/
 	height:0;
 }
 
 /* */
 h3{
-	display:none;
+/*	display:none;*/
 	line-height:26px;
-	background:#999;
+	background:#AAA;
 	clear:both;
 	font-size:14px;
 	font-weight:bold;
@@ -307,9 +305,9 @@ form#listingClients {
 	margin-top:101px;
 }
 form p.tools {
-	-webkit-box-shadow:0 4px 4px #999;
-	-moz-box-shadow:0 4px 4px #999;
-	box-shadow:0 4px 4px #999;
+	-webkit-box-shadow:0 4px 4px rgba(75,75,75,.5);
+	-moz-box-shadow:0 4px 4px rgba(75,75,75,.5);
+	box-shadow:0 4px 4px rgba(75,75,75,.5);
 	background-color:#DDD;
 	height:21px;
 	position: fixed;
