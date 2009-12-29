@@ -29,7 +29,7 @@ if (!isset($_GET['ajaxed'])) {
 ?>
 		<form id="client" method="post" action="requetes/insertClient.php">
 			<p>
-				<label for="denomination">Dénomination : </label>
+				<label for="denomination">Société : </label>
 				<input name="denomination" type="text" value="<?php echo htmlspecialchars($denomination)?>" id="denomination" autofocus="autofocus" required="required" />
 			</p>
 			<p>

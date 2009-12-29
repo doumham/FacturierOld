@@ -4,7 +4,7 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 	$myInterface = new interface_();
 }
 $type = "clients";
-$selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `ordre`") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `denomination`") or trigger_error(mysql_error(),E_USER_ERROR);
 $search_clients = mysql_query("SELECT * FROM `facturesSortantes` GROUP BY `id_client`");
 $les_clients[] = "";
 while ($row_search = mysql_fetch_array($search_clients)){
