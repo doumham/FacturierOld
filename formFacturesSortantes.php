@@ -27,7 +27,7 @@ if(isset($_GET['id']) && $_GET['id']){
 if(isset($_GET['id_client']) && $_GET['id_client']){
 	$id_client = $_GET['id_client'];
 }
-$selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `ordre`") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `denomination`") or trigger_error(mysql_error(),E_USER_ERROR);
 
 if (!isset($_GET['ajaxed'])) {
 	$myInterface->set_title("Ajouter une facture sortante");
