@@ -96,8 +96,10 @@ if ($annee != "all") {
 				<!-- <input type="hidden" value="<?php if(isset($_GET['ordre']))echo $_GET['ordre'] ?>" name="ordre" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" /> -->
 			</p>
-			<h3><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee_h3 ?>"><?php echo $annee_h3 ?></a></h3>
 			<table> 
+				<tr class="titre_annee">
+					<th colspan="<?php echo $colSpanValue+3 ?>"><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee_h3 ?>"><?php echo $annee_h3 ?></a></th>
+				</tr>
 				<tr class="legende">
 					<th><span class="no_print">Outils</span></th>
 <?php if ($type == "sortantes"): ?>
@@ -273,11 +275,9 @@ else:
 endif
 ?>
 <?php if (substr($f['date'],0,4) < $date_limite): ?>
-			</table>
-		</div>
-		<div class="contenu">
-			<h3><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo substr($f['date']+1,0,4) ?>"><?php echo substr($f['date']+1,0,4) ?></a></h3>
-			<table>
+	<tr class="titre_annee">
+		<th colspan="<?php echo $colSpanValue+3 ?>"><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo substr($f['date']+1,0,4) ?>"><?php echo substr($f['date']+1,0,4) ?></a></th>
+	</tr>
 <?php endif ?>
 <?php
 $ta_htva = 0;
@@ -290,19 +290,15 @@ $ta_tvac = 0;
 	}
 }
 ?>
-		</table>
-		<hr id="bottom" />
-	</div>
 <?php if ($annee == "all"): ?>
-	<div class="contenu">
-		<table>
 			<tr class="tot_general">
-				<th style="width:66%" colspan="<?php echo $colSpanValue ?>">Total de toutes les années</th>
+				<th colspan="<?php echo $colSpanValue ?>">Total de toutes les années</th>
 				<th class="aR"><?php echo number_format($tg_htva, 2, ',', ' ')?> €</th>
 				<th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
 				<th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
 			</tr>
-		</table>
-	</div>
 <?php endif ?>
+		</table>
+		<hr id="bottom" />
+	</div>
 </form>

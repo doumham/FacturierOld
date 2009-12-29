@@ -185,6 +185,9 @@ tr.titre_trimestre th{
 	color:#fff;
 	text-align:center;
 }
+tr.titre_annee{
+	display: none;
+}
 
 /* */
 tr.tot_trimestre, tr.tot_annee, tr.tot_general {
@@ -285,11 +288,11 @@ h3 a{
 }
 
 /* */
-.legende{
+tr.legende{
 	background:#BBB;
 	color:#FFF;
 }
-.legende a{
+tr.legende a{
 	color:#FFF;
 }
 
