@@ -303,6 +303,9 @@ form#listing {
 	background:#DDD;
 	margin-top:177px;
 }
+form#listingClients {
+	margin-top:101px;
+}
 form p.tools {
 	-webkit-box-shadow:0 4px 4px #999;
 	-moz-box-shadow:0 4px 4px #999;
@@ -316,8 +319,11 @@ form p.tools {
 	padding-top:10px;
 	margin-top:0;
 }
-form p.tools input{
+form p.tools input {
 	font-size:9px;
+}
+form p.tools.clients {
+	top:70px;
 }
 label, textarea, input, select {
 	font-family: Arial, Helvetica, Verdana, sans-serif;
