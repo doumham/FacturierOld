@@ -19,12 +19,12 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 	if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
 		$type = "entrantes";
 		$table = "facturesEntrantes";
-		$form = "formFacturesEntrantes";
+		$form = "formFactures";
 		$idBouton = "boutonAjouterFactureEntrante";
 	} else {
 		$type = "sortantes";
 		$table = "facturesSortantes";
-		$form = "formFacturesSortantes";
+		$form = "formFactures";
 		$idBouton = "boutonAjouterFactureSortante";
 	}
 	if($_GET['annee']){
@@ -75,7 +75,7 @@ $nombreFactures = mysql_num_rows($selectFactures);
 ?>
 	<form id="listing" action="requetes/traitements.php" method="post">
 		<input type="hidden" name="type" value="<?php echo $type ?>" id="type" />
-		<input type="hidden" value="<?php echo $table ?>" name="table" />
+		<input type="hidden" name="table" value="<?php echo $table ?>" />
 		<input type="hidden" name="annee" value="<?php echo $annee ?>" id="annee" />
 		<input type="hidden" name="ordre" value="<?php echo $ordre ?>" id="ordre" />
 		<div class="contenu">
@@ -116,8 +116,10 @@ if ($annee != "all") {
 <?php if ($type == "sortantes"): ?>
 					<th>TVA</th>
 <?php endif ?>
+<?php if (ASSUJETTI_A_LA_TVA): ?>
 					<th class="aR">Montant HTVA</th>
 					<th class="aR">Montant TVA</th>
+<?php endif ?>
 					<th class="aR">Total TVAC</th>
 				</tr>
 <?php
@@ -182,11 +184,7 @@ foreach ($facture as $key_annee => $value1) {
 					<th colspan="<?php echo $colSpanValue+3 ?>">Trimestre <?php echo $key_trimestre ?></th>
 				</tr>
 <?php }?>
-<?php if ($type == "sortantes"): ?>
-	<tr class="facture<?php if ($f['paid'] == 0){echo " unpaid";}?>" id="element_<?php echo $f['id']?>">
-<?php else: ?>
-	<tr class="facture<?php if ($f['deductibilite'] == 0){echo " undeductible";}?>" id="element_<?php echo $f['id']?>">
-<?php endif ?>
+	<tr class="facture<?php if (isset($f['paid']) && $f['paid'] == 0){echo " unpaid";}?>" id="element_<?php echo $f['id']?>">
 		<td>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>"<?php if (isset($f['paid']) && $f['paid'] == 1) { echo 'disabled="disabled"'; } ?> />
 			<a class="bouton modifier popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture du <?php echo strftime("%d/%m/%Y",strtotime($f['date']))?>">
@@ -215,8 +213,10 @@ foreach ($facture as $key_annee => $value1) {
 <?php if ($type == "sortantes"): ?>
 		<td><?php echo $f['tva']?></td>
 <?php endif ?>
+<?php if (ASSUJETTI_A_LA_TVA): ?>
 		<td class="aR"><?php echo number_format($f['montant'], 2, ',', ' ')?> €</td>
 		<td class="aR"><?php echo number_format($f['montant_tva'], 2, ',', ' ')?> €</td>
+<?php endif ?>
 		<td class="aR"><?php echo number_format($f['montant_tvac'], 2, ',', ' ')?> €</td>
 	</tr>
 <?php
@@ -256,15 +256,19 @@ if($totauxTrim['id']){
 // Fin de mise en DB des totaux
 ?>
 <?php endif ?>
+<?php if (ASSUJETTI_A_LA_TVA): ?>
 					<th class="aR"><?php echo number_format($tt_htva, 2, ',', ' ')?> €</th>
 					<th class="aR"><?php echo number_format($tt_tva, 2, ',', ' ')?> €</th>
+<?php endif ?>
 					<th class="aR"><?php echo number_format($tt_tvac, 2, ',', ' ')?> €</th>
 				</tr>
 <?php if (($key_trimestre == "4" && !$ordre)||($annee == date("Y") && $countFacture == $nombreFactures)){ ?>
 				<tr class="tot_annee">
 					<th colspan="<?php echo $colSpanValue ?>">Total de l'année <?php echo substr($f['date'],0,4) ?></th>
+<?php if (ASSUJETTI_A_LA_TVA): ?>
 					<th class="aR"><?php echo number_format($ta_htva, 2, ',', ' ')?> €</th>
 					<th class="aR"><?php echo number_format($ta_tva, 2, ',', ' ')?> €</th>
+<?php endif ?>
 					<th class="aR"><?php echo number_format($ta_tvac, 2, ',', ' ')?> €</th>
 				</tr>
 <?php
@@ -293,8 +297,10 @@ $ta_tvac = 0;
 <?php if ($annee == "all"): ?>
 			<tr class="tot_general">
 				<th colspan="<?php echo $colSpanValue ?>">Total de toutes les années</th>
+<?php if (ASSUJETTI_A_LA_TVA): ?>
 				<th class="aR"><?php echo number_format($tg_htva, 2, ',', ' ')?> €</th>
 				<th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
+<?php endif ?>
 				<th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
 			</tr>
 <?php endif ?>

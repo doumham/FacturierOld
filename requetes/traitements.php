@@ -7,18 +7,25 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 	if ($nombreElements > 0) {
 		foreach ($_POST["selectionElements"] as $id) {
 			if ($_POST['table'] == 'clients'){
-				mysql_query("DELETE FROM `".$_POST['table']."` WHERE `id_client`=$id") or die(mysql_error());
+				$req = mysql_query("DELETE FROM `".$_POST['table']."` WHERE `id_client`=$id") or die(mysql_error());
 			} else {
-				mysql_query("DELETE FROM `".$_POST['table']."` WHERE `id`=$id") or die(mysql_error());
+				$req = mysql_query("DELETE FROM `".$_POST['table']."` WHERE `id`=$id") or die(mysql_error());
 			}
 		}
-		if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
-			if (count($_POST["selectionElements"]) == 1) {
-				echo '{msg:"1 élément supprimé."}';
-			} else {
-				echo '{msg:"'.count($_POST["selectionElements"]).' éléments supprimés."}';
+		if (isset($req) && $req) {
+			if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
+				if (count($_POST["selectionElements"]) == 1) {
+					echo '{msg:"1 élément supprimé."}';
+				} else {
+					echo '{msg:"'.count($_POST["selectionElements"]).' éléments supprimés."}';
+				}
+				exit();
 			}
-			exit();
+		} else {
+			if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
+				echo '{msg:"Une erreur s’est produite."}';
+				exit();
+			}
 		}
 	} else {
 		if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
@@ -32,12 +39,12 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 switch ($_POST['table']) {
 	case 'facturesEntrantes':
 		$redirectPage = 'factures.php?type=entrantes';
-		$redirectNewFacture = 'formFacturesEntrantes.php';
+		$redirectNewFacture = 'formFactures.php?type=entrantes';
 		break;
 	
 	case 'facturesSortantes':
 		$redirectPage = 'factures.php?type=sortantes';
-		$redirectNewFacture = 'formFacturesSortantes.php';
+		$redirectNewFacture = 'formFactures.php?type=sortantes';
 		break;
 	
 	default:

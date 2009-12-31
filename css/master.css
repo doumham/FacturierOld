@@ -7,7 +7,6 @@ body{
 	font-size: 12px;
 	padding:0;
 	margin:0;
-	min-width:965px;
 	line-height:13px;
 }
 a img{
@@ -150,12 +149,12 @@ tr:nth-child(even) {
 	background: #F3F3F3;
 /*	border-bottom:1px solid #CCC;*/
 }
-tr.unpaid, tr.undeductible {
+tr.unpaid {
 	background-color:#DDC;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(225, 225, 200, .9)), to(rgba(210, 210, 185, 0.8)));
 	color:rgba(70, 70, 50, .9);
 }
-tr.unpaid a, tr.undeductible a {
+tr.unpaid a {
 	color:rgba(70, 70, 50, .9);
 }
 

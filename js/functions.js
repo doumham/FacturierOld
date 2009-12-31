@@ -131,7 +131,7 @@ $(document).ready(function() {
 	});
 
 	$('#boutonAjouterFactureSortante').live('click',function(){
-		dialogFormUrl = "formFacturesSortantes.php?ajaxed=1";
+		dialogFormUrl = "formFactures.php?type=sortantes&ajaxed=1";
 		dialogTitle = $(this).attr('title');
 		$('#dialog').dialog('option', 'title', dialogTitle);
 		$('#dialog').dialog('open');
@@ -139,7 +139,7 @@ $(document).ready(function() {
 	});
 	
 	$('#boutonAjouterFactureEntrante').live('click',function(){
-		dialogFormUrl = "formFacturesEntrantes.php?ajaxed=1";
+		dialogFormUrl = "formFactures.php?type=entrantes&ajaxed=1";
 		dialogTitle = $(this).attr('title');
 		$('#dialog').dialog('option', 'title', dialogTitle);
 		$('#dialog').dialog('open');

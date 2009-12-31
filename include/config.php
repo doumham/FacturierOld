@@ -13,6 +13,7 @@ define(JQUERY_UI_VERSION, '1.7.2');
 define(COUNTRY_CODE, 'fr_BE');
 define(TIME_ZONE, 'Europe/Brussels');
 
+define(ASSUJETTI_A_LA_TVA, true);
 define(DEFAULT_TVA, '21,00');
 
 error_reporting(E_ALL);

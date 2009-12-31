@@ -4,12 +4,12 @@ $myInterface = new interface_();
 if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
 	$type = "entrantes";
 	$table = "facturesEntrantes";
-	$form = "formFacturesEntrantes";
+	$form = "formFactures";
 	$idBouton = "boutonAjouterFactureEntrante";
 } else {
 	$type = "sortantes";
 	$table = "facturesSortantes";
-	$form = "formFacturesSortantes";
+	$form = "formFactures";
 	$idBouton = "boutonAjouterFactureSortante";
 }
 

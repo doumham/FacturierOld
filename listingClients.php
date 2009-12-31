@@ -46,9 +46,6 @@ while ($row_search = mysql_fetch_array($search_clients)){
 				<a class="bouton modifier popup" href="formClient.php?id=<?php echo $c['id_client']?>" title="Modifier <?php echo htmlspecialchars($c['denomination']);?>">
 					Modifier
 				</a> 
-				<!-- <a class="bouton nouvelleFacture" href="formFacturesSortantes.php?id_client=<?php echo $c['id_client']?>" title="Nouvelle facture">
-					Nouvelle facture
-				</a>  -->
 			</td>
 			<td><?php echo htmlspecialchars($c['denomination'])?></td>
 			<td><?php echo $c['adresse'].", ".$c['num']?></td>
