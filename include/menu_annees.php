@@ -4,16 +4,20 @@ if (isset($type) && !empty($type)) {
 } else {
 	$paramGetType = '';
 }
-$select_annees = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` ASC") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectAnneeMin = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` ASC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
+$selectAnneeMax = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
 <?php
-$une_annee_old = "";
-while ($ann = mysql_fetch_array($select_annees)) {
-  $une_annee = substr($ann['date'],0,4);
-  if ($une_annee != $une_annee_old) {
-    $les_annees[] = $une_annee;
-  }
-  $une_annee_old = $une_annee;
+$anneeMinFetched = mysql_fetch_array($selectAnneeMin);
+$anneeMaxFetched = mysql_fetch_array($selectAnneeMax);
+$anneeMin = substr($anneeMinFetched['date'],0,4);
+$anneeMax = substr($anneeMaxFetched['date'],0,4);
+if ($anneeMax < date('Y')) {
+	$anneeMax++;
+}
+while ($anneeMin <= $anneeMax) {
+	$les_annees[] = $anneeMin;
+	$anneeMin++;
 }
 ?>
 <?php if (isset($les_annees) && is_array($les_annees)): ?>
