@@ -13,7 +13,9 @@ a img{
 	border: none;
 }
 #header{
-	background:#EEEEEE none repeat scroll 0 0;
+	background-image: #666;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(100, 100, 100, 1)), to(rgba(80, 80, 80, 1)));
+	text-shadow:0 1px 0 rgba(255,255,255,.2);
 	height:70px;
 	padding:0 30px;
 	position:fixed;
@@ -21,7 +23,7 @@ a img{
 	width:100%;
 }
 h1{
-	margin-top:20px;
+	margin-top:27px;
 	font-size:32px;
 	float:left;
 }
@@ -36,20 +38,30 @@ h1 a{
 #menu{
 	float:left;
 	list-style-type: none;
-	margin: 22px 0 10px 40px;
+	margin: 26px 0 10px 40px;
 	padding: 0;
 }
 #menu li{
-	margin: 0 20px 0 0;
-	padding-left:22px;
+	display:inline;
 }
 #menu li a{
+	padding:5px 10px;
+	-moz-border-radius:     15px;
+	-webkit-border-radius:  15px;
+	border-radius:          15px;
+	background-image: #CCC;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(180, 180, 180, 1)), to(rgba(140, 140, 140, 1)));
+	text-shadow:0 1px 0 rgba(255,255,255,.3);
+	display:block;
+	float:left;
 	text-decoration:none;
-	color: #595;
+	color: #111;
+	margin-right:10px;
 }
 #menu li a:hover{
-	background:#595;
-	color: #fff;
+	background-image: #EEE;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(220, 220, 220, 1)), to(rgba(190, 190, 190, 1)));
+	color: #000;
 }
 #menu li a:active{
 	color: #8c8;
@@ -274,7 +286,10 @@ h3 a{
 	text-decoration: none;
 }
 #liste_annees{
-	background:#AAAAAA none repeat scroll 0 0;
+	font-weight: bold;
+	background-color: #AAAAAA;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(185, 185, 185, .9)), to(rgba(175, 175, 175, 0.8)));
+	text-shadow:0 -1px 0 rgba(0,0,0,.2);
 	clear:both;
 	font-family:verdana,sans-serif;
 	font-size:12px;
@@ -290,11 +305,10 @@ h3 a{
 	float:left;
 }
 #liste_annees li a{
-	background:#AAAAAA;
+/*	background:#AAAAAA;*/
 	border-right:1px solid #999;
-	color:#DDDDDD;
+	color:#EEE;
 	display:block;
-	font-weight:bold;
 	height:25px;
 	line-height:26px;
 	text-align:center;
@@ -310,10 +324,18 @@ h3 a{
   border-left:1px solid #999;
 }
 #liste_annees li a:hover{
+	text-shadow:none;
   background:#FFF;
   color:#AAA;
 }
 #liste_annees li a:active, #liste_annees li a.actif{
+/*	-moz-border-radius-topleft:      6px;
+	-webkit-border-top-left-radius:  6px;
+	border-top-left-radius:          6px;
+	-moz-border-radius-topright:     6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius:         6px;
+*/
 	background:#FFFFFF;
 	color:#666666;
 }
