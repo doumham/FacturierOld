@@ -178,14 +178,14 @@ foreach ($facture as $key_annee => $value1) {
 	<tr class="facture<?php if (isset($f['paid']) && $f['paid'] == 0){echo " unpaid";}?>" id="element_<?php echo $f['id']?>">
 		<td>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>"<?php if (isset($f['paid']) && $f['paid'] == 1) { echo 'disabled="disabled"'; } ?> />
-			<a class="bouton modifier popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture du <?php echo strftime("%d/%m/%Y",strtotime($f['date']))?>">
+			<a class="bouton modifier popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture <?php echo $f['numero'] ?>">
 				Modifier
 			</a> 
 <?php if ($type == "sortantes"): ?>
-			<a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer">
+			<a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer la facture <?php echo $f['numero'] ?>">
 				Imprimer
 			</a>
-			<a class="bouton paye" id="paid_<?php echo $f['id']?>" href="requetes/togglePaid.php?id=<?php echo $f['id'] ?>&amp;annee=<?php echo $annee ?>&amp;paid=<?php echo $f['paid'] ?>&amp;ordre=<?php echo $ordre ?>" title="<?php if ($f['paid'] == 0) {echo "Marquer comme payée";}else{echo "Marquer comme impayée";} ?>">
+			<a class="bouton paye" id="paid_<?php echo $f['id']?>" href="requetes/togglePaid.php?id=<?php echo $f['id'] ?>&amp;annee=<?php echo $annee ?>&amp;paid=<?php echo $f['paid'] ?>&amp;ordre=<?php echo $ordre ?>" title="<?php if ($f['paid'] == 0) {echo "Marquer la facture ".$f['numero']." comme payée";}else{echo "Marquer la facture ".$f['numero']." comme impayée";} ?>">
 				Payée/Impayée
 			</a>
 			<input type="hidden" value="<?php echo $f['paid'] ?>" name="paye[]"/>
@@ -194,7 +194,7 @@ foreach ($facture as $key_annee => $value1) {
 <?php if ($type == "sortantes"): ?>
 		<td class="aR"><?php echo $f['numero']?></td>
 <?php endif ?>
-		<td><?php echo strftime("%d/%m/%Y",strtotime($f['date']))?></td>
+		<td><?php echo strftime("%d %B %Y",strtotime($f['date']))?></td>
 <?php if ($type == "sortantes"): ?>
 		<td><a href="facture.php?id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>"><?php echo htmlspecialchars($f['denomination'])?></a></td>
 <?php else: ?>
