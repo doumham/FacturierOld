@@ -16,7 +16,7 @@ if($tva){
 	$tva = "TVA : ".$tva;
 }
 if(isset($_GET['print']) && $_GET['print'] == true){
-	$printing = " onload=\"window.print();document.location.href='factures.php?type=sortantes&amp;annee=".$_GET['annee']."';\"";
+	$printing = ' onload="window.print();document.location.href=\'factures.php?type=sortantes&amp;annee='.$_GET['annee'].'#bottom\';"';
 } else {
 	$printing = "";
 }

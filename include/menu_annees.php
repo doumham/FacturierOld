@@ -6,8 +6,6 @@ if (isset($type) && !empty($type)) {
 }
 $selectAnneeMin = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` ASC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
 $selectAnneeMax = mysql_query("SELECT `date` FROM `facturesSortantes` ORDER BY `date` DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
-?>
-<?php
 $anneeMinFetched = mysql_fetch_array($selectAnneeMin);
 $anneeMaxFetched = mysql_fetch_array($selectAnneeMax);
 $anneeMin = substr($anneeMinFetched['date'],0,4);

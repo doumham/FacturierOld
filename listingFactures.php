@@ -36,15 +36,6 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 		$ordre = $_GET['ordre'];
 		$req2 = $table.".id_client,";
 	}
-	$select_annees = mysql_query("SELECT `date` FROM `".$table."` ORDER BY `date` ASC") or trigger_error(mysql_error(),E_USER_ERROR);
-	$une_annee_old = "";
-	while ($ann = mysql_fetch_array($select_annees)) {
-		$une_annee = substr($ann['date'],0,4);
-		if ($une_annee != $une_annee_old) {
-			$les_annees[] = $une_annee;
-		}
-		$une_annee_old = $une_annee;
-	}
 
 }
 $countFacture = 0;
