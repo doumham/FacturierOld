@@ -13,7 +13,7 @@ a img{
 	border: none;
 }
 #header{
-	background-image: #666;
+	background-color: #666;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(100, 100, 100, 1)), to(rgba(80, 80, 80, 1)));
 	text-shadow:0 1px 0 rgba(255,255,255,.2);
 	height:70px;
@@ -49,7 +49,7 @@ h1 a{
 	-moz-border-radius:     15px;
 	-webkit-border-radius:  15px;
 	border-radius:          15px;
-	background-image: #CCC;
+	background-color: #CCC;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(180, 180, 180, 1)), to(rgba(140, 140, 140, 1)));
 	text-shadow:0 1px 0 rgba(255,255,255,.3);
 	display:block;
@@ -59,12 +59,13 @@ h1 a{
 	margin-right:10px;
 }
 #menu li a:hover{
-	background-image: #EEE;
+	background-color: #EEE;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(220, 220, 220, 1)), to(rgba(190, 190, 190, 1)));
 	color: #000;
 }
 #menu li a:active{
-	color: #8c8;
+	background-color: #999;
+	color: #111;
 }
 
 /* Onglets */
