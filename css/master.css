@@ -72,7 +72,7 @@ h1 a{
 #onglets{
 	background-color:#FFFFFF;
 	font-family:verdana,arial,helvetica,sans-serif;
-	font-size:11px;
+	font-size:12px;
 	font-weight:bold;
 	height:36px;
 	line-height:25px;
@@ -80,13 +80,12 @@ h1 a{
 	padding-left:30px;
 	padding-top:15px;
 	position:fixed;
-	text-transform:uppercase;
 	top:115px;
 	width:100%;
 }
 #onglets li{
 	float:left;
-	margin-right:10px;
+	margin-right:1px;
 	padding-top:11px;
 }
 #onglets a{
@@ -104,22 +103,22 @@ h1 a{
 	border-top-right-radius:         4px;
 }
 #onglets a:hover {
-	color:#000;
+	background-color:#ddd;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(230, 230, 230, 1)), to(rgba(221, 221, 221, 1)));
 }
 #onglets a:active {
-	background-color:#666;
-	color:#DDD;
+	color:#333;
 }
 #onglets .actif {
 	padding-top:4px;
 	line-height:32px;
-	font-size:12px;
+	font-size:13px;
 }
 #onglets .actif a {
 	padding:0 15px;
 	background-color:#ddd;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(230, 230, 230, 1)), to(rgba(221, 221, 221, 1)));
-	color:#000;
+	color:#111;
 }
 
 table{
