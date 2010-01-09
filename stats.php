@@ -52,7 +52,7 @@ $chiffres_in = implode(',',$chiffres_in);
 $myInterface->set_title("Facturier – Graphique");
 $myInterface->get_header();
 ?>
-		<div style="width:900px;margin-top:146px;" class="contenu">
+		<div style="width:900px;margin-top:166px;" class="contenu">
 <?php 
 include ('include/menu_annees.php');
 include ('include/onglets.php');

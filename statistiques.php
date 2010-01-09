@@ -76,7 +76,7 @@ $selectFacturesEntrantes = mysql_query("SELECT * FROM facturesEntrantes ".$req."
 $myInterface->set_title("Facturier – Statistiques");
 $myInterface->get_header();
 ?>
-		<div class="contenu" style=" margin-top:146px;">
+		<div class="contenu" style=" margin-top:166px;">
 <?php 
 include('include/menu_annees.php');
 include('include/onglets.php');

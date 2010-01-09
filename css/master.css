@@ -16,14 +16,14 @@ a img{
 	background-color: #666;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(100, 100, 100, 1)), to(rgba(80, 80, 80, 1)));
 	text-shadow:0 1px 0 rgba(255,255,255,.2);
-	height:70px;
+	height:90px;
 	padding:0 30px;
 	position:fixed;
 	top:0;
 	width:100%;
 }
 h1{
-	margin-top:27px;
+	margin-top:37px;
 	font-size:32px;
 	float:left;
 }
@@ -38,7 +38,7 @@ h1 a{
 #menu{
 	float:left;
 	list-style-type: none;
-	margin: 26px 0 10px 40px;
+	margin: 34px 0 10px 40px;
 	padding: 0;
 }
 #menu li{
@@ -81,7 +81,7 @@ h1 a{
 	padding-top:15px;
 	position:fixed;
 	text-transform:uppercase;
-	top:95px;
+	top:115px;
 	width:100%;
 }
 #onglets li{
@@ -287,31 +287,36 @@ h3 a{
 	text-decoration: none;
 }
 #liste_annees{
+	background-color:#666;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(80, 80, 80, 1)), to(rgba(80, 80, 80, 1)));
 	font-weight: bold;
-	background-color: #AAAAAA;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(185, 185, 185, .9)), to(rgba(175, 175, 175, 0.8)));
 	text-shadow:0 -1px 0 rgba(0,0,0,.2);
 	clear:both;
 	font-family:verdana,sans-serif;
 	font-size:12px;
-	height:25px;
 	list-style-type:none;
-	margin-bottom:15px;
 	padding-left:30px;
 	position:fixed;
-	top:70px;
+	top:90px;
 	width:100%;
 }
 #liste_annees li{
 	float:left;
 }
 #liste_annees li a{
-/*	background:#AAAAAA;*/
-	border-right:1px solid #999;
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(160, 160, 160, .9)), to(rgba(140, 140, 140, 0.8)));
+	background-color:#999;
 	color:#EEE;
 	display:block;
+	margin-right:1px;
 	height:25px;
-	line-height:26px;
+	line-height:28px;
 	text-align:center;
 	text-decoration:none;
 	width:70px;
@@ -373,7 +378,7 @@ form p.tools {
 	background-color:#DDD;
 	height:21px;
 	position: fixed;
-	top:146px;
+	top:166px;
 	width:100%;
 	padding-left:10px;
 	padding-top:10px;
@@ -383,7 +388,7 @@ form p.tools input {
 	font-size:9px;
 }
 form p.tools.clients {
-	top:70px;
+	top:90px;
 }
 label, textarea, input, select {
 	font-family: Arial, Helvetica, Verdana, sans-serif;
