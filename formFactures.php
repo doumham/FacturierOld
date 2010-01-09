@@ -34,7 +34,7 @@ if ($type == 'sortantes') {
 	$selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `denomination`") or trigger_error(mysql_error(),E_USER_ERROR);
 }
 if (!isset($_GET['ajaxed'])) {
-	$myInterface->set_title("Ajouter une facture ".$typeSingulier);
+	$myInterface->set_title("Facturier – Facture ".$typeSingulier);
 	$myInterface->get_header();
 }
 ?>

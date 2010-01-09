@@ -23,7 +23,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 	extract($c);
 }
 if (!isset($_GET['ajaxed'])) {
-	$myInterface->set_title("Ajouter un client");
+	$myInterface->set_title("Facturier – Client");
 	$myInterface->get_header();
 }
 ?>

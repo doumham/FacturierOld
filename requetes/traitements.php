@@ -36,6 +36,7 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 	$_POST["selectionElements"] = array();
 	$nombreElements = 0;
 }
+
 switch ($_POST['table']) {
 	case 'facturesEntrantes':
 		$redirectPage = 'factures.php?type=entrantes';

@@ -73,7 +73,7 @@ $nombreFacturesSortantes = mysql_num_rows($selectFacturesSortantes);
 $selectFacturesEntrantes = mysql_query("SELECT * FROM facturesEntrantes ".$req." ORDER BY ".$req2." date") or trigger_error(mysql_error(),E_USER_ERROR);
 ?>
 <?php 
-$myInterface->set_title("Statistiques");
+$myInterface->set_title("Facturier – Statistiques");
 $myInterface->get_header();
 ?>
 		<div class="contenu" style=" margin-top:146px;">

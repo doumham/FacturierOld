@@ -49,7 +49,7 @@ $lannee = implode(',',$lannee);
 $chiffres_in = implode(',',$chiffres_in);
 @$chiffres_out = implode(',',$chiffres_out);
 
-$myInterface->set_title("Factures sortantes");
+$myInterface->set_title("Facturier – Graphique");
 $myInterface->get_header();
 ?>
 		<div style="width:900px;margin-top:146px;" class="contenu">

@@ -27,16 +27,15 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 		$form = "formFactures";
 		$idBouton = "boutonAjouterFactureSortante";
 	}
-	if($_GET['annee']){
+	if(isset($_GET['annee'])){
 		$annee = $_GET['annee'];
 	}else{
 		$annee = "all";
 	}
-	if($_GET['ordre']){ // classement par client : ordre="clients". Par date : ordre n'existe pas
+	if(isset($_GET['ordre'])){ // classement par client : ordre="clients". Par date : ordre = "";
 		$ordre = $_GET['ordre'];
 		$req2 = $table.".id_client,";
 	}
-
 }
 $countFacture = 0;
 
@@ -44,7 +43,7 @@ if($annee && $annee != "all"){
 	$date1 = $annee."-00-00";
 	$date2 = $annee+1;
 	$date2 = $date2."-00-00";
-	$req = "WHERE date>'$date1' AND date<'$date2'";
+	$req = "WHERE `date`>'$date1' AND `date`<'$date2'";
 }
 
 if ($type == "sortantes"):
@@ -82,8 +81,9 @@ if ($annee != "all") {
 }
 ?>
 			<p class="tools">
-				<input type="submit" value="Ajouter une facture" id="<?php echo $idBouton ?>" name="boutonAjouter" title="Ajouter une facture" />
+				<input type="submit" value="Ajouter une facture" id="<?php echo $idBouton ?>" name="boutonAjouter" />
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
+				<a href="export.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>">Exporter en CSV</a>
 				<!-- <input type="hidden" value="<?php if(isset($_GET['ordre']))echo $_GET['ordre'] ?>" name="ordre" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" /> -->
 			</p>

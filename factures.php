@@ -38,7 +38,7 @@ if(isset($_GET['ordre']) && !empty($_GET['ordre'])){ // classement par client : 
 	$ordre = $_GET['ordre'];
 	$req2 = $table.".id_client,";
 }
-$myInterface->set_title("Factures sortantes");
+$myInterface->set_title("Facturier – Factures");
 $myInterface->get_header();
 include_once ('include/menu_annees.php');
 include_once ('include/onglets.php');

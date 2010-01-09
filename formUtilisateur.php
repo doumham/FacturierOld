@@ -9,7 +9,7 @@ if (is_array($utilisateur)) {
 	mysql_query("INSERT INTO `utilisateur` (`id`) VALUES (1)") or trigger_error(mysql_error(),E_USER_ERROR);
 }
 if (!isset($_GET['ajaxed'])) {
-	$myInterface->set_title("Factures sortantes");
+	$myInterface->set_title("Facturier – Utilisateur");
 	$myInterface->get_header();
 ?>
 	<div class="contenu" style="margin-top:70px;">
