@@ -178,7 +178,7 @@ foreach ($facture as $key_annee => $value1) {
 	<tr class="facture<?php if (isset($f['paid']) && $f['paid'] == 0){echo " unpaid";}?>" id="element_<?php echo $f['id']?>">
 		<td>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>"<?php if (isset($f['paid']) && $f['paid'] == 1) { echo 'disabled="disabled"'; } ?> />
-			<a class="bouton modifier popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture <?php echo $f['numero'] ?>">
+			<a class="bouton modifier popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture <?php if($type == 'sortantes')echo $f['numero'] ?>">
 				Modifier
 			</a> 
 <?php if ($type == "sortantes"): ?>
