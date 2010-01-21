@@ -15,6 +15,7 @@ a img{
 #header{
 	background-color: #666;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(100, 100, 100, 1)), to(rgba(80, 80, 80, 1)));
+	background-image: -moz-linear-gradient(top,                    rgba(100, 100, 100, 1),     rgba(80, 80, 80, 1));
 	text-shadow:0 1px 0 rgba(255,255,255,.2);
 	height:90px;
 	padding:0 30px;
@@ -51,6 +52,8 @@ h1 a{
 	border-radius:          15px;
 	background-color: #CCC;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(180, 180, 180, 1)), to(rgba(140, 140, 140, 1)));
+	background-image: -moz-linear-gradient(top,                    rgba(180, 180, 180, 1),     rgba(140, 140, 140, 1));
+	
 	text-shadow:0 1px 0 rgba(255,255,255,.3);
 	display:block;
 	float:left;
@@ -61,6 +64,7 @@ h1 a{
 #menu li a:hover{
 	background-color: #EEE;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(220, 220, 220, 1)), to(rgba(190, 190, 190, 1)));
+	background-image: -moz-linear-gradient(top,                    rgba(220, 220, 220, 1),     rgba(190, 190, 190, 1));
 	color: #000;
 }
 #menu li a:active{
@@ -105,6 +109,7 @@ h1 a{
 #onglets a:hover {
 	background-color:#ddd;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(230, 230, 230, 1)), to(rgba(221, 221, 221, 1)));
+	background-image: -moz-linear-gradient(top,                    rgba(230, 230, 230, 1),     rgba(221, 221, 221, 1));
 }
 #onglets a:active {
 	color:#333;
@@ -118,6 +123,7 @@ h1 a{
 	padding:0 15px;
 	background-color:#ddd;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(230, 230, 230, 1)), to(rgba(221, 221, 221, 1)));
+	background-image: -moz-linear-gradient(top,                    rgba(230, 230, 230, 1),     rgba(221, 221, 221, 1));
 	color:#111;
 }
 
@@ -164,6 +170,7 @@ tr:nth-child(even) {
 tr.unpaid {
 	background-color:#DDC;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(225, 225, 200, .9)), to(rgba(210, 210, 185, 0.8)));
+	background-image: -moz-linear-gradient(top,                    rgba(225, 225, 200, .9),     rgba(210, 210, 185, 0.8));
 	color:rgba(70, 70, 50, .9);
 }
 tr.unpaid a {
@@ -228,6 +235,7 @@ tr.tot_trimestre {
 	font-size: 14px;
 	background-color: #ccc;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(225, 225, 225, .9)), to(rgba(210, 210, 210, 0.8)));
+	background-image: -moz-linear-gradient(top,                    rgba(225, 225, 225, .9),     rgba(210, 210, 210, 0.8));
 	color:#333;
 	text-shadow:0 1px 0 rgba(255,255,255,.9);
 }
@@ -235,6 +243,7 @@ tr.tot_annee {
 	font-size: 14px;
 	background-color: #999;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(175, 175, 175, .9)), to(rgba(150, 150, 150, 0.8)));
+	background-image: -moz-linear-gradient(top,                    rgba(175, 175, 175, .9),     rgba(150, 150, 150, 0.8));
 	text-shadow:0 1px 0 rgba(255,255,255,.5);
 	color:#333;
 }
@@ -243,6 +252,7 @@ tr.tot_general{
 	font-weight: bold;
 	background-color: #666;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(120, 120, 120, .9)), to(rgba(95, 95, 95, 0.8)));
+	background-image: -moz-linear-gradient(top,                    rgba(120, 120, 120, .9),     rgba(95, 95, 95, 0.8));
 	text-shadow:0 1px 0 rgba(255,255,255,.2);
 }
 tr.tot_trimestre th.aR{
@@ -288,6 +298,7 @@ h3 a{
 #liste_annees{
 	background-color:#666;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(80, 80, 80, 1)), to(rgba(80, 80, 80, 1)));
+	background-image: -moz-linear-gradient(top,                    rgba(80, 80, 80, 1),     rgba(80, 80, 80, 1));
 	font-weight: bold;
 	text-shadow:0 -1px 0 rgba(0,0,0,.2);
 	clear:both;
@@ -310,6 +321,7 @@ h3 a{
 	border-top-left-radius:5px;
 	border-top-right-radius:5px;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(160, 160, 160, .9)), to(rgba(140, 140, 140, 0.8)));
+	background-image: -moz-linear-gradient(top,                    rgba(160, 160, 160, .9),     rgba(140, 140, 140, 0.8));
 	background-color:#999;
 	color:#EEE;
 	display:block;
@@ -352,6 +364,7 @@ tr.legende{
 	color:rgba(20, 20, 20, .9);
 	text-shadow:0 1px 0 rgba(255,255,255,.4);
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(190, 190, 190, .9)), to(rgba(170, 170, 170, 0.8)));
+	background-image: -moz-linear-gradient(top,                    rgba(190, 190, 190, .9),     rgba(170, 170, 170, 0.8));
 }
 tr.legende a{
 	color:rgba(40, 40, 40, .9);
