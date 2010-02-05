@@ -1,7 +1,7 @@
 <?php
 include('../include/config.php');
 extract($_POST);
-if(isset($denomination) && empty(trim($denomination))) {
+if(isset($denomination) && empty($denomination)) {
 	$denomination = $nom.' '.$prenom;
 }
 if($id){
