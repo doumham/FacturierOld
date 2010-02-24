@@ -32,7 +32,7 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 	}else{
 		$annee = "all";
 	}
-	if(isset($_GET['ordre'])){ // classement par client : ordre="clients". Par date : ordre = "";
+	if(isset($_GET['ordre']) && !empty($_GET['ordre'])){ // classement par client : ordre="clients". Par date : ordre n'existe pas
 		$ordre = $_GET['ordre'];
 		$req2 = $table.".id_client,";
 	}
