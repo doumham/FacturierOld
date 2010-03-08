@@ -101,7 +101,7 @@ if (!isset($_GET['ajaxed'])) {
 			</p>
 			<p>
 				<label for="validation">Validation&nbsp;:</label>
-				<input id="validation" name="validation" type="submit" value="Envoyer" />
+				<input id="validation" name="validation" type="submit" value="Enregistrer" />
 			</p>
 		</form>
 <?php if (!isset($_GET['ajaxed'])) { ?>

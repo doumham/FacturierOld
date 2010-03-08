@@ -96,7 +96,7 @@ if (!isset($_GET['ajaxed'])) {
 			<input type="hidden" name="deductibilite" value="1" />
 		<p>
 			<label for="validation">Validation : </label>
-			<input type="submit" value="Envoyer" id="validation" />
+			<input type="submit" value="Enregistrer" id="validation" />
 		</p>
 	</form>
 <?php $myInterface->get_footer(); ?>
