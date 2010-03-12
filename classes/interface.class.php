@@ -25,7 +25,7 @@ class interface_{
 		$return .= '<title>'.$this->title.'</title>'."\r";
 		// CSS
 		$return .= '<link type="text/css" href="css/master.css" rel="stylesheet" media="screen"  />'."\r";
-		$return .= '<link type="text/css" href="plugins/jquery-ui/css/custom-theme/jquery-ui-'.JQUERY_UI_VERSION.'.custom.css" rel="stylesheet" media="screen" />'."\r";
+		$return .= '<link type="text/css" href="plugins/jquery-ui/css/smoothness/jquery-ui-'.JQUERY_UI_VERSION.'.custom.css" rel="stylesheet" media="screen" />'."\r";
 		$return .= '<link type="text/css" href="plugins/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen" />'."\r";
 		$return .= '<link type="text/css" href="css/print.css" rel="stylesheet" media="print" />'."\r";
 		// Icone

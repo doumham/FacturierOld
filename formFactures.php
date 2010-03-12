@@ -31,7 +31,7 @@ if ($type == 'sortantes') {
 	if(isset($_GET['id_client']) && $_GET['id_client']){
 		$id_client = $_GET['id_client'];
 	}
-	$selectClients = mysql_query("SELECT * FROM `clients` ORDER BY `denomination`") or trigger_error(mysql_error(),E_USER_ERROR);
+	$selectClients = mysql_query("SELECT `denomination` FROM `clients` WHERE `id_client`='".$id_client."' LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
 }
 if (!isset($_GET['ajaxed'])) {
 	$myInterface->set_title("Facturier – Facture ".$typeSingulier);
@@ -45,7 +45,7 @@ if (!isset($_GET['ajaxed'])) {
 <?php if ($type == 'sortantes'): ?>
 		<p>
 			<label for="numero">Numéro : </label>
-			<input name="numero" type="text" size="4" value="<?php echo $numero;?>" />
+			<input name="numero" id="numero" type="text" size="4" value="<?php echo $numero;?>" />
 		</p>
 <?php endif ?>
 		<p>
@@ -56,12 +56,9 @@ if (!isset($_GET['ajaxed'])) {
 		</p>
 		<p>
 <?php if ($type == 'sortantes'): ?>
-			<label for="id_client">Client : </label>
-			<select name="id_client" id="id_client">
-<?php while($c = mysql_fetch_array($selectClients)){?>
-				<option <?php if($id_client == $c['id_client']){echo 'selected="selected"';}?> value="<?php echo $c['id_client']?>"><?php echo htmlspecialchars($c['denomination'])?></option>
-<?php }?>
-			</select>
+<?php $c = mysql_fetch_array($selectClients); ?>
+			<label for="denomination">Client : </label>
+			<input type="text" name="denomination" id="denomination" value="<?php if(isset($c['denomination']))echo $c['denomination']?>" />
 <?php else: ?>
 			<label for="denomination">Fournisseur : </label>
 			<input type="text" name="denomination" id="denomination" value="<?php if(isset($denomination))echo $denomination?>" autofocus="autofocus" />
@@ -69,7 +66,7 @@ if (!isset($_GET['ajaxed'])) {
 		</p>	
 		<p>
 			<label for="objet">Objet : </label>
-			<textarea rows="10" cols="50" name="objet" id="objet"><?php if(isset($objet))echo $objet?></textarea>
+			<textarea rows="2" cols="50" name="objet" id="objet"><?php if(isset($objet))echo $objet?></textarea>
 		</p>
 		<p>
 			<label for="montant">Montant : </label>
@@ -95,7 +92,6 @@ if (!isset($_GET['ajaxed'])) {
 <?php endif ?>
 			<input type="hidden" name="deductibilite" value="1" />
 		<p>
-			<label for="validation">Validation : </label>
 			<input type="submit" value="Enregistrer" id="validation" />
 		</p>
 	</form>

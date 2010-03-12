@@ -15,21 +15,21 @@ if (isset($_POST['boutonSupprimer']) && $_POST['boutonSupprimer']) {
 		if (isset($req) && $req) {
 			if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
 				if (count($_POST["selectionElements"]) == 1) {
-					echo '{msg:"1 élément supprimé."}';
+					echo '{"msg":"1 élément supprimé."}';
 				} else {
-					echo '{msg:"'.count($_POST["selectionElements"]).' éléments supprimés."}';
+					echo '{"msg":"'.count($_POST["selectionElements"]).' éléments supprimés."}';
 				}
 				exit();
 			}
 		} else {
 			if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
-				echo '{msg:"Une erreur s’est produite."}';
+				echo '{"msg":"Une erreur s’est produite."}';
 				exit();
 			}
 		}
 	} else {
 		if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
-			echo '{msg:"Aucun élément sélectionné."}';
+			echo '{"msg":"Aucun élément sélectionné."}';
 			exit();
 		}
 	}

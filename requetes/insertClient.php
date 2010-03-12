@@ -11,9 +11,9 @@ if($id){
 }
 if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
 	if ($req) {
-		echo '{msg:"Client enregistré."}';
+		echo '{"msg":"Client enregistré."}';
 	} else {
-		echo '{msg:"Une erreur s’est produite."}';
+		echo '{"msg":"Une erreur s’est produite."}';
 	}
 } else {
 	header("location:../clients.php");

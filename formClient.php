@@ -28,56 +28,59 @@ if (!isset($_GET['ajaxed'])) {
 }
 ?>
 		<form id="client" method="post" action="requetes/insertClient.php">
+			<fieldset id="firstFieldset">
+				<p>
+					<label for="denomination">Société : </label>
+					<input name="denomination" type="text" value="<?php echo htmlspecialchars($denomination)?>" id="denomination" autofocus="autofocus" required="required" />
+				</p>
+				<p>
+					<label for="nom">Nom : </label>
+					<input name="nom" type="text" value="<?php echo $nom?>" id="nom" />
+				</p>
+				<p>
+					<label for="prenom">Prénom : </label>
+					<input name="prenom" type="text" value="<?php echo $prenom?>" id="prenom" />
+				</p>
+				<p>
+					<label for="tva">TVA : </label>
+					<input name="tva" type="text" value="<?php echo $tva?>" id="tva" />
+				</p>
+				<p>
+					<label for="tel">Tel : </label>
+					<input name="tel" type="text" value="<?php echo $tel?>" id="tel" />
+				</p>
+				<p>
+					<label for="email">Email : </label>
+					<input name="email" type="email" value="<?php echo $email?>" id="email" />
+				</p>
+				<p>
+					<label for="site">Site : </label>
+					<input name="site" type="text" value="<?php echo $site?>" id="site" />
+				</p>
+			</fieldset>
+			<fieldset>
+				<p>
+					<label for="adresse">Adresse : </label>
+					<input name="adresse" type="text" value="<?php echo $adresse?>" id="adresse" />
+				</p>
+				<p>
+					<label for="num">Numéro : </label>
+					<input name="num" type="text" value="<?php echo $num?>" id="num" />
+				</p>
+				<p>
+					<label for="boite">Boîte : </label>
+					<input name="boite" type="text" value="<?php echo $boite?>" id="boite" />
+				</p>
+				<p>
+					<label for="cp">Code Postal : </label>
+					<input name="cp" type="text" value="<?php echo $cp?>" id="cp" />
+				</p>
+				<p>
+					<label for="localite">Localité : </label>
+					<input name="localite" type="text" value="<?php echo $localite?>" id="localite" />
+				</p>
+			</fieldset>
 			<p>
-				<label for="denomination">Société : </label>
-				<input name="denomination" type="text" value="<?php echo htmlspecialchars($denomination)?>" id="denomination" autofocus="autofocus" required="required" />
-			</p>
-			<p>
-				<label for="nom">Nom : </label>
-				<input name="nom" type="text" value="<?php echo $nom?>" id="nom" />
-			</p>
-			<p>
-				<label for="prenom">Prénom : </label>
-				<input name="prenom" type="text" value="<?php echo $prenom?>" id="prenom" />
-			</p>
-			<p>
-				<label for="adresse">Adresse : </label>
-				<input name="adresse" type="text" value="<?php echo $adresse?>" id="adresse" />
-			</p>
-			<p>
-				<label for="num">Numéro : </label>
-				<input name="num" type="text" value="<?php echo $num?>" id="num" />
-			</p>
-			<p>
-				<label for="boite">Boîte : </label>
-				<input name="boite" type="text" value="<?php echo $boite?>" id="boite" />
-			</p>
-			<p>
-				<label for="cp">Code Postal : </label>
-				<input name="cp" type="text" value="<?php echo $cp?>" id="cp" />
-			</p>
-			<p>
-				<label for="localite">Localité : </label>
-				<input name="localite" type="text" value="<?php echo $localite?>" id="localite" />
-			</p>
-			<p>
-				<label for="tel">Tel : </label>
-				<input name="tel" type="text" value="<?php echo $tel?>" id="tel" />
-			</p>
-			<p>
-				<label for="email">Email : </label>
-				<input name="email" type="email" value="<?php echo $email?>" id="email" />
-			</p>
-			<p>
-				<label for="site">Site : </label>
-				<input name="site" type="text" value="<?php echo $site?>" id="site" />
-			</p>
-			<p>
-				<label for="tva">TVA : </label>
-				<input name="tva" type="text" value="<?php echo $tva?>" id="tva" />
-			</p>
-			<p>
-				<label for="validation">Validation : </label>
 				<input type="submit" type="text" value="Enregistrer" id="validation" />
 			</p>
 			<input name="id" type="hidden" value="<?php echo $id?>" />			

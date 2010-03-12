@@ -407,20 +407,61 @@ label, textarea, input, select {
 }
 textarea {
 	width:355px;
-	height:100px;
 }
-label{
-	display: block;
+
+form fieldset {
+	padding:0;
+	border:none;
+	float:left;
+}
+form #firstFieldset {
+	padding-right:15px;
+	margin-right:15px;
+	border-right:1px solid #ccc;
+}
+form p {
+	clear:both;
+	margin: 0;
+	padding-top: 5px;
+}
+form#utilisateur p.float {
+	margin-right:10px;
 	float: left;
-	width: 100px;
+	clear:none;
 }
-/*form#utilisateur label{
-	width: 260px;
+form label {
+	display: block;
+	float:none;
+	font-size: .8em;
+	font-weight: bold;
+	color:#666;
 }
-form#utilisateur input[type="text"], form#client input[type="text"]{
-	width: 260px;
+#dialog input {
+	width:220px;
 }
-*/
+#dialog input[type="submit"] {
+	margin:10px 0;
+	width:auto;
+}
+form #numero, form #num, form #boite, form #codepostal, form #cp {
+	width:70px;
+}
+form #nom, form #prenom, form #login {
+	width:130px;
+}
+#dialog input[name="jour"], #dialog input[name="mois"] {
+	width:20px;
+}
+#dialog input[name="lannee"], #dialog input[name="pourcent_tva"] {
+	width:40px;
+}
+#dialog input[name="montant"] {
+	width:100px;
+}
+#dialog input[type="radio"]{
+	width:auto;
+}
+
 #resume{
 	clear:both;
 	font-family:Arial, Helvetica, verdana, sans-serif;

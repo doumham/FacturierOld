@@ -54,9 +54,9 @@ if (!empty($password)) {
 }
 if (isset($_POST['ajaxed']) && !empty($_POST['ajaxed'])) {
 	if ($req) {
-		echo '{msg:"Modifications enregistrées."}';
+		echo '{"msg":"Modifications enregistrées."}';
 	} else {
-		echo '{msg:"Une erreur s’est produite."}';
+		echo '{"msg":"Une erreur s’est produite."}';
 	}
 }else{
 	header("location:../formUtilisateur.php");
