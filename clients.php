@@ -1,4 +1,5 @@
 <?php
+// commentflksd
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 if(isset($_GET['type']) && !empty($_GET['type'])){
@@ -13,7 +14,10 @@ if(isset($_GET['annee']) && !empty($_GET['annee'])){
 }
 ?>
 <?php $myInterface->set_title("Clients"); ?>
-<?php $myInterface->get_header(); ?>
+<?php 
+$myInterface->get_header();
+include_once ('include/onglets.php');
+?>
 <div id="Liste">
 <?php include_once ("listingClients.php"); ?>
 </div>
