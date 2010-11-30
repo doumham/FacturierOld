@@ -45,7 +45,7 @@ if (!isset($_GET['ajaxed'])) {
 <?php if ($type == 'sortantes'): ?>
 		<p>
 			<label for="numero">Numéro : </label>
-			<input name="numero" id="numero" type="text" size="4" value="<?php echo $numero;?>" />
+			<input name="numero" id="numero" type="number" size="4" value="<?php echo $numero;?>" />
 		</p>
 <?php endif ?>
 		<p>
