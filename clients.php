@@ -1,5 +1,4 @@
 <?php
-// commentflksd
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 if(isset($_GET['type']) && !empty($_GET['type'])){
