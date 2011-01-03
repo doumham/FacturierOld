@@ -58,7 +58,17 @@ if (!isset($_GET['ajaxed'])) {
 <?php if ($type == 'sortantes'): ?>
 <?php $c = mysql_fetch_array($selectClients); ?>
 			<label for="denomination">Client : </label>
-			<input type="text" name="denomination" id="denomination" value="<?php if(isset($c['denomination']))echo $c['denomination']?>" />
+			<input type="text" list="mesClients" name="denomination" id="denomination" value="<?php if(isset($c['denomination']))echo $c['denomination']?>" />
+			<datalist id="mesClients">
+<?php
+$selectC = mysql_query("SELECT DISTINCT `denomination` FROM `clients`") or trigger_error(mysql_error(),E_USER_ERROR);
+while($f = mysql_fetch_array($selectC)){
+?>
+				<option label="" value="<?php echo $f['denomination'] ?>">
+<?php
+}
+?>
+			</datalist>
 <?php else: ?>
 			<label for="denomination">Fournisseur : </label>
 			<input type="text" name="denomination" id="denomination" value="<?php if(isset($denomination))echo $denomination?>" autofocus="autofocus" />
