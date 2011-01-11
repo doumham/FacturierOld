@@ -1,16 +1,18 @@
 <?php
 include ('classes/interface.class.php');
 $myInterface = new interface_();
-$selectUtilisateur = mysql_query("SELECT * FROM `utilisateur`") or trigger_error(mysql_error(),E_USER_ERROR);
-$utilisateur = mysql_fetch_array($selectUtilisateur);
+
 if(isset($_GET['id']) && !empty($_GET['id'])){
 	$id = $_GET['id'];
-	$selectFacturesSortantes = mysql_query("SELECT * FROM `facturesSortantes` LEFT JOIN `clients` ON `facturesSortantes`.`id_client`=`clients`.`id_client` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
-}else{
+	$selectFactureSortante = mysql_query("SELECT * FROM `facturesSortantes` LEFT JOIN `clients` ON `facturesSortantes`.`id_client`=`clients`.`id_client` WHERE `id`='$id'") or trigger_error(mysql_error(),E_USER_ERROR);
+} else {
 	header("location:./");
 }
-$f = mysql_fetch_array($selectFacturesSortantes);
+$f = mysql_fetch_array($selectFactureSortante);
 extract($f);
+
+$selectUtilisateur = mysql_query("SELECT * FROM `utilisateur` WHERE `id`='$id_usr'") or trigger_error(mysql_error(),E_USER_ERROR);
+$utilisateur = mysql_fetch_array($selectUtilisateur);
 $selectClients = mysql_query("SELECT * FROM clients") or trigger_error(mysql_error(),E_USER_ERROR);
 if($tva){
 	$tva = "TVA : ".$tva;

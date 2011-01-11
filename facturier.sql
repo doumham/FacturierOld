@@ -3,17 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Dim 27 Décembre 2009 à 19:00
+-- Généré le : Mar 11 Janvier 2011 à 18:49
 -- Version du serveur: 5.1.37
--- Version de PHP: 5.3.0
+-- Version de PHP: 5.3.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données: `facturier`
@@ -41,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `tva` varchar(20) NOT NULL,
   `ordre` int(11) NOT NULL,
   PRIMARY KEY (`id_client`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -60,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
   `montant_tvac` decimal(10,2) NOT NULL,
   `deductibilite` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -70,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
 
 CREATE TABLE IF NOT EXISTS `facturesSortantes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usr` int(11) NOT NULL,
   `id_client` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT '0000-00-00',
   `numero` int(11) NOT NULL,
@@ -80,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `facturesSortantes` (
   `montant_tvac` decimal(10,2) NOT NULL,
   `paid` int(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -97,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `trimestres` (
   `montant_tvac` decimal(10,2) NOT NULL DEFAULT '0.00',
   `type` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -128,4 +123,4 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `iban` varchar(100) NOT NULL,
   `bic` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

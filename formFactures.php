@@ -40,6 +40,7 @@ if (!isset($_GET['ajaxed'])) {
 ?>
 	<form method="post" action="requetes/insertFacture.php">
 		<input name="id" type="hidden" value="<?php if(isset($id)){echo $id;}?>" />
+		<input name="id_usr" type="hidden" value="<?php if(isset($id_usr)){echo $id_usr;} else {echo "2";}?>" />
 		<input name="type" type="hidden" value="<?php if(isset($type)){echo $type;}?>" />
 		<input name="annee" type="hidden" value="<?php if(isset($annee)){echo $annee;}?>" />
 <?php if ($type == 'sortantes'): ?>
