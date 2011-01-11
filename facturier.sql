@@ -2,6 +2,7 @@
 -- version 3.2.3
 -- http://www.phpmyadmin.net
 --
+
 -- Serveur: localhost
 -- Généré le : Mar 11 Janvier 2011 à 18:49
 -- Version du serveur: 5.1.37
