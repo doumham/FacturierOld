@@ -1,8 +1,8 @@
 <?php
+include('include/config.php');
 class interface_{
   
 	function interface_($needLogin = NEED_LOGIN){
-		include('include/config.php');
 		ini_set('session.name', "Factures");
 		session_start();
 		if (function_exists('date_default_timezone_set')) {

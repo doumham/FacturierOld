@@ -1,20 +1,20 @@
 <?php
-define(HOSTNAME, 'localhost');
-define(DATABASE, 'facturier');
-define(USERNAME, 'root');
-define(PASSWORD, 'sam');
+define('HOSTNAME', 'localhost');
+define('DATABASE', 'facturier');
+define('USERNAME', 'root');
+define('PASSWORD', '');
 
-define(NEED_LOGIN, false);
+define('NEED_LOGIN', false);
 
-define(FACTURIER_VERSION, '0.77b');
-define(JQUERY_VERSION, '1.4.2');
-define(JQUERY_UI_VERSION, '1.8rc3');
+define('FACTURIER_VERSION', '0.77b');
+define('JQUERY_VERSION', '1.4.2');
+define('JQUERY_UI_VERSION', '1.8rc3');
 
-define(COUNTRY_CODE, 'fr_BE');
-define(TIME_ZONE, 'Europe/Brussels');
+define('COUNTRY_CODE', 'fr_BE');
+define('TIME_ZONE', 'Europe/Brussels');
 
-define(ASSUJETTI_A_LA_TVA, true);
-define(DEFAULT_TVA, '21,00');
+define('ASSUJETTI_A_LA_TVA', true);
+define('DEFAULT_TVA', '21,00');
 
 error_reporting(E_ALL);
 
