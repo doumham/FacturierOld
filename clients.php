@@ -8,7 +8,7 @@ if(isset($_GET['type']) && !empty($_GET['type'])){
 }
 if(isset($_GET['annee']) && !empty($_GET['annee'])){
 	$annee = $_GET['annee'];
-}else{
+} else {
 	$annee="all";
 }
 ?>

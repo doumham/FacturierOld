@@ -1,6 +1,8 @@
 <?php
 include('../include/config.php');
-extract($_POST);
+foreach ($_POST as $key => $value) {
+	$$key = preg_replace("/'/", '’', $value);
+}
 $date = $lannee."-".$mois."-".$jour;
 $pourcent_tva = strtr($pourcent_tva, ",", ".");
 if (ASSUJETTI_A_LA_TVA) {
