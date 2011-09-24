@@ -1,23 +1,29 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.3
+-- version 3.4.3.2
 -- http://www.phpmyadmin.net
 --
-
--- Serveur: localhost
--- Généré le : Mar 11 Janvier 2011 à 18:49
--- Version du serveur: 5.1.37
--- Version de PHP: 5.3.3
+-- Host: localhost
+-- Generation Time: Sep 24, 2011 at 03:17 PM
+-- Server version: 5.5.15
+-- PHP Version: 5.3.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `facturier`
+-- Database: `facturier`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `clients`
+-- Table structure for table `clients`
 --
 
 CREATE TABLE IF NOT EXISTS `clients` (
@@ -41,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `facturesEntrantes`
+-- Table structure for table `facturesEntrantes`
 --
 
 CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
@@ -60,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `facturesSortantes`
+-- Table structure for table `facturesSortantes`
 --
 
 CREATE TABLE IF NOT EXISTS `facturesSortantes` (
@@ -74,14 +80,14 @@ CREATE TABLE IF NOT EXISTS `facturesSortantes` (
   `pourcent_tva` decimal(4,2) NOT NULL,
   `montant_tva` decimal(10,2) NOT NULL,
   `montant_tvac` decimal(10,2) NOT NULL,
-  `paid` int(1) DEFAULT '0',
+  `amount_paid` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `trimestres`
+-- Table structure for table `trimestres`
 --
 
 CREATE TABLE IF NOT EXISTS `trimestres` (
@@ -98,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `trimestres` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur`
+-- Table structure for table `utilisateur`
 --
 
 CREATE TABLE IF NOT EXISTS `utilisateur` (
@@ -125,3 +131,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `bic` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
