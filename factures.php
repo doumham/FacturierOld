@@ -31,7 +31,7 @@ $req2 = '';
 
 if(isset($_GET['annee']) && !empty($_GET['annee'])){
 	$annee = $_GET['annee'];
-}else{
+} else {
 	$annee = "all";
 }
 if(isset($_GET['ordre']) && !empty($_GET['ordre'])){ // classement par client : ordre="clients". Par date : ordre n'existe pas

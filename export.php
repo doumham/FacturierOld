@@ -91,7 +91,7 @@ if ($type == 'entrantes') {
 			'montant'=>$f['montant'],
 			'montant_tva'=>$f['montant_tva'],
 			'montant_tvac'=>$f['montant_tvac'],
-			'paid'=>$f['paid']
+			'amount_paid'=>$f['amount_paid']
 		);
 	}
 }
@@ -121,7 +121,7 @@ if (isset($facture) && is_array($facture)) {
 				$outputCSV .= strftime("%d %B %Y",strtotime($f['date'])).';';
 				if ($type == "sortantes") {
 					$outputCSV .= '"'.htmlspecialchars($f['denomination']);
-					if (isset($f['paid']) && $f['paid'] == 0){
+					if (isset($f['amount_paid']) && $f['amount_paid'] == 0){
 						$outputCSV .= " (impayée)";
 					}
 					$outputCSV .= '";';

@@ -133,27 +133,6 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('.bouton.paye').live('click',function(){
-		var payeInputHidden = $(this).parent().children("input[name='paye[]']");
-		var paidValue = payeInputHidden.val();
-		var id = $(this).parent().children("input[type='checkbox']").val();
-		annee = $("#annee").val();
-		ordre = $("#ordre").val();
-		// console.log(paidValue);
-		$.ajax({
-			type: "GET",
-			dataType: "json",
-			url: "requetes/togglePaid.php",
-			data: { paid: paidValue, id: id, ajaxed: 1, annee: annee, ordre: ordre },
-			success: function(data){
-				$.jGrowl(data.msg);
-				reloadSection("Liste");
-			},
-			error: javascriptError
-		});
-		return false;
-	});
-
 	$('#boutonAjouterFactureSortante').live('click',function(){
 		dialogFormUrl = "formFactures.php?type=sortantes&ajaxed=1";
 		dialogTitle = $(this).attr('title');
@@ -161,7 +140,7 @@ $(document).ready(function() {
 		$('#dialog').dialog('open');
 		return false;
 	});
-	
+		
 	$('#boutonAjouterFactureEntrante').live('click',function(){
 		dialogFormUrl = "formFactures.php?type=entrantes&ajaxed=1";
 		dialogTitle = $(this).attr('title');

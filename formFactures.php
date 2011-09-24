@@ -38,7 +38,7 @@ if (!isset($_GET['ajaxed'])) {
 	$myInterface->get_header();
 }
 ?>
-	<form method="post" action="requetes/insertFacture.php">
+	<form method="post" action="requetes/insertFacture.php" <?php if($_GET['setAmountPaid']) { echo 'class="setAmountPaid"'; } ?>>
 		<input name="id" type="hidden" value="<?php if(isset($id)){echo $id;}?>" />
 		<input name="id_usr" type="hidden" value="<?php if(isset($id_usr)){echo $id_usr;} else {echo "2";}?>" />
 		<input name="type" type="hidden" value="<?php if(isset($type)){echo $type;}?>" />
@@ -93,6 +93,10 @@ while($f = mysql_fetch_array($selectC)){
 			<input type="hidden" name="htva" value="non" />
 <?php endif ?>
 		</p>
+		<p class="setAmountPaidField">
+			<label for="amount_paid">Montant payé : </label>
+			<input type="text" name="amount_paid" id="amount_paid"<?php if($_GET['setAmountPaid']) { echo ' autofocus="autofocus"'; } ?> value="<?php if(isset($amount_paid))echo $amount_paid = strtr($amount_paid, ".", ",");?>" /> / <?php echo strtr($montant_tvac, ".", ",") ?> €
+		</p>
 <?php if (ASSUJETTI_A_LA_TVA): ?>
 		<p>
 			<label for="pourcent_tva">TVA (%) : </label>
@@ -102,7 +106,7 @@ while($f = mysql_fetch_array($selectC)){
 			<input type="hidden" name="pourcent_tva" value="<?php if(isset($pourcent_tva) && $pourcent_tva){echo strtr($pourcent_tva, ".", ",");}else{echo DEFAULT_TVA;}?>" />
 <?php endif ?>
 			<input type="hidden" name="deductibilite" value="1" />
-		<p>
+		<p class="submitButton">
 			<input type="submit" value="Enregistrer" id="validation" />
 		</p>
 	</form>
