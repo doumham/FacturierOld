@@ -88,7 +88,7 @@ if ($annee != "all") {
 				<!-- <input type="hidden" value="<?php if(isset($_GET['ordre']))echo $_GET['ordre'] ?>" name="ordre" />
 				<input type="hidden" value="<?php echo $annee ?>" name="annee" /> -->
 			</p>
-			<table> 
+			<table>
 				<tr class="titre_annee">
 					<th colspan="<?php echo $colSpanValue+3 ?>"><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee_h3 ?>"><?php echo $annee_h3 ?></a></th>
 				</tr>
@@ -209,28 +209,37 @@ foreach ($facture as $key_annee => $value1) {
 		<td class="aR"><?php echo number_format($f['montant_tvac'], 2, ',', ' ')?> €</td>
 		<td class="amountPaid">
 <?php if ($type == "sortantes"): ?>
-			<a class="fondJaugeDePayement popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>&amp;setAmountPaid=true" title="montant payé sur la facture <?php echo $f['numero'] ?> de <?php echo $f['denomination'] ?>">
 <?php
-$heightOfJauge = 16;
-$maxWidthOfJauge = 70;
-if ($f['montant_tvac'] > 0) {
-	if ($f['amount_paid'] > 0) {
-		$longueurJaugeDePayement = ($maxWidthOfJauge/$f['montant_tvac'])*$f['amount_paid'];
-		if ($longueurJaugeDePayement < $heightOfJauge) {
-			$longueurJaugeDePayement = $heightOfJauge;
-		}
-		if ($longueurJaugeDePayement > $maxWidthOfJauge-($heightOfJauge/2) && $longueurJaugeDePayement < $maxWidthOfJauge) {
-			$longueurJaugeDePayement = $maxWidthOfJauge-($heightOfJauge/2);
-		}
-	} else {
-		$longueurJaugeDePayement = 0;
-	}
+if ($f['amount_paid'] == 0) {
+	$titleForAmountJauge = 'Facture '.$f['numero'].' de '.$f['denomination'].' impayée.';
+} else if ($f['amount_paid'] == $f['montant_tvac']){
+	$titleForAmountJauge = 'Facture '.$f['numero'].' de '.$f['denomination'].' payée.';
 } else {
-	$longueurJaugeDePayement = 0;
+	$titleForAmountJauge = number_format($f['montant_tvac']-$f['amount_paid'], 2, ',', ' ').' € restent à payer sur la facture '.$f['numero'].' de '.$f['denomination'].'.';
 }
 ?>
-				<span class="sommePayee"><?php echo number_format($f['amount_paid'], 2, ',', ' ')?> €</span>
+			<a class="fondJaugeDePayement popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>&amp;setAmountPaid=true" title="<?php echo $titleForAmountJauge ?>">
+<?php
+				$heightOfJauge = 16;
+				$maxWidthOfJauge = 70;
+				if ($f['montant_tvac'] > 0) {
+					if ($f['amount_paid'] > 0) {
+						$longueurJaugeDePayement = ($maxWidthOfJauge/$f['montant_tvac'])*$f['amount_paid'];
+						if ($longueurJaugeDePayement < $heightOfJauge) {
+							$longueurJaugeDePayement = $heightOfJauge;
+						}
+						if ($longueurJaugeDePayement > $maxWidthOfJauge-($heightOfJauge/2) && $longueurJaugeDePayement < $maxWidthOfJauge) {
+							$longueurJaugeDePayement = $maxWidthOfJauge-($heightOfJauge/2);
+						}
+					} else {
+						$longueurJaugeDePayement = 0;
+					}
+				} else {
+					$longueurJaugeDePayement = 0;
+				}
+?>
 				<span class="jaugeDePayement<?php if($f['amount_paid'] == $f['montant_tvac']) { echo ' allPaid';} ?>" style="width:<?php echo $longueurJaugeDePayement ?>px"></span>
+				<span class="sommePayee"><?php echo number_format($f['amount_paid'], 2, ',', ' ')?> €</span>
 			</a>
 <?php endif ?>
 		</td>
@@ -277,7 +286,7 @@ if($totauxTrim['id']){
 					<th class="aR"><?php echo number_format($tt_tva, 2, ',', ' ')?> €</th>
 <?php endif ?>
 					<th class="aR"><?php echo number_format($tt_tvac, 2, ',', ' ')?> €</th>
-					<th class="aR"><?php echo number_format($totalTrimestreAmountsPaid, 2, ',', ' ')?> €</th>
+					<th></th>
 				</tr>
 <?php if (($key_trimestre == "4" && !$ordre)||($annee == date("Y") && $countFacture == $nombreFactures)){ ?>
 				<tr class="tot_annee">
@@ -287,7 +296,7 @@ if($totauxTrim['id']){
 					<th class="aR"><?php echo number_format($ta_tva, 2, ',', ' ')?> €</th>
 <?php endif ?>
 					<th class="aR"><?php echo number_format($ta_tvac, 2, ',', ' ')?> €</th>
-					<th class="aR"><?php echo number_format($totalAnneeAmountsPaid, 2, ',', ' ')?> €</th>
+					<th></th>
 				</tr>
 <?php
 if ($annee == "all"): 
@@ -320,7 +329,7 @@ $ta_tvac = 0;
 				<th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
 <?php endif ?>
 				<th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
-				<th><?php echo number_format($totalFeneralAmountsPaid, 2, ',', ' ')?> €</th> 
+				<th></th> 
 			</tr>
 <?php endif ?>
 		</table>

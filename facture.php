@@ -36,7 +36,7 @@ if(isset($_GET['print']) && $_GET['print'] == true){
 				<h1><?php echo $utilisateur['denomination']; ?></h1>
 					<p><?php echo $utilisateur['legende']; ?></p>
 					<address>
-						<p><?php echo $utilisateur['adresse']; ?>, <?php echo $utilisateur['numero']; ?><br />
+						<p><?php echo $utilisateur['adresse']; ?> <?php echo $utilisateur['numero']; ?><br />
 						<?php echo $utilisateur['codepostal']; ?> <?php echo $utilisateur['localite']; ?><br />
 						</p><p>
 						Tél. : <?php echo $utilisateur['telephone']; ?><br />
@@ -47,8 +47,8 @@ if(isset($_GET['print']) && $_GET['print'] == true){
 						</p>
 					</address>
 			</div>
-			<h2>Facture n&deg; <?php echo strftime("%y",strtotime($date))?> - <?php echo $numero?></h2>
-			<address> <?php echo $denomination?><br /> <?php echo $adresse?>, <?php echo $num?><br /> <?php echo $cp?>  <?php echo $localite?><br /> <?php echo $tva?></address>
+			<h2>Facture n&deg; <?php echo strftime("%y",strtotime($date))?>-<?php echo $numero?></h2>
+			<address> <?php echo $denomination?><br /> <?php echo $adresse?> <?php echo $num?><br /> <?php echo $cp?>  <?php echo $localite?><br /> <?php echo $tva?></address>
 			<p id="date"><?php echo strftime("%A %d %B %Y",strtotime($date))?></p>
 			<h3>Objet : </h3>
 			<p id="objet"><?php echo nl2br($objet)?></p>
