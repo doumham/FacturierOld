@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 
@@ -22,12 +23,13 @@ if(isset($_GET['print']) && $_GET['print'] == true){
 } else {
 	$printing = "";
 }
+$pageTitle = $utilisateur['denomination'].', facture '.strftime("%y",strtotime($date)).'-'.$numero;
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title><?php echo $utilisateur['denomination']; ?>, facture <?php echo strftime("%y",strtotime($date))?>-<?php echo $numero?></title>
+		<title><?php echo $pageTitle ?></title>
 		<link href="css/impression.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body<?php echo $printing?>>
@@ -43,7 +45,8 @@ if(isset($_GET['print']) && $_GET['print'] == true){
 						E-mail : <?php echo $utilisateur['email']; ?><br />
 						</p><p>
 						TVA <?php echo $utilisateur['tva']; ?><br />
-						Compte bancaire : <?php echo $utilisateur['comptebancaire']; ?>
+						IBAN : <?php echo $utilisateur['iban']; ?><br />
+						BIC : <?php echo $utilisateur['bic']; ?>
 						</p>
 					</address>
 			</div>
@@ -57,6 +60,20 @@ if(isset($_GET['print']) && $_GET['print'] == true){
 				<p id="montant_tva">TVA  <?php echo number_format($pourcent_tva, 2, ',', ' ')?> % : <span class='chiffre'> <?php echo number_format($montant_tva, 2, ',', ' ')?> &euro;</span></p>
 				<p id="montant_tvac">Total TVAC : <span class='chiffre'> <?php echo number_format($montant_tvac, 2, ',', ' ')?> &euro;</span></p>
 			</div>
-		</div>	
+		</div>
 	</body>
 </html>
+<?php
+$maFacture = ob_get_contents();
+ob_end_clean();
+if (isset($_GET['pdf']) && $_GET['pdf'] == true) {
+	require_once("dompdf/dompdf_config.inc.php");
+	$dompdf = new DOMPDF();
+	$dompdf->load_html($maFacture);
+	$dompdf->render();
+	$dompdf->stream($pageTitle.'.pdf');
+} else {
+	echo $maFacture;
+}
+
+?>

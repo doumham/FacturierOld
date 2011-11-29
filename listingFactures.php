@@ -72,7 +72,7 @@ $nombreFactures = mysql_num_rows($selectFactures);
 <?php
 if ($annee != "all") {
 	$annee_h3 = $annee;
-}else {
+} else {
 	if (isset($les_annees) && is_array($les_annees) && !empty($les_annees[0])) {
 		$annee_h3 = $les_annees[0];
 	} else {
@@ -186,6 +186,9 @@ foreach ($facture as $key_annee => $value1) {
 <?php if ($type == "sortantes"): ?>
 			<a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer la facture <?php echo $f['numero'] ?>">
 				Imprimer
+			</a>
+			<a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;pdf=true&amp;annee=<?php echo $annee ?>" title="Exporter la facture <?php echo $f['numero'] ?> au format PDF">
+				PDF
 			</a>
 <?php endif ?>
 		</td>
