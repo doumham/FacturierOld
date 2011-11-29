@@ -47,7 +47,7 @@ if($annee && $annee != "all"){
 }
 
 if ($type == "sortantes"):
-	$colSpanValue = "5";
+	$colSpanValue = "6";
 else:
 	$colSpanValue = "4";
 endif;
@@ -81,12 +81,9 @@ if ($annee != "all") {
 }
 ?>
 			<p class="tools">
-				<!-- <input type="submit" value="Ajouter une facture" id="<?php echo $idBouton ?>" name="boutonAjouter" /> -->
-				<a href="formFactures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>" id="<?php echo $idBouton ?>">Ajouter une facture</a>
-				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
-				<a href="export.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>" id="boutonExport">Exporter en CSV</a>
-				<!-- <input type="hidden" value="<?php if(isset($_GET['ordre']))echo $_GET['ordre'] ?>" name="ordre" />
-				<input type="hidden" value="<?php echo $annee ?>" name="annee" /> -->
+				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" class="button mediumGrey medium" />
+				<a href="export.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>" id="boutonExport" class="button mediumGrey medium">Exporter en CSV</a>
+				<a href="formFactures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>" id="<?php echo $idBouton ?>" class="button orange medium">Ajouter une facture</a>
 			</p>
 			<table>
 				<tr class="titre_annee">
@@ -100,6 +97,7 @@ if ($annee != "all") {
 <?php if ($type == "sortantes"): ?>
 					<th><?php if($ordre){?><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee?>" title="Ordonner par dates">Date</a><?php }else{?>Date ↓<?php }?></th>
 					<th><?php if(!$ordre){?><a href="factures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee?>&amp;ordre=clients" title="Ordonner par clients">Client<?php }else{?>Client ↓<?php }?></a></th>
+					<th>Objet</th>
 <?php else: ?>
 					<th>Date</th>
 					<th>Fournisseur</th>
@@ -113,7 +111,9 @@ if ($annee != "all") {
 					<th class="aR">Montant TVA</th>
 <?php endif ?>
 					<th class="aR">Total TVAC</th>
+<?php if ($type == "sortantes"): ?>
 					<th>Montant payé</th>
+<?php endif ?>
 				</tr>
 <?php
 $client_count=0;
@@ -180,14 +180,14 @@ foreach ($facture as $key_annee => $value1) {
 	<tr id="element_<?php echo $f['id']?>">
 		<td>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>"<?php if (isset($f['amount_paid']) && $f['amount_paid'] > 0) { echo 'disabled="disabled"'; } ?> />
-			<a class="bouton modifier popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture <?php if($type == 'sortantes')echo $f['numero'] ?>">
-				Modifier
+			<a class="button small mediumGrey voir" href="facture.php?id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>">
+				Voir
 			</a> 
 <?php if ($type == "sortantes"): ?>
-			<a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer la facture <?php echo $f['numero'] ?>">
+			<!-- <a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer la facture <?php echo $f['numero'] ?>">
 				Imprimer
-			</a>
-			<a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;pdf=true&amp;annee=<?php echo $annee ?>" title="Exporter la facture <?php echo $f['numero'] ?> au format PDF">
+			</a> -->
+			<a class="button small grey" href="facture.php?id=<?php echo $f['id']?>&amp;pdf=true&amp;annee=<?php echo $annee ?>" title="Exporter la facture <?php echo $f['numero'] ?> au format PDF">
 				PDF
 			</a>
 <?php endif ?>
@@ -197,10 +197,11 @@ foreach ($facture as $key_annee => $value1) {
 <?php endif ?>
 		<td><?php echo strftime("%d %B %Y",strtotime($f['date']))?></td>
 <?php if ($type == "sortantes"): ?>
-		<td><a href="facture.php?id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>"><?php echo htmlspecialchars($f['denomination'])?></a></td>
+		<td><?php echo htmlspecialchars($f['denomination'])?></td>
+		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture <?php if($type == 'sortantes')echo $f['numero'] ?>"><?php echo $myInterface->truncate(htmlspecialchars($f['objet']), 60)?></a></td>
 <?php else: ?>
 		<td><?php echo htmlspecialchars($f['denomination'])?></td>
-		<td><?php echo htmlspecialchars($f['objet'])?></td>
+		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="Modifier la facture <?php if($type == 'sortantes')echo $f['numero'] ?>"><?php echo htmlspecialchars($f['objet'])?></a></td>
 <?php endif ?>
 <?php if ($type == "sortantes"): ?>
 		<td><?php echo $f['tva']?></td>
@@ -210,7 +211,9 @@ foreach ($facture as $key_annee => $value1) {
 		<td class="aR"><?php echo number_format($f['montant_tva'], 2, ',', ' ')?> €</td>
 <?php endif ?>
 		<td class="aR"><?php echo number_format($f['montant_tvac'], 2, ',', ' ')?> €</td>
+<?php if ($type == "sortantes"): ?>
 		<td class="amountPaid">
+<?php endif ?>
 <?php if ($type == "sortantes"): ?>
 <?php
 if ($f['amount_paid'] == 0) {
@@ -289,7 +292,9 @@ if($totauxTrim['id']){
 					<th class="aR"><?php echo number_format($tt_tva, 2, ',', ' ')?> €</th>
 <?php endif ?>
 					<th class="aR"><?php echo number_format($tt_tvac, 2, ',', ' ')?> €</th>
+<?php if ($type == "sortantes"): ?>
 					<th></th>
+<?php endif ?>
 				</tr>
 <?php if (($key_trimestre == "4" && !$ordre)||($annee == date("Y") && $countFacture == $nombreFactures)){ ?>
 				<tr class="tot_annee">
@@ -299,7 +304,9 @@ if($totauxTrim['id']){
 					<th class="aR"><?php echo number_format($ta_tva, 2, ',', ' ')?> €</th>
 <?php endif ?>
 					<th class="aR"><?php echo number_format($ta_tvac, 2, ',', ' ')?> €</th>
+<?php if ($type == "sortantes"): ?>
 					<th></th>
+<?php endif ?>
 				</tr>
 <?php
 if ($annee == "all"): 

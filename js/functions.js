@@ -92,11 +92,7 @@ $(document).ready(function() {
 	initialize("Liste");
 
 	// $('form').prepend('<input type="hidden" name="ajaxed" value="1" />');
-	
-	$('#boutonAjouterFactureSortante').button({ icons: {primary:'ui-icon-circle-plus'} });
-	$('#boutonSupprimer').button({ icons: {primary:'ui-icon-gear'} });
-	$('#boutonExport').button({ icons: {primary:'ui-icon-circle-arrow-e'} });
-	
+		
 	// dialog : formulaire d'ajout/modification d’un élément
 	$('body').prepend('<div id="dialog"></div>');
 	$('#dialog').dialog({
@@ -110,6 +106,9 @@ $(document).ready(function() {
 			$(this).parent().hide();
 			$(this).html("");
 			$(this).load(dialogFormUrl, function(){
+				$('#totalAmount').click(function(event) {
+					$('#amount_paid').val($(this).html());
+				});
 				$(this).parent().show();
 				if (type == 'sortantes') {
 					makeAutocomplete('denomination', 'clients', 'denomination');

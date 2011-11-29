@@ -6,7 +6,7 @@ define('PASSWORD', '');
 
 define('NEED_LOGIN', false);
 
-define('FACTURIER_VERSION', '0.77b');
+define('FACTURIER_VERSION', '0.8b');
 define('JQUERY_VERSION', '1.4.2');
 define('JQUERY_UI_VERSION', '1.8rc3');
 

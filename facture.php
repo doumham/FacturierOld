@@ -18,11 +18,11 @@ $selectClients = mysql_query("SELECT * FROM clients") or trigger_error(mysql_err
 if($tva){
 	$tva = "TVA : ".$tva;
 }
-if(isset($_GET['print']) && $_GET['print'] == true){
-	$printing = ' onload="window.print();document.location.href=\'factures.php?type=sortantes&amp;annee='.$_GET['annee'].'#bottom\';"';
-} else {
-	$printing = "";
-}
+// if(isset($_GET['print']) && $_GET['print'] == true){
+// 	$printing = ' onload="window.print();document.location.href=\'factures.php?type=sortantes&amp;annee='.$_GET['annee'].'#bottom\';"';
+// } else {
+// 	$printing = "";
+// }
 $pageTitle = $utilisateur['denomination'].', facture '.strftime("%y",strtotime($date)).'-'.$numero;
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $pageTitle = $utilisateur['denomination'].', facture '.strftime("%y",strtotime($
 		<title><?php echo $pageTitle ?></title>
 		<link href="css/impression.css" rel="stylesheet" type="text/css" />
 	</head>
-	<body<?php echo $printing?>>
+	<body<?php //echo $printing?>>
 		<div id="global">
 			<div id="entete">
 				<h1><?php echo $utilisateur['denomination']; ?></h1>
@@ -51,15 +51,24 @@ $pageTitle = $utilisateur['denomination'].', facture '.strftime("%y",strtotime($
 					</address>
 			</div>
 			<h2>Facture n&deg; <?php echo strftime("%y",strtotime($date))?>-<?php echo $numero?></h2>
-			<address> <?php echo $denomination?><br /> <?php echo $adresse?> <?php echo $num?><br /> <?php echo $cp?>  <?php echo $localite?><br /> <?php echo $tva?></address>
+			<address id="destinataire"> <?php echo $denomination?><br /> <?php echo $adresse?> <?php echo $num?><br /> <?php echo $cp?>  <?php echo $localite?><br /> <?php echo $tva?></address>
 			<p id="date"><?php echo strftime("%A %d %B %Y",strtotime($date))?></p>
 			<h3>Objet : </h3>
 			<p id="objet"><?php echo nl2br($objet)?></p>
-			<div id="montants">
-				<p id="montant"><span class="chiffre"> <?php echo number_format($montant, 2, ',', ' ')?> &euro;</span></p>
-				<p id="montant_tva">TVA  <?php echo number_format($pourcent_tva, 2, ',', ' ')?> % : <span class='chiffre'> <?php echo number_format($montant_tva, 2, ',', ' ')?> &euro;</span></p>
-				<p id="montant_tvac">Total TVAC : <span class='chiffre'> <?php echo number_format($montant_tvac, 2, ',', ' ')?> &euro;</span></p>
-			</div>
+			<table id="montants">
+				<tr id="montant">
+					<td></td>
+					<td class="chiffre"> <?php echo number_format($montant, 2, ',', ' ')?> &euro;</td>
+				</tr>
+				<tr id="montant_tva">
+					<td>TVA  <?php echo number_format($pourcent_tva, 2, ',', ' ')?> % : </td>
+					<td class='chiffre'> <?php echo number_format($montant_tva, 2, ',', ' ')?> &euro;</td>
+				</tr>
+				<tr id="montant_tvac">
+					<td>Total TVAC : </td>
+					<td class='chiffre'> <?php echo number_format($montant_tvac, 2, ',', ' ')?> &euro;</td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>
@@ -69,6 +78,7 @@ ob_end_clean();
 if (isset($_GET['pdf']) && $_GET['pdf'] == true) {
 	require_once("dompdf/dompdf_config.inc.php");
 	$dompdf = new DOMPDF();
+	$dompdf->set_paper('A4');
 	$dompdf->load_html($maFacture);
 	$dompdf->render();
 	$dompdf->stream($pageTitle.'.pdf');
