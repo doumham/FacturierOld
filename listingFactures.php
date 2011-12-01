@@ -81,9 +81,9 @@ if ($annee != "all") {
 }
 ?>
 			<p class="tools">
+				<a href="formFactures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>" id="<?php echo $idBouton ?>" class="button orange medium">Créer une facture</a>
 				<input type="submit" value="Supprimer les factures sélectionnées" id="boutonSupprimer" name="boutonSupprimer" class="button mediumGrey medium" />
 				<a href="export.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>" id="boutonExport" class="button mediumGrey medium">Exporter en CSV</a>
-				<a href="formFactures.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>" id="<?php echo $idBouton ?>" class="button orange medium">Ajouter une facture</a>
 			</p>
 			<table>
 				<tr class="titre_annee">

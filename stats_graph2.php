@@ -41,23 +41,26 @@ for ($i = $hauteur; $i >= -40 ; $i = $i - $rapport * $increment) { ?>
 	<?php $graduations += $increment;
 } ?>
 <!-- lignes verticales	-->
-<?php for ($i = 0; $i < $largeur ; $i += $larg) {?>
-				<line x1="<?php echo $i+45 ?>" y1="0" x2="<?php echo $i+45 ?>" y2="<?php echo $hauteur+20 ?>" stroke-dasharray="10" stroke-width=".2" />			 
-<?php } ?>
+<?php 
+	for ($i = 0; $i < $largeur ; $i += $larg) {
+		// if (($i/$larg)%4 == 1) {
+?>
+		<line x1="<?php echo $i+45 ?>" y1="0" x2="<?php echo $i + 45 ?>" y2="<?php echo $hauteur + 20 ?>" stroke-dasharray="5" stroke-width=".2" stroke="#000" />			 
+<?php
+		// }
+	}
+?>
 	</g>
 	<g stroke="black">
 <!-- Légende abscisse (axe X)	-->
 <?php 
 for ($i = 0; $i < count($x_pos); $i++) {
 	if ($trimestre[$i] == 1) {
-		$color = '#333';
-	} else {
-		$color = '#999';
-	}
 ?>
-		<text fill="<?php echo $color ?>" transform="translate(<?php echo $x_pos[$i] ?>,<?php echo $hauteur + 35 ?>)" stroke="none" font-size="10" font-family="Verdana" ><?php echo $trimestre[$i]; ?></text>
+	<text fill="<?php echo $color ?>" transform="translate(<?php echo $x_pos[$i]-10 ?>,<?php echo $hauteur + 35 ?>)" stroke="none" font-size="10" font-family="Verdana" ><?php echo $lannee[$i]; ?></text>
 <?php 
-} 
+	}
+}
 ?>
 <!-- IN -->
 		<?php for ($i = 0; $i < count($y_pos); $i++): ?>

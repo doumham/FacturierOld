@@ -34,14 +34,14 @@ if($nombre_trimestres > 0){
 	$left_pos = 45;
 	while($t = mysql_fetch_array($select_trimestres)){
 		$x_pos[] = $left_pos;
-		$y_pos[] = $hauteur-($t['montant_htva']*$hauteur/$max);
+		$y_pos[] = $hauteur - ($t['montant_htva'] * $hauteur / $max);
 		$chiffres_in[] = $t['montant_htva'];
 		$trimestre[] = $t['trimestre'];
 		$lannee[] = $t['annee'];
 		$left_pos += $larg;
 	}
 	while($t_d = mysql_fetch_array($select_trimestres_d)){
-		$y_pos_d[] = $hauteur-($t_d['montant_htva']*$hauteur/$max);
+		$y_pos_d[] = $hauteur - ($t_d['montant_htva'] * $hauteur / $max);
 		$chiffres_out[] = $t_d['montant_htva'];
 	}
 	$myInterface->set_title("Facturier – Graphique");

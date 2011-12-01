@@ -43,7 +43,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 					<input type="checkbox" name="selectionElements[]" value="<?php echo $c['id_client'] ?>" disabled="disabled" title="Il existe une ou plusieurs factures au nom de <?php echo htmlspecialchars($c['denomination']);?>" />
 				<?php
 				}?>
-				<a class="bouton modifier popup" href="formClient.php?id=<?php echo $c['id_client']?>" title="Modifier <?php echo htmlspecialchars($c['denomination']);?>">
+				<a class="button small mediumGrey modifier popup" href="formClient.php?id=<?php echo $c['id_client']?>" title="Modifier <?php echo htmlspecialchars($c['denomination']);?>">
 					Modifier
 				</a> 
 			</td>
