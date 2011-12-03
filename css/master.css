@@ -1,7 +1,7 @@
 h1, h2, h3, h4, h5, form, ul, ol, li { margin:0; padding:0; }
 body { font-family: Arial, Helvetica, sans-serif; font-size: 12px; padding:0; margin:0; line-height:13px; }
 a img { border: none; }
-#header { z-index: 9000; background-color: #666; background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, .4))); background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .4)); text-shadow:0 1px 0 rgba(255,255,255,.2); height:126px; padding:0 30px; position:fixed; top:0; width:100%; }
+#header { z-index: 300; background-color: #666; background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, .4))); background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .4)); text-shadow:0 1px 0 rgba(255,255,255,.2); height:126px; padding:0 30px; position:fixed; top:0; width:100%; }
 h1 { margin-top:37px; font-size:32px; float:left; }
 h1 a { color: #EEE; text-shadow:-1px -1px 0 rgba(0,0,0,.5); text-decoration:none; }
 h1 .version { color: #AAA; font-size:16px; font-weight:normal; }
@@ -12,7 +12,7 @@ h1 .version { color: #AAA; font-size:16px; font-weight:normal; }
 #menu li a:active { background-color: #999; color: #111; }
 
 /* Onglets menu pricipal */
-#onglets { z-index: 9001; font-weight: bold; text-shadow:0 1px 0 rgba(255, 255, 255,.7); clear:both; font-size:14px; list-style-type:none; padding-left:30px; position:fixed; top:90px; width:100%; }
+#onglets { z-index: 301; font-weight: bold; text-shadow:0 1px 0 rgba(255, 255, 255,.7); clear:both; font-size:14px; list-style-type:none; padding-left:30px; position:fixed; top:90px; width:100%; }
 #onglets li { float:left; margin-right:1px; padding-top:11px; }
 #onglets a { -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; -webkit-border-top-left-radius:5px; -webkit-border-top-right-radius:5px; border-top-left-radius:5px; border-top-right-radius:5px; background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(255, 255, 255, .5)), to(rgba(255, 255, 255, .3))); background-image: -moz-linear-gradient(top, rgba(255, 255, 255, .5), rgba(255, 255, 255, .3)); background-color:#71BA00; color:#362; display:block; margin-right:2px; height:25px; padding:0 15px; line-height:28px; text-decoration:none; }
 #onglets li a:hover { text-shadow:none; background:#FFF; color:#131; }
@@ -20,7 +20,7 @@ h1 .version { color: #AAA; font-size:16px; font-weight:normal; }
 #onglets .actif a { height:32px; line-height:35px; padding:0 15px; background-color:#FFF; color:#131; }
 
 /* Liste Annees */
-#liste_annees { z-index: 9002; background-color:#FFFFFF; font-size:14px; font-weight:bold; line-height:25px; list-style-type:none; padding-left:30px; padding-top:15px; position:fixed; top:126px; width:100%; }
+#liste_annees { z-index: 302; background-color:#FFFFFF; font-size:14px; font-weight:bold; line-height:25px; list-style-type:none; padding-left:30px; padding-top:15px; position:fixed; top:126px; width:100%; }
 #liste_annees li { float:left; }
 #liste_annees a { background-color:#EEEEEE; text-shadow:0 1px 0 rgba(255,255,255,1); color:#666666; display:block; text-decoration:none; -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; border-top-right-radius: 4px; width:70px; margin-right:2px; text-align:center; }
 #liste_annees li#recule a, #liste_annees li#avance a { font-size:18px; line-height:25px; width:20px; }
@@ -103,7 +103,7 @@ tr.legende a { color:rgba(40, 40, 40, .9); }
 form { clear:both; padding:0; margin:0; }
 form#listing { background:#DDD; margin-top:197px; }
 form#listingClients { margin-top:101px; }
-form p.tools { z-index: 9003; -webkit-box-shadow:0 4px 4px #999; -moz-box-shadow:0 4px 4px #999; box-shadow:0 4px 4px #999; background-color:#DDD; height:26px; position: fixed; top:166px; width:100%; padding-left:10px; padding-top:5px; margin-top:0; }
+form p.tools { z-index: 303; -webkit-box-shadow:0 4px 4px #999; -moz-box-shadow:0 4px 4px #999; box-shadow:0 4px 4px #999; background-color:#DDD; height:26px; position: fixed; top:166px; width:100%; padding-left:10px; padding-top:5px; margin-top:0; }
 form p.tools input, form p.tools a { font-size:11px; }
 form p.tools.clients { top:90px; }
 label, textarea, input, select { font-family: Arial, Helvetica, sans-serif; }
