@@ -13,8 +13,9 @@ while ($row_search = mysql_fetch_array($search_clients)){
 ?>
 <form id="listing" action="requetes/traitements.php" method="post">
 	<p class="tools">
-		<input type="submit" value="Ajouter un client" id="boutonAjouterClient" name="boutonAjouter" title="Ajouter un Client" />
-		<input type="submit" value="Supprimer les clients sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
+		<a href="formClient.php" class="button medium orange" id="boutonAjouterClient" title="Nouvelle fiche client">Créer une fiche client</a>
+		<!-- <input type="submit" value="Ajouter un client" id="boutonAjouterClient" name="boutonAjouter" title="Ajouter un Client" /> -->
+		<input type="submit" class="button medium mediumGrey" value="Supprimer les fiches sélectionnées" id="boutonSupprimer" name="boutonSupprimer" />
 		<input type="hidden" name="type" value="<?php echo $type ?>" id="type" />
 		<input type="hidden" value="clients" name="table" />
 		<input type="hidden" value="<?php echo $annee ?>" name="annee" />

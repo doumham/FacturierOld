@@ -68,7 +68,7 @@ hr { background-color: #FFF; margin:0; padding:0; border:0; height:0; }
 
 /* Buttons */
 input[type="checkbox"] { margin:0 10px 0 0; }
-.button, .button:link, .button:visited { cursor:pointer; margin: 0; text-decoration:none; display:inline-block; padding:0 10px; color:#FFF; border:1px solid rgba(0,0,0,.2); border-bottom: 1px solid rgba(0,0,0,.3); -moz-text-shadow:0px -1px 1px rgba(0,0,0,.5); -webkit-text-shadow:0px -1px 1px rgba(0,0,0,.5); text-shadow:0px -1px 1px rgba(0,0,0,.5); background-color:#FFF; font: 12px/24px Helvetica, Arial, sans-serif; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; background-image:-webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0,0,0,.05)), color-stop(1, rgba(0,0,0,0)) ); background-image:-moz-linear-gradient( center bottom, rgba(0,0,0,.05) 0%, rgba(0,0,0,0) 100% ); }
+.button, .button:link, .button:visited { cursor:pointer; margin: 0; text-decoration:none; display:inline-block; padding:0 10px; color:#FFF; border:1px solid rgba(0,0,0,.2); border-bottom: 1px solid rgba(0,0,0,.3); text-shadow:0px -1px 1px rgba(0,0,0,.3); background-color:#FFF; font: 12px/24px Helvetica, Arial, sans-serif; border-radius:3px; background-image:-webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0,0,0,.05)), color-stop(1, rgba(0,0,0,0)) ); background-image:-moz-linear-gradient( center bottom, rgba(0,0,0,.05) 0%, rgba(0,0,0,0) 100% ); }
 .button:not([disabled]):hover { border:1px solid rgba(0,0,0,.5); border-bottom: 1px solid rgba(0,0,0,1); background-image:-webkit-gradient( linear, left bottom, left top, color-stop(0, rgba(0,0,0,.15)), color-stop(1, rgba(0,0,0,.05)) ); background-image:-moz-linear-gradient( center bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.05) 100% ); }
 .button:not([disabled]):active { color:#DDD; -webkit-box-shadow:0px 1px 1px rgba(0,0,0,.5) inset; -moz-box-shadow:0px 1px 1px rgba(0,0,0,.5) inset; box-shadow:0px 1px 1px rgba(0,0,0,.5) inset; background-image:-webkit-gradient( linear, left bottom, left top, color-stop(0,   rgba(0,0,0,.2))  , color-stop(1,   rgba(0,0,0,.1)) ); background-image:-moz-linear-gradient( center bottom, rgba(0,0,0,.2) 0%, rgba(0,0,0,.1) 100% ); }
 .button[disabled] { opacity:.5; cursor: default; }
@@ -81,7 +81,7 @@ input[type="checkbox"] { margin:0 10px 0 0; }
 .button.orange { background-color:#E52; }
 .button.green { background-color:#96be0d; }
 .button.yellow { background-color:#ffb515; }
-.button.small { font-size:10px; line-height: 14px; padding-left: 2px; padding-right: 2px; }
+.button.small { font-size:10px; line-height: 14px; font-weight: bold; padding-left: 2px; padding-right: 2px; }
 .button.medium { font-size:12px; line-height: 20px; font-weight: bold; }
 .button.large { font-size:14px; padding:6px 14px 4px 14px; line-height: 23px; }
 .button.back { margin-left: 10px; padding-left: 5px; position: relative; z-index: 5; border-left: none; -moz-border-radius-topleft: 2px; -moz-border-radius-bottomleft: 2px; -webkit-border-top-left-radius: 2px; -webkit-border-bottom-left-radius: 2px; border-bottom-left-radius:2px; border-top-left-radius:2px; }

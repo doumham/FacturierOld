@@ -41,53 +41,22 @@ for ($i = 0; $i < count($x_pos); $i++) {
 <?php
 for ($i = 0; $i < count($y_pos); $i++) {
 	if (isset($chiffres_in[$i])) {
-		$chiffre_in = number_format($chiffres_in[$i], 2, ',', ' ')." €";
-		if (isset($x_pos[$i + 1])) {
+		$chiffre_in = number_format($chiffres_in[$i], 2, ',', '');
+		$chiffre_out = number_format($chiffres_out[$i], 2, ',', '');
+		$chiffre_in_out = number_format($chiffres_in[$i] - $chiffres_out[$i], 2, ',', '');
+		if (isset($x_pos[$i])) {
 ?>
 			<rect x="<?php echo $x_pos[$i] ?>" y="<?php echo $y_pos[$i]+20  ?>" width="20" height="<?php echo $hauteur - $y_pos[$i] ?>" style="fill:rgb(150,100,50);stroke-width:0;stroke:rgb(0,0,0)"/>
-			<!-- <line x1="<?php echo $x_pos[$i] ?>" y1="<?php echo $y_pos[$i] + 20 ?>" x2="<?php echo $x_pos[$i + 1] ?>" y2="<?php echo $y_pos[$i + 1] + 20 ?>" stroke="#666" stroke-width="1" />			  -->
-<?php
-		}
-?>
-			<!-- <circle cx="<?php echo $x_pos[$i] ?>" cy="<?php echo $y_pos[$i] + 20 ?>" r="2" fill="#999" stroke="none" stroke-width="1" /> -->
-			<!-- <rect x="<?php echo $x_pos[$i] - 34 ?>" y="<?php echo $y_pos[$i] + 2 ?>" width="<?php taille_de_vignette($chiffre_in) ?>" height="13" fill="#fff" stroke="#999" stroke-width="1" /> -->
-			<!-- <text transform="translate(<?php echo $x_pos[$i]-31 ?>,<?php echo $y_pos[$i]+12 ?>)" fill="#666" stroke="none" font-size="10" font-family="Verdana" ><?php echo $chiffre_in?></text> -->
-<?php
-	}
-}
-?>
-<!-- Sorties -->
-<?php
-for ($i = 0; $i < count($y_pos_d); $i++) {
-	if (isset($chiffres_out[$i])) {
-		$chiffre_out = number_format($chiffres_out[$i], 2, ',', ' ')." €";
-		if (isset($x_pos[$i + 1])) {
-?> 
-			<!-- <rect x="<?php echo $x_pos[$i]+5 ?>" y="<?php echo $y_pos_d[$i]+20  ?>" width="10" height="<?php echo $hauteur - $y_pos_d[$i] ?>" style="fill:rgb(150,150,150);stroke-width:0;stroke:rgb(0,0,0)"/> -->
-			<!-- <line x1="<?php echo $x_pos[$i] ?>" y1="<?php echo $y_pos_d[$i] + 20 ?>" x2="<?php echo $x_pos[$i + 1] ?>" y2="<?php echo $y_pos_d[$i + 1] + 20 ?>" stroke="#ccc" stroke-width="1" />			  -->
-<?php 	} ?>
-			<!-- <circle cx="<?php echo $x_pos[$i] ?>" cy="<?php echo $y_pos_d[$i] + 20 ?>" r="2" fill="#ccc" stroke="none" stroke-width="1" /> -->
-			<!-- <rect x="<?php echo $x_pos[$i] - 34 ?>" y="<?php echo $y_pos_d[$i] + 28 ?>" width="<?php taille_de_vignette($chiffre_out) ?>" height="13" fill="white" stroke="#ccc" stroke-width="1" /> -->
-			<!-- <text transform="translate(<?php echo $x_pos[$i] - 31 ?>,<?php echo $y_pos_d[$i] + 38 ?>)" stroke="none" font-size="10" fill="#999" font-family="Verdana" ><?php echo $chiffre_out?></text> -->
-<?php
-	}
-}
-?>
-<!-- Entrées moins sorties -->
-<?php 
-for ($i = 0; $i < count($y_pos_in_out); $i++) {
-	if (isset($chiffres_in[$i]) && isset($chiffres_out[$i])) {
-		$chiffre_in_out = number_format($chiffres_in[$i] - $chiffres_out[$i], 2, ',', ' ')." €";
-		if (isset($y_pos_in_out[$i+1]) && $y_pos_in_out[$i+1] != 0) { ?> 
 			<rect x="<?php echo $x_pos[$i] ?>" y="<?php echo $y_pos_in_out[$i]+20  ?>" width="20" height="<?php echo $hauteur - $y_pos_in_out[$i] ?>" style="fill:rgb(130,180,30);stroke-width:0;stroke:rgb(0,0,0)"/>
-			<!-- <line x1="<?php echo $x_pos[$i] ?>" y1="<?php echo $y_pos_in_out[$i] + 20 ?>" x2="<?php echo $x_pos[$i + 1] ?>" y2="<?php echo $y_pos_in_out[$i + 1] + 20 ?>" stroke="#333" stroke-width="1" />			  -->
+<?php 		if ($y_pos_in_out[$i] - $y_pos[$i] > 40) {?>
+			<text transform="translate(<?php echo $x_pos[$i]+13 ?>,<?php echo $y_pos_in_out[$i]+14 ?>) rotate(-90)" stroke="none" font-size="8" fill="rgba(0,0,0,.5)" font-family="Verdana" ><?php echo $chiffre_out?></text>
+<?php			} ?>
+<?php 		if ($hauteur - $y_pos_in_out[$i] > 40) {?>
+			<text transform="translate(<?php echo $x_pos[$i]+13 ?>,<?php echo $hauteur+14 ?>) rotate(-90)" stroke="none" font-size="8" fill="rgba(0,0,0,.5)" font-family="Verdana" ><?php echo $chiffre_in_out?></text>
+<?php			} ?>
+			<text transform="translate(<?php echo $x_pos[$i]-8 ?>,<?php echo $y_pos[$i]+14 ?>)" stroke="none" font-size="8" fill="rgba(0,0,0,.8)" font-family="Verdana" ><?php echo $chiffre_in ?></text>
 <?php
 		}
-?>
-	<!-- <circle cx="<?php echo $x_pos[$i] ?>" cy="<?php echo $y_pos_in_out[$i] + 20 ?>" r="2" fill="#000" stroke="none" stroke-width="1" /> -->
-	<!-- <rect x="<?php echo $x_pos[$i] - 34 ?>" y="<?php echo $y_pos_in_out[$i] + 28 ?>" width="<?php taille_de_vignette($chiffre_in_out) ?>" height="13" fill="white" stroke="#333" stroke-width="1" /> -->
-	<!-- <text transform="translate(<?php echo $x_pos[$i]-31 ?>,<?php echo $y_pos_in_out[$i] + 38 ?>)" stroke="none" font-size="10" fill="#000" font-family="Verdana" ><?php echo $chiffre_in_out?></text> -->
-<?php
 	}
 }
 ?>

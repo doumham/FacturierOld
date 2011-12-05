@@ -6,6 +6,8 @@ $(document).ready(function() {
 	var ordre;
 	var elementsATraiter;
 
+	$.jGrowl.defaults.closer = false;
+
 	function initialize(section){
 		initForms(section);
 	}
