@@ -10,5 +10,5 @@ function checkActif($page){
 			<li <?php if(isset($_GET['type']) && $_GET['type'] == 'entrantes'){checkActif('factures.php');}; ?>><a href="factures.php?type=entrantes&amp;annee=<?php echo $annee ?>#bottom">Factures entrantes</a></li>
 			<li <?php checkActif('clients.php'); ?>><a href="clients.php?annee=<?php echo $annee ?>">Clients</a></li>
 			<li <?php checkActif('statistiques.php'); ?>><a href="statistiques.php?annee=<?php echo $annee ?>">Statistiques</a></li>
-			<li <?php checkActif('stats.php'); ?>><a href="stats.php?annee=<?php echo $annee ?>" title="Graphique">Graphique</a></li>
+			<li <?php checkActif('graphique.php'); ?>><a href="graphique.php?annee=<?php echo $annee ?>" title="Graphique">Graphique</a></li>
 		</ul>

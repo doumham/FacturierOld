@@ -14,21 +14,21 @@ foreach ($chiffres_in_tmp as $chiffreInTmp) {
 	$chiffres_in[] = $total_in;
 }
 foreach ($chiffres_in as $chiffreIn) {
-	$y_pos[] = $hauteur - ($chiffreIn * $hauteur / $total_in);
+	$y_pos[] = floor($hauteur - ($chiffreIn * $hauteur / $total_in));
 }
 foreach ($chiffres_out_tmp as $chiffreOutTmp) {
 	$total_out += $chiffreOutTmp;
 	$chiffres_out[] = $total_out;
 }
 foreach ($chiffres_out as $chiffreOut) {
-	$y_pos_d[] = $hauteur-($chiffreOut * $hauteur / $total_in);
+	$y_pos_d[] = floor($hauteur-($chiffreOut * $hauteur / $total_in));
 }
 for ($i=0; $i < count($chiffres_in); $i++) { 
-	$y_pos_in_out[] = $hauteur-( ($chiffres_in[$i]-$chiffres_out[$i])*$hauteur/$total_in );
+	$y_pos_in_out[] = floor($hauteur-( ($chiffres_in[$i]-$chiffres_out[$i])*$hauteur/$total_in) );
 	$chiffres_in_out[] = $chiffres_in[$i]-$chiffres_out[$i];
 }
 ?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 0 0" preserveAspectRatio="xMidYMid slice" style="border:1px solid #333; width:<?php echo $largeur+100 ?>px; height:<?php echo $hauteur+40 ?>px; position:absolute; top:<?php echo $hauteur+250 ?>px; left:0;">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 0 0" preserveAspectRatio="xMidYMid slice" style="min-width:<?php echo $largeur+100 ?>px; width:100%; height:<?php echo $hauteur+40 ?>px; position:absolute; top:<?php echo $hauteur+250 ?>px; left:0;">
 	<g stroke="grey">
 		<?php $rapport = $hauteur / $total_in ?>
 <!-- lignes horizontales	-->
@@ -43,11 +43,9 @@ for ($i = $hauteur; $i >= -40 ; $i = $i - $rapport * $increment) { ?>
 <!-- lignes verticales	-->
 <?php 
 	for ($i = 0; $i < $largeur ; $i += $larg) {
-		// if (($i/$larg)%4 == 1) {
 ?>
 		<line x1="<?php echo $i+45 ?>" y1="0" x2="<?php echo $i + 45 ?>" y2="<?php echo $hauteur + 20 ?>" stroke-dasharray="5" stroke-width=".2" stroke="#000" />			 
 <?php
-		// }
 	}
 ?>
 	</g>
@@ -57,7 +55,7 @@ for ($i = $hauteur; $i >= -40 ; $i = $i - $rapport * $increment) { ?>
 for ($i = 0; $i < count($x_pos); $i++) {
 	if ($trimestre[$i] == 1) {
 ?>
-	<text fill="<?php echo $color ?>" transform="translate(<?php echo $x_pos[$i]-10 ?>,<?php echo $hauteur + 35 ?>)" stroke="none" font-size="10" font-family="Verdana" ><?php echo $lannee[$i]; ?></text>
+	<text transform="translate(<?php echo $x_pos[$i]-10 ?>,<?php echo $hauteur + 35 ?>)" stroke="none" font-size="10" font-family="Verdana" ><?php echo $lannee[$i]; ?></text>
 <?php 
 	}
 }
@@ -70,7 +68,7 @@ for ($i = 0; $i < count($x_pos); $i++) {
 				<line x1="<?php echo $x_pos[$i] ?>" y1="<?php echo $y_pos[$i]+20 ?>" x2="<?php echo $x_pos[$i+1] ?>" y2="<?php echo $y_pos[$i+1]+20 ?>" stroke="#666" stroke-width="1" />
 			<?php endif ?>
 			<circle cx="<?php echo $x_pos[$i] ?>" cy="<?php echo $y_pos[$i]+20 ?>" r="2" fill="#666" stroke="none" stroke-width="1" />
-			<rect x="<?php echo $x_pos[$i]-34 ?>" y="<?php echo $y_pos[$i]+28 ?>" width="<?php taille_de_vignette($chiffre_in) ?>" height="13" fill="#fff" stroke="#999" stroke-width="1"/>
+			<rect x="<?php echo $x_pos[$i]-34 ?>" y="<?php echo $y_pos[$i]+28 ?>" width="<?php taille_de_vignette($chiffre_in) ?>" height="13" fill="#fff" stroke="#999" />
 			<text transform="translate(<?php echo $x_pos[$i]-31 ?>,<?php echo $y_pos[$i]+38 ?>)" fill="#666" stroke="none" font-size="10" font-family="Verdana" ><?php echo $chiffre_in?></text>
 		<?php endif ?>
 		<?php endfor ?>
