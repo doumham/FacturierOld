@@ -77,7 +77,7 @@ while($f = mysql_fetch_array($selectC)){
 		</p>	
 		<p>
 			<label for="objet">Objet : </label>
-			<textarea rows="2" cols="50" name="objet" id="objet"><?php if(isset($objet))echo $objet?></textarea>
+			<textarea rows="12" cols="50" name="objet" id="objet"><?php if(isset($objet))echo $objet?></textarea>
 		</p>
 		<p>
 			<label for="montant">Montant : </label>
