@@ -945,6 +945,10 @@ class Style {
    * @return array
    */
   function get_background_position() {
+	if (!is_array($this->_props["background_position"])) {
+		return false;
+	}
+	
     $tmp = explode(" ", $this->_props["background_position"]);
 
     switch ($tmp[0]) {
