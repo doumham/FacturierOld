@@ -196,13 +196,8 @@ foreach ($facture as $key_annee => $value1) {
 		<td class="aR"><?php echo $f['numero']?></td>
 <?php endif ?>
 		<td><?php echo strftime("%d %B %Y",strtotime($f['date']))?></td>
-<?php if ($type == "sortantes"): ?>
 		<td><?php echo htmlspecialchars($f['denomination'])?></td>
-		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>"><?php echo $myInterface->truncate(htmlspecialchars($f['objet']), 60)?></a></td>
-<?php else: ?>
-		<td><?php echo htmlspecialchars($f['denomination'])?></td>
-		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>"><?php echo htmlspecialchars($f['objet'])?></a></td>
-<?php endif ?>
+		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>"><?php if(trim($f['objet'])){ echo $myInterface->truncate(htmlspecialchars($f['objet']), 60);  } else { echo '<em>Pas d’objet</em>'; }?></a></td>
 <?php if ($type == "sortantes"): ?>
 		<td><?php echo $f['tva']?></td>
 <?php endif ?>
