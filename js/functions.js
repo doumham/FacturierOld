@@ -109,7 +109,7 @@ $(document).ready(function() {
 			$(this).html("");
 			$(this).load(dialogFormUrl, function(){
 				$('#totalAmount').click(function(event) {
-					$('#amount_paid').val($(this).html());
+					$('#amount_paid').val($(this).html()).focus();
 				});
 				$(this).parent().show();
 				if (type == 'sortantes') {
