@@ -23,9 +23,13 @@ foreach ($chiffres_out_tmp as $chiffreOutTmp) {
 foreach ($chiffres_out as $chiffreOut) {
 	$y_pos_d[] = floor($hauteur-($chiffreOut * $hauteur / $total_in));
 }
-for ($i=0; $i < count($chiffres_in); $i++) { 
-	$y_pos_in_out[] = floor($hauteur-( ($chiffres_in[$i]-$chiffres_out[$i])*$hauteur/$total_in) );
-	$chiffres_in_out[] = $chiffres_in[$i]-$chiffres_out[$i];
+if (isset($chiffres_in)) {
+	for ($i=0; $i < count($chiffres_in); $i++) { 
+		if (isset($chiffres_out[$i])) {
+			$y_pos_in_out[] = floor($hauteur-( ($chiffres_in[$i]-$chiffres_out[$i])*$hauteur/$total_in) );
+			$chiffres_in_out[] = $chiffres_in[$i]-$chiffres_out[$i];
+		}
+	}
 }
 ?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 0 0" preserveAspectRatio="xMidYMid slice" style="min-width:<?php echo $largeur+100 ?>px; width:100%; height:<?php echo $hauteur+40 ?>px; position:absolute; top:<?php echo $hauteur+250 ?>px; left:0;">
