@@ -47,7 +47,11 @@ if($annee && $annee != "all"){
 }
 
 if ($type == "sortantes"):
-	$colSpanValue = "6";
+	if (ASSUJETTI_A_LA_TVA) {
+		$colSpanValue = "6";
+	} else {
+		$colSpanValue = "5";
+	}
 else:
 	$colSpanValue = "4";
 endif;
@@ -103,7 +107,7 @@ if ($annee != "all") {
 					<th>Fournisseur</th>
 					<th>Objet</th>
 <?php endif ?>
-<?php if ($type == "sortantes"): ?>
+<?php if ($type == "sortantes" && ASSUJETTI_A_LA_TVA): ?>
 					<th>TVA</th>
 <?php endif ?>
 <?php if (ASSUJETTI_A_LA_TVA): ?>
@@ -196,9 +200,9 @@ foreach ($facture as $key_annee => $value1) {
 		<td class="aR"><?php echo $f['numero']?></td>
 <?php endif ?>
 		<td><?php echo strftime("%d %B %Y",strtotime($f['date']))?></td>
-		<td><?php echo htmlspecialchars($f['denomination'])?></td>
+		<td><?php echo $myInterface->truncate(htmlspecialchars($f['denomination']), 40); ?></td>
 		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>"><?php if(trim($f['objet'])){ echo $myInterface->truncate(htmlspecialchars($f['objet']), 60);  } else { echo '<em>Pas d’objet</em>'; }?></a></td>
-<?php if ($type == "sortantes"): ?>
+<?php if ($type == "sortantes" && ASSUJETTI_A_LA_TVA): ?>
 		<td><?php echo $f['tva']?></td>
 <?php endif ?>
 <?php if (ASSUJETTI_A_LA_TVA): ?>
