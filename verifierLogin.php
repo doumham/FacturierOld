@@ -15,6 +15,7 @@ if ($loginOK){
 	$_SESSION['login'] = $login;
 	header("location:./");
 } else {
-	header("location:login.php?erreur=true");
+	$_SESSION['erreur'] = true;
+	header("location:login.php");
 }
 ?>

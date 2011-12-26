@@ -11,7 +11,8 @@ $myInterface->get_header('login');
 <p><label>Identifiant</label><input class="autowidth" type="text" name="login" autofocus="autofocus" /></p>
 <p><label>Mot de passe</label><input class="autowidth" type="password" name="pass" /></p>
 <?php 
-if(isset($_GET['erreur'])){
+if(isset($_SESSION['erreur'])){
+	unset($_SESSION['erreur']);
 	echo '<span class="error">Identifiant ou mot de passe incorrect.</span>';
 }
 ?>
