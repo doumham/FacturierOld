@@ -38,7 +38,11 @@ class interface_{
 		$return .= '<meta name="author" content="Samuel De Backer @ Typi Design 2007 info(at)typidesign(dot)be" />'."\r";
 		$return .= '<meta name="description" lang="fr" content="Facturier, logiciel de facturation en PHP/MySQL." />'."\r";
 		$return .= '</head>'."\r";
-		$return .= '<body>'."\r";
+		if(NEED_LOGIN && !isset($_SESSION['login'])){
+			$return .= '<body class="login">'."\r";
+		} else {
+			$return .= '<body>'."\r";
+		}
 		// div header
 		$return .= '<div id="header">'."\r";
 		$return .= '	<h1>'."\r";
