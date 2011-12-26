@@ -89,7 +89,7 @@ $(document).ready(function() {
 	}
 
 	function makeAutocomplete(fieldId, table, champ) {
-		if (!isTagSupported('datalist') && $("#"+fieldId).length) {
+		if ($("#"+fieldId).length) {
 			$.getJSON('requetes/get_list.php', { table: table, champ: champ }, function(data) {
 				$("#"+fieldId).autocomplete({
 					source: data,
