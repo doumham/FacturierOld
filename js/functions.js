@@ -77,8 +77,19 @@ $(document).ready(function() {
 		console.log(data);
 	}
 
+
+	function isTagSupported(tag){
+		eltTag = document.getElementsByTagName(tag)[0];
+	//	alert(tag+" :\n\n"+eltTag);	// Débug.
+		if (eltTag == "[object HTMLUnknownElement]" || eltTag == null){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	function makeAutocomplete(fieldId, table, champ) {
-		if ($("#"+fieldId).length) {
+		if (!isTagSupported('datalist') && $("#"+fieldId).length) {
 			$.getJSON('requetes/get_list.php', { table: table, champ: champ }, function(data) {
 				$("#"+fieldId).autocomplete({
 					source: data,
