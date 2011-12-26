@@ -14,7 +14,7 @@ if(isset($_GET['annee']) && !empty($_GET['annee'])){
 ?>
 <?php $myInterface->set_title("Clients"); ?>
 <?php 
-$myInterface->get_header();
+$myInterface->get_header('clients');
 include_once ('include/onglets.php');
 ?>
 <div id="Liste">

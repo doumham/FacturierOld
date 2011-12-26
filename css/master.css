@@ -119,6 +119,10 @@ form p.tools.clients { top:90px; }
 label, textarea, input, select { font-family: Arial, Helvetica, sans-serif; }
 textarea { width:355px; }
 
+/* Page Clients */
+.clients form p.tools { background-color: #FFF; height: 27px; top:126px; padding-top: 20px; }
+.clients form#listing { margin-top: 175px; }
+
 form fieldset { padding:0; border:none; float:left; }
 form #firstFieldset { padding-right:15px; margin-right:15px; border-right:1px solid #ccc; }
 form p { clear:both; margin: 0; padding-top: 5px; }

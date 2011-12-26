@@ -5,7 +5,7 @@ if (!NEED_LOGIN) {
 	header('location:./');
 }
 $myInterface->set_title("Authentification");
-$myInterface->get_header();
+$myInterface->get_header('login');
 ?>
 <form class="loginForm" method="post" action="verifierLogin.php">
 <p><label>Identifiant</label><input class="autowidth" type="text" name="login" autofocus="autofocus" /></p>

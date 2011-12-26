@@ -14,7 +14,7 @@ class interface_{
 		}
 	}
 	
-	function get_header(){
+	function get_header($page = ''){
 		if (!isset($this->title) && empty($this->title)) {
 			$this->title = 'Untitled page';
 		}
@@ -33,16 +33,12 @@ class interface_{
 		$return .= '<script type="text/javascript" src="plugins/jquery-ui/js/jquery-ui-'.JQUERY_UI_VERSION.'.custom.min.js"></script>'."\r";
 		$return .= '<script type="text/javascript" src="plugins/jquery-form.js"></script>'."\r";
 		$return .= '<script type="text/javascript" src="plugins/jGrowl/jquery.jgrowl_minimized.js"></script>'."\r";
-			$return .= '<script type="text/javascript" src="js/functions.js"></script>'."\r";
+		$return .= '<script type="text/javascript" src="js/functions.js"></script>'."\r";
 		// Meta Description - Keywords - Author
 		$return .= '<meta name="author" content="Samuel De Backer @ Typi Design 2007 info(at)typidesign(dot)be" />'."\r";
 		$return .= '<meta name="description" lang="fr" content="Facturier, logiciel de facturation en PHP/MySQL." />'."\r";
 		$return .= '</head>'."\r";
-		if(NEED_LOGIN && !isset($_SESSION['login'])){
-			$return .= '<body class="login">'."\r";
-		} else {
-			$return .= '<body>'."\r";
-		}
+		$return .= '<body class="'.$page.'">'."\r";
 		// div header
 		$return .= '<div id="header">'."\r";
 		$return .= '	<h1>'."\r";

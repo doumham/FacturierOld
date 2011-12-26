@@ -1,6 +1,8 @@
 <?php
 $chiffres_in_tmp = $chiffres_in;
-$chiffres_out_tmp = $chiffres_out;
+if (isset($chiffres_out)) {
+	$chiffres_out_tmp = $chiffres_out;
+}
 $chiffres_in = array();
 $chiffres_out = array();
 $chiffres_in_out = array();
@@ -16,12 +18,14 @@ foreach ($chiffres_in_tmp as $chiffreInTmp) {
 foreach ($chiffres_in as $chiffreIn) {
 	$y_pos[] = floor($hauteur - ($chiffreIn * $hauteur / $total_in));
 }
-foreach ($chiffres_out_tmp as $chiffreOutTmp) {
-	$total_out += $chiffreOutTmp;
-	$chiffres_out[] = $total_out;
-}
-foreach ($chiffres_out as $chiffreOut) {
-	$y_pos_d[] = floor($hauteur-($chiffreOut * $hauteur / $total_in));
+if (isset($chiffres_out) && isset($chiffres_out_tmp)) {
+	foreach ($chiffres_out_tmp as $chiffreOutTmp) {
+		$total_out += $chiffreOutTmp;
+		$chiffres_out[] = $total_out;
+	}
+	foreach ($chiffres_out as $chiffreOut) {
+		$y_pos_d[] = floor($hauteur-($chiffreOut * $hauteur / $total_in));
+	}
 }
 if (isset($chiffres_in)) {
 	for ($i=0; $i < count($chiffres_in); $i++) { 
