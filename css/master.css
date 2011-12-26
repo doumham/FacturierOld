@@ -18,8 +18,8 @@ h1 .version { color: #AAAAB0; font-size:16px; font-weight:normal; }
 .login h1 { float: none; padding-top: 50px;}
 .login form { padding: 30px; background:#3E3E42; font-size:16px; color:#fff; border-radius: 0 0 10px 10px; }
 .login form label { font-weight: normal; color:#fff; font-size:16px; color: #CCC; margin-bottom: 5px; }
-.login form .autowidth { font-size: 16px; width: 277px; margin-bottom: 10px; }
-.error { color: #F00; margin-bottom: 10px; display: block; }
+.login form .autowidth { font-size: 16px; width: 277px; margin-bottom: 10px; border-radius:3px; border: none; height: 25px; line-height: 25px; border: 1px solid #334; }
+.error { color: #F00; display: block; }
 
 /* Onglets menu pricipal */
 #onglets { z-index: 301; font-weight: bold; text-shadow:0 1px 0 rgba(255, 255, 255,.7); clear:both; font-size:14px; list-style-type:none; padding-left:30px; position:fixed; top:90px; width:100%; }
