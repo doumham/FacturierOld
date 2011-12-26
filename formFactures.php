@@ -59,7 +59,7 @@ if (!isset($_GET['ajaxed'])) {
 <?php if ($type == 'sortantes'): ?>
 <?php $c = mysql_fetch_array($selectClients); ?>
 			<label for="denomination">Client : </label>
-			<input type="text" list="mesClients" name="denomination" id="denomination" value="<?php if(isset($c['denomination']))echo $c['denomination']?>" />
+			<input type="text" list="mesClients" name="denomination" id="denomination" value="<?php if(isset($c['denomination']))echo htmlspecialchars($c['denomination']) ?>" />
 			<datalist id="mesClients">
 <?php
 $selectC = mysql_query("SELECT DISTINCT `denomination` FROM `clients`") or trigger_error(mysql_error(),E_USER_ERROR);
@@ -72,12 +72,12 @@ while($f = mysql_fetch_array($selectC)){
 			</datalist>
 <?php else: ?>
 			<label for="denomination">Fournisseur : </label>
-			<input type="text" name="denomination" id="denomination" value="<?php if(isset($denomination))echo $denomination?>" autofocus="autofocus" />
+			<input type="text" name="denomination" id="denomination" value="<?php if(isset($denomination))echo htmlspecialchars($denomination)?>" autofocus="autofocus" />
 <?php endif ?>
 		</p>	
 		<p>
 			<label for="objet">Objet : </label>
-			<textarea rows="12" cols="50" name="objet" id="objet"><?php if(isset($objet))echo $objet?></textarea>
+			<textarea rows="12" cols="50" name="objet" id="objet"><?php if(isset($objet))echo htmlspecialchars($objet)?></textarea>
 		</p>
 		<p>
 			<label for="montant">Montant : </label>

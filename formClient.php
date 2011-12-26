@@ -35,11 +35,11 @@ if (!isset($_GET['ajaxed'])) {
 				</p>
 				<p>
 					<label for="nom">Nom : </label>
-					<input name="nom" type="text" value="<?php echo $nom?>" id="nom" />
+					<input name="nom" type="text" value="<?php echo htmlspecialchars($nom)?>" id="nom" />
 				</p>
 				<p>
 					<label for="prenom">Prénom : </label>
-					<input name="prenom" type="text" value="<?php echo $prenom?>" id="prenom" />
+					<input name="prenom" type="text" value="<?php echo htmlspecialchars($prenom)?>" id="prenom" />
 				</p>
 				<p>
 					<label for="tva">TVA : </label>
@@ -47,7 +47,7 @@ if (!isset($_GET['ajaxed'])) {
 				</p>
 				<p>
 					<label for="tel">Tel : </label>
-					<input name="tel" type="text" value="<?php echo $tel?>" id="tel" />
+					<input name="tel" type="text" value="<?php echo htmlspecialchars($tel)?>" id="tel" />
 				</p>
 				<p>
 					<label for="email">Email : </label>
@@ -55,21 +55,21 @@ if (!isset($_GET['ajaxed'])) {
 				</p>
 				<p>
 					<label for="site">Site : </label>
-					<input name="site" type="text" value="<?php echo $site?>" id="site" />
+					<input name="site" type="text" value="<?php echo htmlspecialchars($site)?>" id="site" />
 				</p>
 			</fieldset>
 			<fieldset>
 				<p>
 					<label for="adresse">Adresse : </label>
-					<input name="adresse" type="text" value="<?php echo $adresse?>" id="adresse" />
+					<input name="adresse" type="text" value="<?php echo htmlspecialchars($adresse)?>" id="adresse" />
 				</p>
 				<p>
 					<label for="num">Numéro : </label>
-					<input name="num" type="text" value="<?php echo $num?>" id="num" />
+					<input name="num" type="text" value="<?php echo htmlspecialchars($num)?>" id="num" />
 				</p>
 				<p>
 					<label for="boite">Boîte : </label>
-					<input name="boite" type="text" value="<?php echo $boite?>" id="boite" />
+					<input name="boite" type="text" value="<?php echo htmlspecialchars($boite)?>" id="boite" />
 				</p>
 				<p>
 					<label for="cp">Code Postal : </label>
@@ -77,7 +77,7 @@ if (!isset($_GET['ajaxed'])) {
 				</p>
 				<p>
 					<label for="localite">Localité : </label>
-					<input name="localite" type="text" value="<?php echo $localite?>" id="localite" />
+					<input name="localite" type="text" value="<?php echo htmlspecialchars($localite)?>" id="localite" />
 				</p>
 			</fieldset>
 			<p>
