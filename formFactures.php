@@ -65,7 +65,7 @@ if (!isset($_GET['ajaxed'])) {
 $selectC = mysql_query("SELECT DISTINCT `denomination` FROM `clients`") or trigger_error(mysql_error(),E_USER_ERROR);
 while($f = mysql_fetch_array($selectC)){
 ?>
-				<option label="" value="<?php echo $f['denomination'] ?>">
+				<option label="" value="<?php echo htmlspecialchars($f['denomination']) ?>">
 <?php
 }
 ?>
