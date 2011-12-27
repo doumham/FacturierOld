@@ -49,7 +49,7 @@ while ($row_search = mysql_fetch_array($search_clients)){
 				</a> 
 			</td>
 			<td><?php echo htmlspecialchars($c['denomination'])?></td>
-			<td><?php echo $c['adresse'].", ".$c['num']?></td>
+			<td><?php echo $c['adresse']." ".$c['num']?></td>
 			<td><?php echo $c['cp']?></td>
 			<td><?php echo $c['localite']?></td>
 			<td><?php echo $c['tva']?><input type="hidden" name="lesid[]" value="<?php echo $c['id_client']?>" /></td>

@@ -201,7 +201,7 @@ foreach ($facture as $key_annee => $value1) {
 <?php endif ?>
 		<td><?php echo strftime("%d %B %Y",strtotime($f['date']))?></td>
 		<td><?php echo $myInterface->truncate(htmlspecialchars($f['denomination']), 40); ?></td>
-		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>"><?php if(trim($f['objet'])){ echo $myInterface->truncate(htmlspecialchars($f['objet']), 60);  } else { echo '<em>Pas d’objet</em>'; }?></a></td>
+		<td><a class="popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>" title="<?php echo $myInterface->truncate(htmlspecialchars($f['objet']), 60)?>"><?php if(trim($f['objet'])){ echo $myInterface->truncate(htmlspecialchars($f['objet']), 60);  } else { echo '<em>Pas d’objet</em>'; }?></a></td>
 <?php if ($type == "sortantes" && ASSUJETTI_A_LA_TVA): ?>
 		<td><?php echo $f['tva']?></td>
 <?php endif ?>
