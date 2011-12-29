@@ -9,11 +9,6 @@ function taille_de_vignette($string){
 	$taille = mb_strlen($string);
 	echo $taille * 5.5 + 5;
 }
-if($_GET['annee']){
-	$annee = $_GET['annee'];
-} else {
-	$annee = "all";
-}
 $select_trimestres = mysql_query("SELECT * FROM trimestres WHERE type='sortantes' ORDER BY `annee`, `trimestre`") or trigger_error(mysql_error(),E_USER_ERROR);
 $select_trimestres_d = mysql_query("SELECT * FROM trimestres WHERE type='entrantes' ORDER BY `annee`, `trimestre`") or trigger_error(mysql_error(),E_USER_ERROR);
 $select_max = mysql_query("SELECT montant_htva FROM trimestres ORDER BY montant_htva DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);

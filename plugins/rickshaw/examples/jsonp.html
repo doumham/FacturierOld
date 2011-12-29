@@ -1,0 +1,50 @@
+<!doctype>
+<head>
+	<link type="text/css" rel="stylesheet" href="../src/css/graph.css">
+	<link type="text/css" rel="stylesheet" href="css/lines.css">
+
+	<script src="../vendor/d3.min.js"></script>
+	<script src="../vendor/d3.layout.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+	<script src="../src/js/Rickshaw.js"></script>
+	<script src="../src/js/Rickshaw.Graph.js"></script>
+	<script src="../src/js/Rickshaw.Series.js"></script>
+	<script src="../src/js/Rickshaw.Graph.JSONP.js"></script>
+	<script src="../src/js/Rickshaw.Graph.Unstacker.js"></script>
+	<script src="../src/js/Rickshaw.Graph.Renderer.Line.js"></script>
+</head>
+<body>
+
+<div id="chart_container">
+	<div id="chart"></div>
+</div>
+
+<script>
+
+var jsonpGraph = new Rickshaw.Graph.JSONP( {
+
+	element: document.getElementById("chart"),
+	width: 400,
+	height: 200,
+	renderer: 'line',
+	dataURL: '/examples/data/sample.jsonp',
+	onData: function(d) { Rickshaw.Series.zeroFill(d); return d },
+	series: [
+		{
+			name: 'New York',
+			color: '#c05020',
+		}, {
+			name: 'London',
+			color: '#30c020',
+		}, {
+			name: 'Tokyo',
+			color: '#6060c0'
+		}
+	]
+} );
+
+</script>
+
+</body>
