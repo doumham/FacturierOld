@@ -15,23 +15,52 @@ if ($first['trimestre'] == '2') {
 	$ajout = (365/4*3) * 24 * 60 * 60;
 }
 $nombre_trimestres = mysql_num_rows($select_trimestres);
-$timeStart = time() - (($annees) * 365 * 24 * 60 * 60) + $ajout;
-$timeStep = 365 / 4 * 24 * 60 * 60;
+// $time = strtotime('01-01-2004');
+$time = time() - $annees * 365 * 24 * 60 * 60 + $ajout;
+$timeStep = 365 / 4 * 24 * 60 * 60; // Un trimestre en secondes
+
+// Premier graphique
 if($nombre_trimestres > 0){
-	$counter = $timeStart;
 	while($t = mysql_fetch_array($select_trimestres)){
-		$datas[0][] = array('x'=>$counter, 'y'=>$t['montant_htva']+0);
-		$trimestre[] = $t['trimestre'];
-		$lannee[] = $t['annee'];
-		$counter += $timeStep;
+		$chiffres_in[] = $t['montant_htva'];
 	}
-	$datas[0][] = array('x'=>$counter, 'y'=>0);
-	$counter2 = $timeStart;
 	while($t_d = mysql_fetch_array($select_trimestres_d)){
-		$datas[1][] = array('x'=>$counter2, 'y'=>$t_d['montant_htva']+0);
-		$counter2 += $timeStep;
+		$chiffres_out[] = $t_d['montant_htva'];
 	}
-	$datas[1][] = array('x'=>$counter2, 'y'=>0);
 }
+for ($i = 0; $i < count($chiffres_in); $i++) { 
+	if (isset($chiffres_in[$i]) && isset($chiffres_out[$i])) {
+		$datas[0][] = array('x'=>$time, 'y'=>$chiffres_in[$i]-$chiffres_out[$i]+0);
+		$datas[1][] = array('x'=>$time, 'y'=>($chiffres_out[$i]+0));
+		$time += $timeStep;
+	}
+}
+$datas[0][] = array('x'=>$time, 'y'=>0);
+$datas[1][] = array('x'=>$time, 'y'=>0);
+
+$time = time() - $annees * 365 * 24 * 60 * 60 + $ajout;
+// Deuxième graphique
+$chiffres_in_tmp = $chiffres_in;
+if (isset($chiffres_out)) {
+	$chiffres_out_tmp = $chiffres_out;
+}
+$total_in = 0;
+$total_out = 0;
+foreach ($chiffres_in_tmp as $chiffreInTmp) {
+	$total_in += $chiffreInTmp;
+	$datas[2][] = array('x'=>$time, 'y'=>$total_in+0);
+	$time += $timeStep;
+}
+$time = time() - $annees * 365 * 24 * 60 * 60 + $ajout;
+if (isset($chiffres_out) && isset($chiffres_out_tmp)) {
+	foreach ($chiffres_out_tmp as $chiffreOutTmp) {
+		$total_out += $chiffreOutTmp;
+		$datas[3][] = array('x'=>$time, 'y'=>$total_out+0);
+		$time += $timeStep;
+	}
+}
+// $datas[2][] = array('x'=>$time, 'y'=>0);
+// $datas[3][] = array('x'=>$time, 'y'=>0);
+
 echo json_encode($datas);
 ?>
