@@ -1,5 +1,6 @@
 <?php
 $id_client = '';
+$numero = 1;
 include ('classes/interface.class.php');
 $myInterface = new interface_();
 if(isset($_GET['annee']) && $_GET['annee']){
@@ -17,13 +18,12 @@ if(isset($_GET['id']) && $_GET['id']){
 	$dateArray = explode("-",$date);
 } else {
 	if ($type == 'sortantes') {
-		$select_no = mysql_query("SELECT `numero` FROM `factures".ucfirst($type)."` ORDER BY `date` DESC, `numero` DESC LIMIT 1") or trigger_error(mysql_error(),E_USER_ERROR);
-		$no = mysql_fetch_array($select_no);
+		$anneeEnCours = date('Y');
+		$queryForNumero = "SELECT `numero` FROM `factures".ucfirst($type)."` WHERE `date`>='".$anneeEnCours."-01-01' ORDER BY `date` DESC, `numero` DESC LIMIT 1";
+		$select_no = mysql_query($queryForNumero) or trigger_error(mysql_error(),E_USER_ERROR);
 		if(mysql_num_rows($select_no) > 0){
-			extract($no);
-			$numero++;
-		}else{
-			$numero = 1;
+			$data = mysql_fetch_array($select_no);
+			$numero = $data['numero']+1;
 		}
 	}
 }
