@@ -174,6 +174,7 @@ foreach ($facture as $key_annee => $value1) {
 		$tt_htva = 0;
 		$tt_tva = 0;
 		$tt_tvac = 0;
+		$tt_a_payer = 0;
 		foreach ($value2 as $key3 => $f) {
 ?>
 <?php if ($counter == "0" && !$ordre){ ?>
@@ -226,7 +227,7 @@ if ($f['amount_paid'] == 0) {
 			<a class="fondJaugeDePayement popup" href="<?php echo $form ?>.php?type=<?php echo $type ?>&amp;annee=<?php echo $annee ?>&amp;id=<?php echo $f['id']?>&amp;setAmountPaid=true" title="<?php echo $titleForAmountJauge ?>">
 <?php
 				$heightOfJauge = 16;
-				$maxWidthOfJauge = 70;
+				$maxWidthOfJauge = 80;
 				if ($f['montant_tvac'] > 0) {
 					if ($f['amount_paid'] > 0) {
 						$longueurJaugeDePayement = ($maxWidthOfJauge/$f['montant_tvac'])*$f['amount_paid'];
@@ -250,15 +251,18 @@ if ($f['amount_paid'] == 0) {
 		</td>
 	</tr>
 <?php
-//
+// Totaux par trimestre
 $tt_htva += $f['montant'];
 $tt_tva += $f['montant_tva'];
 $tt_tvac += $f['montant_tvac'];
-//
+if($f['amount_paid'] != $f['montant_tvac']) {
+	$tt_a_payer -= $f['montant_tvac']-$f['amount_paid'];
+}
+// Totaux par année
 $ta_htva += $f['montant'];
 $ta_tva += $f['montant_tva'];
 $ta_tvac += $f['montant_tvac'];
-//
+// Totaux toutes années confondues
 $tg_htva += $f['montant'];
 $tg_tva += $f['montant_tva'];
 $tg_tvac += $f['montant_tvac'];
@@ -292,7 +296,7 @@ if($totauxTrim['id']){
 <?php endif ?>
 					<th class="aR"><?php echo number_format($tt_tvac, 2, ',', ' ')?> €</th>
 <?php if ($type == "sortantes"): ?>
-					<th></th>
+					<th class="aP"><?php if($tt_a_payer) { echo number_format($tt_a_payer, 2, ',', ' ') ?> €<?php }?></th>
 <?php endif ?>
 				</tr>
 <?php if (($key_trimestre == "4" && !$ordre)||($annee == date("Y") && $countFacture == $nombreFactures)){ ?>
