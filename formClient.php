@@ -10,6 +10,7 @@ $num = '';
 $boite = '';
 $cp = '';
 $localite = '';
+$pays = '';
 $tel = '';
 $email = '';
 $site = '';
@@ -78,6 +79,10 @@ if (!isset($_GET['ajaxed'])) {
 				<p>
 					<label for="localite">Localité : </label>
 					<input name="localite" type="text" value="<?php echo htmlspecialchars($localite)?>" id="localite" />
+				</p>
+				<p>
+					<label for="pays">Pays : </label>
+					<input name="pays" type="text" value="<?php echo htmlspecialchars($pays)?>" id="pays" />
 				</p>
 			</fieldset>
 			<p>

@@ -74,13 +74,17 @@ if (!isset($_GET['ajaxed'])) {
 					<label for="boite">Boîte&nbsp;:</label>
 					<input id="boite" name="boite" type="text" value="<?php if(isset($boite))echo $boite?>" />
 				</p>
-				<p>
+				<p class="float clear">
 					<label for="codepostal">Code Postal&nbsp;:</label>
 					<input id="codepostal" name="codepostal" type="text" value="<?php if(isset($codepostal))echo $codepostal?>" />
 				</p>
-				<p>
+				<p class="float">
 					<label for="localite">Localité&nbsp;:</label>
 					<input id="localite" name="localite" type="text" value="<?php if(isset($localite))echo $localite?>" />
+				</p>
+				<p>
+					<label for="pays">Pays&nbsp;:</label>
+					<input id="pays" name="pays" type="text" value="<?php if(isset($pays))echo $pays?>" />
 				</p>
 				<p>
 					<label for="telephone">Téléphone&nbsp;:</label>
