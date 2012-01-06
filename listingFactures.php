@@ -255,7 +255,7 @@ if ($f['amount_paid'] == 0) {
 $tt_htva += $f['montant'];
 $tt_tva += $f['montant_tva'];
 $tt_tvac += $f['montant_tvac'];
-if($f['amount_paid'] != $f['montant_tvac']) {
+if(isset($f['amount_paid']) && $f['amount_paid'] != $f['montant_tvac']) {
 	$tt_a_payer -= $f['montant_tvac']-$f['amount_paid'];
 }
 // Totaux par année
