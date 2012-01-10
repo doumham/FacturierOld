@@ -4,6 +4,7 @@ extract($_POST);
 if(isset($denomination) && empty($denomination)) {
 	$denomination = $nom.' '.$prenom;
 }
+$denomination = str_replace("'", "’", $denomination);
 if($id){
 	$req = mysql_query("UPDATE `clients` SET `denomination`='$denomination', `nom`='$nom', `prenom`='$prenom', `adresse`='$adresse', `num`='$num', `boite`='$boite', `cp`='$cp', `localite`='$localite', `pays`='$pays', `tel`='$tel', `email`='$email', `site`='$site', `tva`='$tva' WHERE `id_client`='$id'") or die(mysql_error());
 } else {
