@@ -95,7 +95,7 @@ while($f = mysql_fetch_array($selectC)){
 		</p>
 		<p class="setAmountPaidField">
 			<label for="amount_paid">Montant payé : </label>
-			<input type="text" name="amount_paid" id="amount_paid"<?php if(isset($_GET['setAmountPaid'])) { echo ' autofocus="autofocus"'; } ?> value="<?php if(isset($amount_paid)){echo $amount_paid = strtr($amount_paid, ".", ",");}?>" /> / <span id="totalAmount"><?php echo strtr($montant_tvac, ".", ",") ?></span> €
+			<input type="text" name="amount_paid" id="amount_paid"<?php if(isset($_GET['setAmountPaid'])) { echo ' autofocus="autofocus"'; } ?> value="<?php if(isset($amount_paid)){echo $amount_paid = strtr($amount_paid, ".", ",");}?>" /> / <span id="totalAmount"><?php if(isset($montant_tvac)){echo strtr($montant_tvac, ".", ",");} ?></span> €
 		</p>
 <?php if (ASSUJETTI_A_LA_TVA): ?>
 		<p>

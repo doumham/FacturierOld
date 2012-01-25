@@ -342,7 +342,9 @@ $ta_tvac = 0;
 				<th class="aR"><?php echo number_format($tg_tva, 2, ',', ' ')?> €</th>
 <?php endif ?>
 				<th class="aR"><?php echo number_format($tg_tvac, 2, ',', ' ')?> €</th> 
+<?php if ($type == 'sortantes'): ?>
 				<th></th> 
+<?php endif ?>
 			</tr>
 <?php endif ?>
 		</table>

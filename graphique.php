@@ -1,6 +1,9 @@
 <?php
 include ('classes/interface.class.php');
 $myInterface = new interface_();
+$myInterface->set_title("Facturier – Graphique");
+$myInterface->get_header();
+include ('include/onglets.php');
 $hauteur = 600;
 $largeur = 980;
 $hauteur = $hauteur-40;
@@ -39,10 +42,6 @@ if($nombre_trimestres > 0){
 		$y_pos_d[] = floor($hauteur - ($t_d['montant_htva'] * $hauteur / $max));
 		$chiffres_out[] = $t_d['montant_htva'];
 	}
-	$myInterface->set_title("Facturier – Graphique");
-	$myInterface->get_header();
-
-	include ('include/onglets.php');
 
 	include('graphique.inc.1.php');
 	include('graphique.inc.2.php');
