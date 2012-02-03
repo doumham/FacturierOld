@@ -13,7 +13,6 @@ if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 	$tg_tvac = 0;
 	$ordre = '';
 	$id_client_old = 0;
-	$counter_annees = 0;
 	$req = '';
 	$req2 = '';
 	if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
@@ -133,15 +132,16 @@ if ($type == 'entrantes') {
 			'montant'=>$f['montant'],
 			'montant_tva'=>$f['montant_tva'],
 			'montant_tvac'=>$f['montant_tvac'],
-	    'deductibilite'=>$f['deductibilite']
-			);
+		);
 	}
 } else {
-	while($f = mysql_fetch_array($selectFactures)){
-		if(!$ordre){
+	// Sortantes
+	while ($f = mysql_fetch_array($selectFactures)) {
+		if (!$ordre) {
+			// trimestre
 			$trimestreDeLaFacture = ceil(substr($f['date'],5,2)*4/12);
 			$anneeDeLaFacture = substr($f['date'],0,4);
-		}else{
+		} else {
 			if($id_client_old != $f['id_client']){
 				$client_count++;
 			}
@@ -167,7 +167,6 @@ if ($type == 'entrantes') {
 
 if (isset($facture) && is_array($facture)) {
 foreach ($facture as $key_annee => $value1) {
-	$counter_annees++;
 	foreach ($value1 as $key_trimestre => $value2) {
 		$nombre = count($value2);
 		$counter = 0;

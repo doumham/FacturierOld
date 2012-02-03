@@ -32,13 +32,13 @@ if (isset($type) && $type == 'sortantes') {
 
 if(isset($id) && !empty($id)){ // update
 	if (isset($type) && $type == 'entrantes') {
-		$req = mysql_query("UPDATE `facturesEntrantes` SET `date`='$date',`denomination`='$denomination',`objet`='$objet',`montant`='$montant',`pourcent_tva`='$pourcent_tva',`montant_tva`='$montant_tva',`montant_tvac`='$montant_tvac',`deductibilite`='$deductibilite' WHERE `id`='$id'") or die(mysql_error());
+		$req = mysql_query("UPDATE `facturesEntrantes` SET `date`='$date',`denomination`='$denomination',`objet`='$objet',`montant`='$montant',`pourcent_tva`='$pourcent_tva',`montant_tva`='$montant_tva',`montant_tvac`='$montant_tvac' WHERE `id`='$id'") or die(mysql_error());
 	} else {
 		$req = mysql_query("UPDATE `facturesSortantes` SET `id_usr`='$id_usr',`id_client`='$id_client',`date`='$date',`numero`='$numero',`objet`='$objet',`montant`='$montant',`pourcent_tva`='$pourcent_tva',`montant_tva`='$montant_tva',`montant_tvac`='$montant_tvac',`amount_paid`='$amount_paid' WHERE `id`='$id'");
 	}
 } else {
 	if ($type == 'entrantes') { //insert
-		$req = mysql_query("INSERT INTO `facturesEntrantes`(`date`,`denomination`,`objet`,`montant`,`pourcent_tva`,`montant_tva`,`montant_tvac`,`deductibilite`) VALUES ('$date','$denomination','$objet','$montant','$pourcent_tva','$montant_tva','$montant_tvac','$deductibilite')") or die(mysql_error());
+		$req = mysql_query("INSERT INTO `facturesEntrantes`(`date`,`denomination`,`objet`,`montant`,`pourcent_tva`,`montant_tva`,`montant_tvac`) VALUES ('$date','$denomination','$objet','$montant','$pourcent_tva','$montant_tva','$montant_tvac')") or die(mysql_error());
 	} else {		
 		$req = mysql_query("INSERT INTO `facturesSortantes`(`id_usr`,`id_client`,`date`,`numero`,`objet`,`montant`,`pourcent_tva`,`montant_tva`,`montant_tvac`,`amount_paid`) VALUES ('$id_usr','$id_client','$date','$numero','$objet','$montant','$pourcent_tva','$montant_tva','$montant_tvac','$amount_paid')");
 	}

@@ -1,7 +1,7 @@
 body { font-family: helvetica, arial, sans-serif; font-size: 16px; padding-top:1cm; }
 address { font-style: normal; line-height: 19px; }
-#global { margin: 0 auto; border: 3px solid #eee; width:16cm; }
-#entete { background:#eee; padding-bottom:0.4cm; }
+#global { margin: 0 auto; border: 3px solid #ccc; width:16cm; }
+#entete { background:#ccc; padding-bottom:0.4cm; }
 h1, h2, address, #date, h3, p { padding:0 0.5cm; }
 h1 { font-size:30px; margin:0; padding:0.6cm 0.5cm 0 0.5cm; }
 #entete p { margin:0; padding:0 0 .2cm .5cm; }
@@ -14,8 +14,8 @@ h3 { font-size:18px; margin-top:.8cm; }
 p#objet { line-height: 20px; height: 227px; overflow: hidden; margin-bottom: 0; }
 table#montants { width:16cm; font-size:18px; border-collapse:collapse; }
 tr#montant { padding:0 0.5cm 0.4cm 0.5cm; }
-tr#montant_tvac { font-weight: bold; margin:0; background:#eee; }
-tr#montant_tva { border-top:3px solid #eee; font-size:16px; }
-tr#montant_tva td { border-top:3px solid #eee; }
+tr#montant_tvac { font-weight: bold; margin:0; background:#ccc; }
+tr#montant_tva { border-top:3px solid #ccc; font-size:16px; }
+tr#montant_tva td { border-top:3px solid #ccc; }
 td { padding: .4cm .5cm; }
 td.chiffre { text-align: right; }
