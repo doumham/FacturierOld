@@ -3,6 +3,7 @@ include ('classes/interface.class.php');
 $myInterface = new interface_();
 $id = '';
 $denomination = '';
+$refClient = '';
 $nom = '';
 $prenom = '';
 $adresse = '';
@@ -33,6 +34,10 @@ if (!isset($_GET['ajaxed'])) {
 				<p>
 					<label for="denomination">Société : </label>
 					<input name="denomination" type="text" value="<?php echo htmlspecialchars($denomination)?>" id="denomination" autofocus="autofocus" required="required" />
+				</p>
+				<p>
+					<label for="refClient">Ref. client : </label>
+					<input name="refClient" type="text" value="<?php echo htmlspecialchars($refClient)?>" id="refClient" />
 				</p>
 				<p>
 					<label for="nom">Nom : </label>

@@ -1,4 +1,9 @@
 <?php
+if(isset($_GET['annee'])){
+	$annee = $_GET['annee'];
+}else{
+	$annee = "all";
+}
 if (isset($_GET['ajaxed']) && $_GET['ajaxed'] == 1) {
 	include ('classes/interface.class.php');
 	$myInterface = new interface_();
