@@ -6,7 +6,9 @@ function checkActif($page){
 }
 ?>
 		<ul id="onglets">
+<?php if (CONTRATS): ?>
 			<li <?php checkActif('contrats.php'); ?>><a href="contrats.php<?php if(isset($annee)){ ?>?annee=<?php echo $annee ?><?php } ?>#bottom">Contrats</a></li>
+<?php endif ?>
 			<li <?php if(isset($_GET['type']) && $_GET['type'] == 'sortantes'){checkActif('factures.php');}; ?>><a href="factures.php?type=sortantes<?php if(isset($annee)){ ?>&amp;annee=<?php echo $annee ?><?php } ?>#bottom">Factures sortantes</a></li>
 <?php if (FACTURES_ENTRANTES): ?>
 			<li <?php if(isset($_GET['type']) && $_GET['type'] == 'entrantes'){checkActif('factures.php');}; ?>><a href="factures.php?type=entrantes<?php if(isset($annee)){ ?>&amp;annee=<?php echo $annee ?><?php } ?>#bottom">Factures entrantes</a></li>

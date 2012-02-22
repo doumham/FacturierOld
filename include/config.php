@@ -16,6 +16,7 @@ define('TIME_ZONE', 'Europe/Brussels');
 define('ASSUJETTI_A_LA_TVA', true);
 define('DEFAULT_TVA', '21,00');
 define('FACTURES_ENTRANTES', true);
+define('CONTRATS', false);
 define('STATISTIQUES', true);
 
 error_reporting(E_ALL);
