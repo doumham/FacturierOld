@@ -125,10 +125,11 @@ $(document).ready(function() {
 				$(this).parent().show();
 				if (type == 'sortantes') {
 					makeAutocomplete('denomination', 'clients', 'denomination');
-				}
-				if (type == 'entrantes') {
+				} else if (type == 'entrantes') {
 					makeAutocomplete('objet', 'facturesEntrantes', 'objet');
 					makeAutocomplete('denomination', 'facturesEntrantes', 'denomination');
+				} else {
+					makeAutocomplete('denomination', 'clients', 'denomination');
 				}
 				$('input[autofocus="autofocus"]').focus();
 				$('#dialog').dialog('option', 'width', 'auto');
@@ -147,6 +148,14 @@ $(document).ready(function() {
 	
 	$('#boutonAjouterFactureSortante').live('click',function(){
 		dialogFormUrl = "formFactures.php?type=sortantes&ajaxed=1";
+		dialogTitle = $(this).attr('title');
+		$('#dialog').dialog('option', 'title', dialogTitle);
+		$('#dialog').dialog('open');
+		return false;
+	});
+
+	$('#boutonAjouterContrat').live('click',function(){
+		dialogFormUrl = "formContrats.php?ajaxed=1";
 		dialogTitle = $(this).attr('title');
 		$('#dialog').dialog('option', 'title', dialogTitle);
 		$('#dialog').dialog('open');

@@ -7,11 +7,16 @@ if (isset($_GET['type']) && $_GET['type'] == 'entrantes') {
 	$table = "facturesEntrantes";
 	$form = "formFactures";
 	$idBouton = "boutonAjouterFactureEntrante";
-} else {
+} else if (isset($_GET['type']) && $_GET['type'] == 'sortantes') {
 	$type = "sortantes";
 	$table = "facturesSortantes";
 	$form = "formFactures";
 	$idBouton = "boutonAjouterFactureSortante";
+} else {
+	$type = "contrats";
+	$table = "contrats";
+	$form = "formContrats";
+	$idBouton = "boutonAjouterContrat";
 }
 if(isset($_GET['annee'])){
 	$annee = $_GET['annee'];
@@ -36,23 +41,27 @@ switch ($type) {
 	case 'sortantes':
 		$selectFactures = mysql_query("SELECT * FROM `".$table."` LEFT JOIN `clients` ON `".$table."`.`id_client`=`clients`.`id_client` ".$req." ORDER BY ".$req2." `date`, `numero`") or trigger_error(mysql_error(),E_USER_ERROR);
 		break;
+
+	case 'contrats':
+		$selectFactures = mysql_query("SELECT * FROM `".$table."` LEFT JOIN `clients` ON `".$table."`.`id_client`=`clients`.`id_client` ".$req." ORDER BY ".$req2." `date`, `numero`") or trigger_error(mysql_error(),E_USER_ERROR);
+		break;
 	
 	default:
 		$selectFactures = mysql_query("SELECT * FROM `".$table."` ".$req." ORDER BY `date`") or trigger_error(mysql_error(),E_USER_ERROR);
 		break;
 }
 $outputCSV = '';
-if ($type == 'sortantes') {
+if ($type == 'sortantes' || $type == 'contrats') {
 	$outputCSV .= 'n°;';  // sortantes: 1
 }
 $outputCSV .= 'Date;';  // sortantes: 2  entrantes: 1
-if ($type == 'sortantes') {
+if ($type == 'sortantes' || $type == 'contrats') {
 	$outputCSV .= 'Client;';  // sortantes: 3
 } else {
 	$outputCSV .= 'Fournisseur;'; // entrantes: 2
 	$outputCSV .= 'Objet;'; // entrantes: 3
 }
-if ($type == 'sortantes') {
+if ($type == 'sortantes' || $type == 'contrats') {
 	$outputCSV .= 'TVA;';  // sortantes: 4
 }
 if (ASSUJETTI_A_LA_TVA) {
