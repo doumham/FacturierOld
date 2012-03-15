@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.3.2
+-- version 3.4.9
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2011 at 03:17 PM
+-- Generation Time: Mar 15, 2012 at 11:01 AM
 -- Server version: 5.5.15
--- PHP Version: 5.3.6
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `clients` (
   `id_client` int(11) NOT NULL AUTO_INCREMENT,
   `denomination` varchar(255) NOT NULL DEFAULT '',
+  `refClient` varchar(255) NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
   `adresse` varchar(255) NOT NULL,
@@ -36,12 +37,34 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `boite` varchar(5) DEFAULT NULL,
   `cp` varchar(25) NOT NULL DEFAULT '',
   `localite` varchar(255) NOT NULL,
+  `pays` varchar(100) NOT NULL,
   `tel` varchar(20) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `site` varchar(255) DEFAULT NULL,
   `tva` varchar(20) NOT NULL,
   `ordre` int(11) NOT NULL,
   PRIMARY KEY (`id_client`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contrats`
+--
+
+CREATE TABLE IF NOT EXISTS `contrats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usr` int(11) NOT NULL,
+  `id_client` int(11) NOT NULL,
+  `date` date NOT NULL DEFAULT '0000-00-00',
+  `numero` int(11) NOT NULL,
+  `objet` text NOT NULL,
+  `montant` decimal(10,2) NOT NULL,
+  `pourcent_tva` decimal(4,2) NOT NULL,
+  `montant_tva` decimal(10,2) NOT NULL,
+  `montant_tvac` decimal(10,2) NOT NULL,
+  `amount_paid` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -59,7 +82,6 @@ CREATE TABLE IF NOT EXISTS `facturesEntrantes` (
   `pourcent_tva` decimal(4,2) NOT NULL,
   `montant_tva` decimal(10,2) NOT NULL,
   `montant_tvac` decimal(10,2) NOT NULL,
-  `deductibilite` int(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -120,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `boite` varchar(11) NOT NULL,
   `codepostal` varchar(20) NOT NULL,
   `localite` varchar(100) NOT NULL,
+  `pays` varchar(100) NOT NULL,
   `telephone` varchar(100) NOT NULL,
   `fax` varchar(100) NOT NULL,
   `portable` varchar(100) NOT NULL,
