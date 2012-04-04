@@ -184,10 +184,10 @@ foreach ($facture as $key_annee => $value1) {
 	<tr id="element_<?php echo $f['id']?>">
 		<td>
 			<input type="checkbox" name="selectionElements[]" value="<?php echo $f['id'] ?>"<?php if (isset($f['amount_paid']) && $f['amount_paid'] > 0) { echo 'disabled="disabled"'; } ?> />
+<?php if ($type == "sortantes"): ?>
 			<a class="button small mediumGrey voir" href="facture.php?id=<?php echo $f['id']?>" title="<?php echo htmlspecialchars($f['objet'])?>">
 				Voir
 			</a> 
-<?php if ($type == "sortantes"): ?>
 			<!-- <a class="bouton imprimer" href="facture.php?id=<?php echo $f['id']?>&amp;print=true&amp;annee=<?php echo $annee ?>" title="Imprimer la facture <?php echo $f['numero'] ?>">
 				Imprimer
 			</a> -->
